@@ -9,6 +9,7 @@ atuin_sync = "https://api.atuin.sh"
 "atuin.toml" = { type = "template", target = "~/.config/atuin/config.toml", if = '(is_executable "atuin")' }
 cargo = { type = "template", target = "~/.cargo/config.toml", if = '(is_executable "cargo")' }
 "lazygit.yml" = { type = "symbolic", target = "~/.config/lazygit/config.yml", if = '(is_executable "lazygit")' }
+wezterm = "~/.wezterm.lua"
 
 [zsh]
 depends = ["shell"]

@@ -1,5 +1,7 @@
+{{#if (command_success "test -d $HOME/gitflow")}}
 [safe]
-    directory = /home/vbersier/gitflow
+    directory = {{env_var "HOME"}}/gitflow
+{{/if}}
 [user]
     name = {{name}}
     email = {{email}}

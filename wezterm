@@ -5,6 +5,18 @@ if wezterm.config_builder then
 end
 
 config.color_scheme = 'Catppuccin Mocha'
-config.font = wezterm.font 'JetBrainsMono Nerd Font'
+config.font = wezterm.font {
+    {{#if (eq dotter.os "windows")}}
+    family = 'JetBrainsMono NFM',
+    {{else}}
+    family = 'JetBrainsMono Nerd Font'
+    {{/if}}
+    weight = 'Light'
+}
+{{#if (eq dotter.os "windows")}}
+config.cell_width = 0.9
+config.default_domain = 'WSL:Ubuntu'
+{{/if}}
+config.window_close_confirmation = 'NeverPrompt'
 
 return config

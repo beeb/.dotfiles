@@ -9,7 +9,7 @@ config.font = wezterm.font {
     {{#if (eq dotter.os "windows")}}
     family = 'JetBrainsMono NFM',
     {{else}}
-    family = 'JetBrainsMono Nerd Font'
+    family = 'JetBrainsMono Nerd Font',
     {{/if}}
     weight = 'Light'
 }

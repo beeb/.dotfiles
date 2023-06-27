@@ -15,6 +15,7 @@ Uses [dotter](https://github.com/SuperCuber/dotter) for templating and deploymen
 - `cargo install zoxide`
 - `nix-env -iA nixpkgs.lazygit` ([lazygit](https://github.com/jesseduffield/lazygit))
 - `nix-env -iA nixpkgs.helix` ([helix](https://github.com/helix-editor/helix))
+- `nix-env -iA nixpkgs.wezterm`
 - `cargo install navi`
 - `cargo install dotter`
 - `cargo install cargo-update`

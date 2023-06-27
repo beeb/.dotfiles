@@ -43,3 +43,8 @@ language-server = { command = "astro-ls", args = ["--stdio"] }
 auto-format = true
 # Next line to put inside the project workspace inside a .helix/languages.toml file
 # config = { "typescript" = { serverPath = "/home/user/workspace/node_modules/typescript/lib/tsserverlibrary.js" }, "environment" = "node" }
+
+[[language]]
+name = "nix"
+language-server = { command = "rnix-lsp" }
+auto-format = true

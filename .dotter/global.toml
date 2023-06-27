@@ -1,0 +1,9 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+"starship.toml" = { target = "~.config/starship.toml", if = '(is_executable "starship")' }
+
+[default.variables]

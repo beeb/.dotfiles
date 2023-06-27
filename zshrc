@@ -18,6 +18,7 @@ bindkey '^[[Z' reverse-menu-complete
 
 {{#if (command_success "test -d $HOME/zsh-syntax-highlighting")}}
 source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+{{/if}}
 
 {{#if (is_executable "navi")}}
 eval "$(navi widget zsh)"

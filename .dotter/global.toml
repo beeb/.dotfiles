@@ -26,3 +26,11 @@ zshrc = "~/.zshrc"
 "helix/config.toml" = { target = "~/.config/helix/config.toml", if = '(is_executable "hx")' }
 "helix/languages.toml" = { target = "~/.config/helix/languages.toml", if = '(is_executable "hx")' }
 "helix/themes/catppuccin.toml" = { target = "~/.config/helix/themes/catppuccin.toml", if = '(is_executable "hx")' }
+
+[git.variables]
+name = "not defined"
+email = "not defined"
+signkey = "not defined"
+
+[git.files]
+"gitconfig" = { target = "~/.gitconfig", if = '(is_executable "git")' }

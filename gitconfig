@@ -1,0 +1,8 @@
+[safe]
+    directory = /home/vbersier/gitflow
+[user]
+    name = {{name}}
+    email = {{email}}
+    signingkey = {{signkey}}
+[core]
+    editor = {{#if (is_executable "hx")}}hx{{else}}nano{{/if}}

@@ -9,6 +9,7 @@ Uses [dotter](https://github.com/SuperCuber/dotter) for templating and deploymen
 - `cargo install cargo-binstall`
 - `cargo install sccache`
 - `cargo install zellij`
+- `cargo install atuin`
 - `cargo install bat`
 - `cargo install exa`
 - `cargo install zoxide`

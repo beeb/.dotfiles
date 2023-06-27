@@ -19,6 +19,10 @@ export PATH="$PATH:$HOME/.foundry/bin"
 . "$HOME/.cargo/env"
 {{/if}}
 
+{{#if (command_success "test -d /Applications/WezTerm.app")}}
+export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
+{{/if}}
+
 {{#if (command_success "test -d $HOME/.nix-profile")}}
 export PATH="$PATH:$HOME/.nix-profile/bin"
 {{/if}}

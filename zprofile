@@ -1,3 +1,7 @@
+{{#if (command_success "test -d /home/linuxbrew")}}
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{/if}}
+
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/balena-cli:$PATH"
 

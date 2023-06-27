@@ -1,9 +1,28 @@
 [helpers]
 
-[default]
-depends = []
+[shell.variables]
+atuin_sync = "https://api.atuin.sh"
 
-[default.files]
+[shell.files]
 "starship.toml" = { target = "~/.config/starship.toml", if = '(is_executable "starship")' }
+"zellij.kdl" = { target = "~/.config/zellij/config.kdl", if = '(is_executable "zellij")' }
+"atuin.toml" = { target = "~/.config/atuin/config.toml", if = '(is_executable "atuin")' }
+"cargo" = { target = "~/.cargo/config.toml", if = '(is_executable "cargo")' }
+"lazygit.yml" = { target = "~/.config/lazygit/config.yml", if = '(is_executable "lazygit")' }
 
-[default.variables]
+[zsh]
+depends = ["shell"]
+
+[zsh.variables]
+# 1Password and GPG
+op_item_id = "not defined"
+gpg_key_fingerprint = "not defined"
+
+[zsh.files]
+zprofile = "~/.zprofile"
+zshrc = "~/.zshrc"
+
+[helix.files]
+"helix/config.toml" = { target = "~/.config/helix/config.toml", if = '(is_executable "hx")' }
+"helix/languages.toml" = { target = "~/.config/helix/languages.toml", if = '(is_executable "hx")' }
+"helix/themes/catppuccin.toml" = { target = "~/.config/helix/themes/catppuccin.toml", if = '(is_executable "hx")' }

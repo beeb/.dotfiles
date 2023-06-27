@@ -1,0 +1,4 @@
+{{#if (is_executable "sccache")}}
+[build]
+rustc-wrapper = "sccache"
+{{/if}}

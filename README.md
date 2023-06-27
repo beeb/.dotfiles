@@ -5,9 +5,9 @@ Uses [dotter](https://github.com/SuperCuber/dotter) for templating and deploymen
 ## Tools
 
 - `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-- `nix-env -iA nixpkgs.starship`
 - `cargo install cargo-binstall`
 - `cargo install sccache`
+- `cargo install starship`
 - `cargo install zellij`
 - `cargo install atuin`
 - `cargo install bat`

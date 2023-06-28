@@ -46,5 +46,6 @@ auto-format = true
 
 [[language]]
 name = "nix"
-language-server = { command = "rnix-lsp" }
+# language-server = { command = "rnix-lsp" }
+formatter = { command = "nixpkgs-fmt" }
 auto-format = true

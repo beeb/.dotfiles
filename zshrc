@@ -54,6 +54,10 @@ eval "$(zoxide init zsh)"
 alias cd='z'
 {{/if}}
 
+{{#if (is_executable "wormhole-rs")}}
+alias wormhole='wormhole-rs'
+{{/if}}
+
 {{#if (is_executable "starship")}}
 eval "$(starship init zsh)"
 {{/if}}

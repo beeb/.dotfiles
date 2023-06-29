@@ -7,7 +7,7 @@ command_timeout = 10000
 add_newline = true
 
 [cmd_duration]
-format = " 🕙 $duration($style) "
+format = "in [$duration]($style) "
 style = "bold italic green"
 show_notifications = true
 

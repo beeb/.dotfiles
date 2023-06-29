@@ -1,8 +1,18 @@
 local wezterm = require 'wezterm'
 local config = {}
+
 if wezterm.config_builder then
     config = wezterm.config_builder()
 end
+
+-- Show which key table is active in the status area
+wezterm.on('update-right-status', function(window, pane)
+  local name = window:active_key_table()
+  if name then
+    name = 'TABLE: ' .. name
+  end
+  window:set_right_status(name or '')
+end)
 
 config.color_scheme = 'Catppuccin Mocha'
 config.font = wezterm.font {
@@ -19,31 +29,45 @@ config.cell_width = 0.9
 config.default_domain = 'WSL:Ubuntu'
 {{/if}}
 config.window_close_confirmation = 'NeverPrompt'
+
+-- leader is for pane control (move, resize, split)
 config.leader = { key = 'p', mods = 'CTRL', timejut_milliseconds = 2000 }
+
 config.keys = {
-    {
-        key = 'r',
-        mods = 'LEADER',
-        action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
-    },
-    {
-        key = 'd',
-        mods = 'LEADER',
-        action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
-    },
-    {
-        key = 'x',
-        mods = 'LEADER',
-        action = wezterm.action.CloseCurrentPane { confirm = false },
-    },
+    -- C-r to enter pane resize mode
+    { key = 'r', mods = 'CTRL', action = wezterm.action.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
+    -- Pane split and close
+    { key = 'r', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+    { key = 'd', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
+    { key = 'x', mods = 'LEADER', action = wezterm.action.CloseCurrentPane { confirm = false } },
+    -- Move around panes with Alt (can also be done in C-p pane mode)
     { key = 'LeftArrow', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Left' },
     { key = 'h', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Left' },
+    { key = 'h', mods = 'LEADER', action = wezterm.action.ActivatePaneDirection 'Left' },
     { key = 'RightArrow', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Right' },
     { key = 'l', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Right' },
+    { key = 'l', mods = 'LEADER', action = wezterm.action.ActivatePaneDirection 'Right' },
     { key = 'UpArrow', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Up' },
     { key = 'k', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Up' },
+    { key = 'k', mods = 'LEADER', action = wezterm.action.ActivatePaneDirection 'Up' },
     { key = 'DownArrow', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Down' },
     { key = 'j', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Down' },
+    { key = 'j', mods = 'LEADER', action = wezterm.action.ActivatePaneDirection 'Down' },
+}
+
+config.key_tables = {
+    resize_pane = {
+        { key = 'LeftArrow', action = wezterm.action.AdjustPaneSize { 'Left', 4 } },
+        { key = 'h', action = wezterm.action.AdjustPaneSize { 'Left', 4 } },
+        { key = 'RightArrow', action = wezterm.action.AdjustPaneSize { 'Right', 4 } },
+        { key = 'l', action = wezterm.action.AdjustPaneSize { 'Right', 4 } },
+        { key = 'UpArrow', action = wezterm.action.AdjustPaneSize { 'Up', 4 } },
+        { key = 'k', action = wezterm.action.AdjustPaneSize { 'Up', 4 } },
+        { key = 'DownArrow', action = wezterm.action.AdjustPaneSize { 'Down', 4 } },
+        { key = 'j', action = wezterm.action.AdjustPaneSize { 'Down', 4 } },
+
+        { key = 'Escape', action = 'PopKeyTable' },
+    }
 }
 
 return config

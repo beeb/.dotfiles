@@ -38,7 +38,7 @@ config.window_close_confirmation = 'NeverPrompt'
 config.keys = {
     -- C-p ot enter pane mode
     { key = 'p', mods = 'CTRL', action = act.ActivateKeyTable { name = 'pane', one_shot = true } },
-    -- C-r to enter pane resize mode
+    -- C-n to enter pane resize mode
     { key = 'n', mods = 'CTRL', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
     -- Move around panes with Alt (can also be done in C-p pane mode)
     { key = 'LeftArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Left' },

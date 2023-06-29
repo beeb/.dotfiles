@@ -38,7 +38,7 @@ config.keys = {
     -- C-p ot enter pane mode
     { key = 'p', mods = 'CTRL', action = wezterm.action.ActivateKeyTable { name = 'pane', one_shot = true } },
     -- C-r to enter pane resize mode
-    { key = 'r', mods = 'CTRL', action = wezterm.action.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
+    { key = 'n', mods = 'CTRL', action = wezterm.action.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
     -- Move around panes with Alt (can also be done in C-p pane mode)
     { key = 'LeftArrow', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Left' },
     { key = 'h', mods = 'ALT', action = wezterm.action.ActivatePaneDirection 'Left' },

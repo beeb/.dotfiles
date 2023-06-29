@@ -23,7 +23,11 @@ config.font = wezterm.font {
     {{/if}}
     weight = 'Light'
 }
+{{#if (eq dotter.os "windows")}}
+config.font_size = 12
+{{else}}
 config.font_size = 13
+{{/if}}
 config.cell_width = 0.9
 {{#if (eq dotter.os "windows")}}
 config.default_domain = 'WSL:Ubuntu'

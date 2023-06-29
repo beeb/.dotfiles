@@ -40,6 +40,10 @@ alias cat='bat'
 alias ls='exa --git --icons --color=always --group-directories-first'
 {{/if}}
 
+{{#if (is_executable "lazygit")}}
+alias g='lazygit'
+{{/if}}
+
 {{#if (is_executable "zellij")}}
 alias ze='zellij'
 alias za='zellij a -c'

@@ -25,7 +25,7 @@ Uses [dotter](https://github.com/SuperCuber/dotter) for templating and deploymen
 - `cargo install ripgrep`
 - `cargo install halp`
 - `cargo install cargo-machete`
-- `cargo install rnix-lsp`
+- `nix-env -iA nixpkgs.nil`
 - `nix-env -iA nixpkgs.magic-wormhole-rs`
 - [others](https://dev.to/deepu105/rust-easy-modern-cross-platform-command-line-tools-to-supercharge-your-terminal-4dd3)
 - [more](https://github.com/TaKO8Ki/awesome-alternatives-in-rust)

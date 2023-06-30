@@ -15,6 +15,12 @@ wezterm.on('update-right-status', function(window, pane)
   window:set_right_status(name or '')
 end)
 
+-- Maximize on start
+wezterm.on('gui-startup', function(cmd)
+    local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+    window:gui_window():maximize()
+end)
+
 config.color_scheme = 'Catppuccin Mocha'
 config.font = wezterm.font {
     {{#if (eq dotter.os "windows")}}
@@ -34,6 +40,7 @@ config.cell_width = 0.9
 config.default_domain = 'WSL:Ubuntu'
 {{/if}}
 config.window_close_confirmation = 'NeverPrompt'
+config.window_decorations = "RESIZE"
 
 config.keys = {
     -- C-p ot enter pane mode

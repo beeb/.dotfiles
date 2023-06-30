@@ -58,6 +58,9 @@ config.keys = {
     { key = 'j', mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
     -- Paste
     { key = 'v', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
+    -- Close tab
+    { key = 'w', mods = 'CTRL|SHIFT', action = wezterm.action.CloseCurrentTab { confirm = false } },
+    { key = 'w', mods = 'CMD', action = wezterm.action.CloseCurrentTab { confirm = false } },
 }
 
 config.key_tables = {

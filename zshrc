@@ -58,6 +58,14 @@ alias cd='z'
 alias wormhole='wormhole-rs'
 {{/if}}
 
+{{#if (is_executable "home-manager")}}
+alias hm='home-manager'
+alias hmd='cd ~/.dotfiles/nix/home-mananger'
+alias hms='home-manager switch --flake ~/.dotfiles/nix/home-manager'
+alias hmp='home-manager packages'
+alias hmu='nix flake update ~/.dotfiles/nix/home-manager && hms'
+{{/if}}
+
 {{#if (is_executable "starship")}}
 eval "$(starship init zsh)"
 {{/if}}

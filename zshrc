@@ -60,7 +60,7 @@ alias wormhole='wormhole-rs'
 
 {{#if (is_executable "home-manager")}}
 alias hm='home-manager'
-alias hmd='cd ~/.dotfiles/nix/home-mananger'
+alias hmd='cd ~/.dotfiles/nix/home-manager'
 alias hms='home-manager switch --flake ~/.dotfiles/nix/home-manager'
 alias hmp='home-manager packages'
 alias hmu='nix flake update ~/.dotfiles/nix/home-manager && hms'

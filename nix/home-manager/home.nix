@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -83,7 +83,7 @@
       inline_height = 25;
       search_mode = "skim";
       style = "compact";
-      sync_address = "https://api.atuin.sh";
+      sync_address = builtins.readFile ../../.secrets/atuin-sync-server;
       sync_frequency = "5m";
       update_check = true;
     };

@@ -1,8 +1,8 @@
-{ inputs, config, pkgs, ... }:
+{ sops-nix, config, pkgs, ... }:
 
 {
   imports = [
-    inputs.sops-nix.nixosModules.sops
+    sops-nix.nixosModules.sops
   ];
 
   sops = {

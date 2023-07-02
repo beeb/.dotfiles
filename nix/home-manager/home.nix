@@ -4,7 +4,7 @@
 
   sops = {
     age.keyFile = "/home/valentin/.config/sops/age/keys.txt";
-    defaultSopsFile = "../../secrets/common.yaml";
+    defaultSopsFile = ../../secrets/common.yaml;
   };
 
   sops.secrets = {

@@ -34,3 +34,5 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{#if (is_executable "/usr/local/bin/brew")}}
 eval "$(/usr/local/bin/brew shellenv)"
 {{/if}}
+
+. $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh

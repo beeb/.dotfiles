@@ -1,0 +1,16 @@
+keys:
+  - &users:
+    - &beeb age1dn4ffrlad3qh2l84ywhf0fqm8x0zry065uxyzpp33gtyqfy0fquqvelp97
+  - &hosts:
+    - &wsl2204 age1x9tmkm40wyjht7lpmpyrpw6nx7qsj4pdyeeqwaxcydvvpy72da0qdek08e
+creation_rules:
+  - path_regex: secrets/common.yaml$
+    key_groups:
+    - age:
+      - *beeb
+      - *wsl2204
+  - path_regex: secrets/wsl2204.yaml$
+    key_groups:
+    - age:
+      - *beeb
+      - *wsl2204

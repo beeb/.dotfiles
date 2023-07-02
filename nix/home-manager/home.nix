@@ -1,6 +1,24 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
+  imports = [
+    inputs.sops-nix.nixosModules.sops
+  ];
+
+  sops = {
+    age.keyFile = "home/valentin/.config/sops/age/keys.txt";
+    defaultSopsFile = "../../secrets/common.yaml";
+  };
+
+  sops.secrets = {
+    atuin_sync_server = { };
+  };
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = _: true;
+  };
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "valentin";
@@ -30,7 +48,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    atuin
     bat
     cargo-binstall
     cargo-machete
@@ -52,14 +69,32 @@
     neofetch
     nil
     nixpkgs-fmt
+    rage
     ripgrep
     rustup
     sccache
+    sops
     starship
     zellij
     zoxide
     zsh
   ];
+
+  programs.home-manager.enable = true;
+  programs.atuin = {
+    enable = true;
+    enableZshIntegration = true;
+    flags = [ "--disable-up-arrow" ];
+    settings = {
+      auto_sync = true;
+      inline_height = 25;
+      search_mode = "skim";
+      style = "compact";
+      sync_address = config.sops.secrets.atuin_sync_server;
+      sync_frequency = "5m";
+      update_check = true;
+    };
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -68,7 +103,6 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
@@ -89,12 +123,4 @@
   home.sessionVariables = {
     EDITOR = "hx";
   };
-
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = _: true;
-  };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }

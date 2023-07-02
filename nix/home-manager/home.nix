@@ -7,10 +7,6 @@
     defaultSopsFile = ../../secrets/common.yaml;
   };
 
-  sops.secrets = {
-    atuin_sync_server = { };
-  };
-
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = _: true;
@@ -57,6 +53,7 @@
     fnm
     fzf
     git
+    git-crypt
     halp
     helix
     htop
@@ -77,7 +74,6 @@
     zsh
   ];
 
-  programs.home-manager.enable = true;
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;
@@ -87,11 +83,13 @@
       inline_height = 25;
       search_mode = "skim";
       style = "compact";
-      sync_address = config.sops.secrets.atuin_sync_server;
+      sync_address = "https://api.atuin.sh";
       sync_frequency = "5m";
       update_check = true;
     };
   };
+  programs.gpg.enable = true;
+  programs.home-manager.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

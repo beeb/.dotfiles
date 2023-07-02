@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, sops-nix, ... }:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -20,11 +20,9 @@
       homeConfigurations.valentin = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        extraSpecialArgs = { inherit sops-nix; };
-
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ./home.nix ];
+        modules = [ ./home.nix inputs.sops-nix.homeManagerModules.sops ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix

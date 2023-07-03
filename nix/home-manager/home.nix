@@ -59,7 +59,8 @@
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
     rage
-    rustup
+    rust-bin.stable.latest.default
+    rust-analyzer-unwrapped
     sccache
     sops
   ];
@@ -378,6 +379,10 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".cargo/config.toml".text = ''
+      [build]
+      rustc-wrapper = "sccache"
+    '';
   };
 
   # You can also manage environment variables but you will have to manually

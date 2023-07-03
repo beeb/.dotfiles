@@ -51,6 +51,7 @@
     fd
     fnm
     git-crypt
+    gopls
     halp
     magic-wormhole-rs
     neofetch
@@ -113,6 +114,10 @@
       };
     };
   };
+  programs.go = {
+    enable = true;
+    goPrivate = [ "github.com/beeb" ];
+  };
   programs.gpg.enable = true;
   programs.helix = {
     enable = true;
@@ -152,7 +157,7 @@
           name = "svelte";
           auto-format = true;
           language-server = with pkgs.nodePackages; {
-            command = "${svelte-language-server}/bin/svelte-language-server";
+            command = "${svelte-language-server}/bin/svelteserver";
           };
         }
         { name = "css"; auto-format = true; }
@@ -160,6 +165,13 @@
         {
           name = "nix";
           formatter.command = "nixpkgs-fmt";
+          auto-format = true;
+        }
+        {
+          name = "yaml";
+          language-server = with pkgs.nodePackages; {
+            command = "${yaml-language-server}/bin/yaml-language-server";
+          };
           auto-format = true;
         }
       ];
@@ -341,6 +353,9 @@
       hmp = "home-manager packages";
       hmu = "nix flake update ~/.dotfiles/nix/home-manager && hms";
     };
+    envExtra = ''
+      export PATH="$PATH:$HOME/.foundry/bin"
+    '';
   };
   programs.zoxide.enable = true;
 

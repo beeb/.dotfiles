@@ -52,7 +52,6 @@
     fnm
     git-crypt
     halp
-    helix
     htop
     lazygit
     magic-wormhole-rs
@@ -121,6 +120,35 @@
     enable = true;
     settings = {
       allow-preset-passphrase = true;
+    };
+  };
+  programs.helix = {
+    enable = true;
+    defaultEditor = true;
+    languages = {
+      language = [
+        {
+          name = "rust";
+          auto-format = true;
+          config.checkOnSave.command = "clippy";
+          config.inlayHints = {
+            closingBraceHints.enable = false;
+            parameterHints.enable = false;
+            typeHints.enable = false;
+          };
+        }
+        {
+          name = "python";
+          language-server = with pkgs.python3.pkgs; {
+            command = "${ruff-lsp}/bin/ruff-lsp";
+          };
+          formatter = with pkgs; {
+            command = "${black}/bin/black";
+            args = [ "--quiet" "--line-length" "120" "-" ];
+          };
+          auto-format = true;
+        }
+      ];
     };
   };
   programs.home-manager.enable = true;

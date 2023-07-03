@@ -34,6 +34,7 @@
         pkgs = nixpkgs.legacyPackages."x86_64-darwin";
         modules = [
           ./home.nix
+          ./macbook.nix
           inputs.sops-nix.homeManagerModules.sops
           ({ ... }: {
             nixpkgs.overlays = [ rust-overlay.overlays.default ];

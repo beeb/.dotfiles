@@ -50,7 +50,6 @@
     du-dust
     fd
     fnm
-    git
     git-crypt
     halp
     helix
@@ -106,6 +105,18 @@
     extraOptions = [ "--color=always" "--group-directories-first" ];
   };
   programs.fzf.enable = true;
+  programs.git = {
+    enable = true;
+    delta.enable = true;
+    signing.key = builtins.readFile ../../.secrets/gpg_key_id;
+    userEmail = "703631+beeb@users.noreply.github.com";
+    userName = "beeb";
+    extraConfig = {
+      core = {
+        editor = "hx";
+      };
+    };
+  };
   programs.gpg = {
     enable = true;
     settings = {

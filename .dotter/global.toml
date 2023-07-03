@@ -4,7 +4,7 @@
 # atuin_sync = "https://api.atuin.sh"
 
 [shell.files]
-"starship.toml" = { type = "symbolic", target = "~/.config/starship.toml", if = '(is_executable "starship")' }
+# "starship.toml" = { type = "symbolic", target = "~/.config/starship.toml", if = '(is_executable "starship")' }
 "zellij.kdl" = { type = "symbolic", target = "~/.config/zellij/config.kdl", if = '(is_executable "zellij")' }
 # "atuin.toml" = { type = "template", target = "~/.config/atuin/config.toml", if = '(is_executable "atuin")' }
 cargo = { type = "template", target = "~/.cargo/config.toml", if = '(is_executable "cargo")' }
@@ -14,24 +14,24 @@ wezterm = { type = "template", target = "~/.wezterm.lua", if = '(command_success
 [zsh]
 depends = ["shell"]
 
-[zsh.variables]
+# [zsh.variables]
 # 1Password and GPG
-op_item_id = "not defined"
-gpg_key_fingerprint = "not defined"
+# op_item_id = "not defined"
+# gpg_key_fingerprint = "not defined"
 
 [zsh.files]
 zprofile = "~/.zprofile"
-zshrc = "~/.zshrc"
+# zshrc = "~/.zshrc"
 
 [helix.files]
 "helix/config.toml" = { type = "symbolic", target = "~/.config/helix/config.toml", if = '(is_executable "hx")' }
 "helix/languages.toml" = { type = "symbolic", target = "~/.config/helix/languages.toml", if = '(is_executable "hx")' }
 "helix/themes/catppuccin.toml" = { type = "symbolic", target = "~/.config/helix/themes/catppuccin.toml", if = '(is_executable "hx")' }
 
-[git.variables]
-name = "not defined"
-email = "not defined"
-signkey = "not defined"
+# [git.variables]
+# name = "not defined"
+# email = "not defined"
+# signkey = "not defined"
 
-[git.files]
-gitconfig = { type = "template", target = "~/.gitconfig", if = '(is_executable "git")' }
+# [git.files]
+# gitconfig = { type = "template", target = "~/.gitconfig", if = '(is_executable "git")' }

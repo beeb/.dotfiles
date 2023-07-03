@@ -58,6 +58,7 @@
     neofetch
     nil
     nixpkgs-fmt
+    nodePackages.vscode-langservers-extracted
     rage
     ripgrep
     rustup
@@ -162,6 +163,13 @@
           language-server = with pkgs.nodePackages; {
             command = "${svelte-language-server}/bin/svelte-language-server";
           };
+        }
+        { name = "css"; auto-format = true; }
+        # TODO: add astro once @astrojs/language-server is available on pkgs
+        {
+          name = "nix";
+          formatter.command = "nixpkgs-fmt";
+          auto-format = true;
         }
       ];
     };

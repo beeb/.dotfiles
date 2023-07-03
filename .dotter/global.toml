@@ -8,7 +8,7 @@
 "zellij.kdl" = { type = "symbolic", target = "~/.config/zellij/config.kdl", if = '(is_executable "zellij")' }
 # "atuin.toml" = { type = "template", target = "~/.config/atuin/config.toml", if = '(is_executable "atuin")' }
 cargo = { type = "template", target = "~/.cargo/config.toml", if = '(is_executable "cargo")' }
-"lazygit.yml" = { type = "symbolic", target = "~/.config/lazygit/config.yml", if = '(is_executable "lazygit")' }
+# "lazygit.yml" = { type = "symbolic", target = "~/.config/lazygit/config.yml", if = '(is_executable "lazygit")' }
 wezterm = { type = "template", target = "~/.wezterm.lua", if = '(command_success "test -d /Applications/WezTerm.app")' }
 
 [zsh]
@@ -23,10 +23,10 @@ depends = ["shell"]
 zprofile = "~/.zprofile"
 # zshrc = "~/.zshrc"
 
-[helix.files]
-"helix/config.toml" = { type = "symbolic", target = "~/.config/helix/config.toml", if = '(is_executable "hx")' }
-"helix/languages.toml" = { type = "symbolic", target = "~/.config/helix/languages.toml", if = '(is_executable "hx")' }
-"helix/themes/catppuccin.toml" = { type = "symbolic", target = "~/.config/helix/themes/catppuccin.toml", if = '(is_executable "hx")' }
+# [helix.files]
+# "helix/config.toml" = { type = "symbolic", target = "~/.config/helix/config.toml", if = '(is_executable "hx")' }
+# "helix/languages.toml" = { type = "symbolic", target = "~/.config/helix/languages.toml", if = '(is_executable "hx")' }
+# "helix/themes/catppuccin.toml" = { type = "symbolic", target = "~/.config/helix/themes/catppuccin.toml", if = '(is_executable "hx")' }
 
 # [git.variables]
 # name = "not defined"

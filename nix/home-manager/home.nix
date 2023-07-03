@@ -52,20 +52,15 @@
     fnm
     git-crypt
     halp
-    htop
-    lazygit
     magic-wormhole-rs
     neofetch
     nil
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
     rage
-    ripgrep
     rustup
     sccache
     sops
-    zellij
-    zoxide
   ];
 
   programs.atuin = {
@@ -212,7 +207,13 @@
     };
   };
   programs.home-manager.enable = true;
+  programs.htop.enable = true;
+  programs.lazygit = {
+    enable = true;
+    settings.gui.theme.selectedLineBgColor = [ "black" ];
+  };
   programs.navi.enable = true;
+  programs.ripgrep.enable = true;
   programs.starship = {
     enable = true;
     settings = {
@@ -304,7 +305,13 @@
       scala = { symbol = " "; };
     };
   };
-
+  programs.zellij = {
+    enable = true;
+    settings = {
+      pane_frames = false;
+      theme = "catppuccin-mocha";
+    };
+  };
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -319,8 +326,27 @@
         eval $(op signin)
         op item get ${builtins.readFile ../../.secrets/op_item_id} --fields password | "$(gpgconf --list-dirs libexecdir)"/gpg-preset-passphrase --preset ${builtins.readFile ../../.secrets/gpg_key_fingerprint}
       }
+
+      zstyle ':completion:*' menu select
+      bindkey '^[[Z' reverse-menu-complete
+
+      eval "$(fnm env --use-on-cd)"
     '';
+    profileExtra = "";
+    shellAliases = {
+      cat = "bat";
+      g = "lazygit";
+      cd = "z";
+      ze = "zellij";
+      za = "zellij a -c";
+      wormhole = "wormhole-rs";
+      hm = "home-manager";
+      hms = "home-manager switch --flake ~/.dotfiles/nix/home-manager";
+      hmp = "home-manager packages";
+      hmu = "nix flake update ~/.dotfiles/nix/home-manager && hms";
+    };
   };
+  programs.zoxide.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

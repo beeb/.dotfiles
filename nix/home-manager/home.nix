@@ -94,6 +94,10 @@
         } + "/Catppuccin-mocha.tmTheme");
     };
   };
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
   programs.exa = {
     enable = true;
     enableAliases = true;
@@ -341,6 +345,13 @@
 
       eval "$(fnm env --use-on-cd)"
     '';
+    plugins = [
+      {
+        name = "zsh-syntax-highlighting";
+        src = with pkgs; "${zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
+        file = "zsh-syntax-highlighting.zsh";
+      }
+    ];
     profileExtra = "";
     shellAliases = {
       cat = "bat";

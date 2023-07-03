@@ -173,6 +173,43 @@
         }
       ];
     };
+    settings = {
+      theme = "catppuccin_mocha";
+      editor = {
+        line-number = "relative";
+        cursorline = true;
+        color-modes = true;
+        true-color = true;
+        bufferline = "multiple";
+        rulers = [ 120 ];
+        auto-format = true;
+        lsp = {
+          display-messages = true;
+          display-inlay-hints = true;
+        };
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+        indent-guides.render = true;
+        file-picker.hidden = false;
+        soft-wrap.enable = true;
+      };
+      keys = {
+        normal = {
+          g.D = [ "hsplit" "jump_view_up" "goto_definition" ];
+          F8 = "goto_next_diag";
+          C-space = "expand_selection";
+          X = "extend_line_above";
+          esc = [ "collapse_selection" "keep_primary_selection" ];
+          space.i = [ ":toggle-option lsp.display-inlay-hints" ];
+        };
+        insert = {
+          C-c = "normal_mode";
+        };
+      };
+    };
   };
   programs.home-manager.enable = true;
   programs.navi.enable = true;

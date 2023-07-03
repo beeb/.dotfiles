@@ -372,7 +372,7 @@
   programs.zoxide.enable = true;
 
   services.gpg-agent = {
-    enable = true;
+    enable = !pkgs.stdenv.isDarwin;
     extraConfig = ''
       allow-preset-passphrase
     '';

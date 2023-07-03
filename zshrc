@@ -37,7 +37,7 @@ alias cat='bat'
 {{/if}}
 
 {{#if (is_executable "exa")}}
-alias ls='exa --git --icons --color=always --group-directories-first'
+# alias ls='exa --git --icons --color=always --group-directories-first'
 {{/if}}
 
 {{#if (is_executable "lazygit")}}

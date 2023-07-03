@@ -41,13 +41,13 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    _1password
     cargo-binstall
     cargo-machete
     cargo-outdated
     cargo-update
     dotter
     du-dust
-    exa
     fd
     fnm
     fzf
@@ -102,8 +102,55 @@
         } + "/Catppuccin-mocha.tmTheme");
     };
   };
-  programs.gpg.enable = true;
+  programs.exa = {
+    enable = true;
+    enableAliases = true;
+    git = true;
+    icons = true;
+    extraOptions = [ "--color=always" "--group-directories-first" ];
+  };
+  programs.gpg = {
+    enable = true;
+    settings = {
+      allow-preset-passphrase = true;
+    };
+  };
   programs.home-manager.enable = true;
+  programs.starship = {
+    enable = true;
+    settings = {
+      command_timeout = 10000;
+      add_newline = true;
+      cmd_duration = {
+        format = "in [$duration]($style) ";
+        style = "bold italic green";
+        show_notifications = true;
+      };
+      sudo = {
+        disabled = false;
+      };
+      container = {
+        disabled = true;
+      };
+    };
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    history = {
+      save = 100000;
+      size = 100000;
+    };
+    initExtra = ''
+      function gpg_cache () {
+        gpg-connect-agent /bye &> /dev/null
+        eval $(op signin)
+        op item get ${builtins.readFile ../../.secrets/op_item_id} --fields password | "$(gpgconf --list-dirs libexecdir)"/gpg-preset-passphrase --preset ${builtins.readFile ../../.secrets/gpg_key_fingerprint}
+      }
+    '';
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

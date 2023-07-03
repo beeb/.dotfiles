@@ -1,7 +1,0 @@
-auto_sync = true
-update_check = true
-sync_frequency = "5m"
-sync_address = "{{atuin_sync}}"
-search_mode = "skim"
-style = "compact"
-inline_height = 25

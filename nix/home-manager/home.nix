@@ -113,12 +113,7 @@
       };
     };
   };
-  programs.gpg = {
-    enable = true;
-    settings = {
-      allow-preset-passphrase = true;
-    };
-  };
+  programs.gpg.enable = true;
   programs.helix = {
     enable = true;
     defaultEditor = true;

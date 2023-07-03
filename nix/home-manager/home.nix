@@ -344,6 +344,13 @@
   };
   programs.zoxide.enable = true;
 
+  services.gpg-agent = {
+    enable = true;
+    extraConfig = ''
+      allow-preset-passphrase
+    '';
+  };
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -356,9 +363,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".gnupg/gpg-agent.conf".text = ''
-      allow-preset-passphrase
-    '';
   };
 
   # You can also manage environment variables but you will have to manually

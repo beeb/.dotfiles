@@ -50,7 +50,6 @@
     du-dust
     fd
     fnm
-    fzf
     git
     git-crypt
     halp
@@ -58,7 +57,6 @@
     htop
     lazygit
     magic-wormhole-rs
-    navi
     neofetch
     nil
     nixpkgs-fmt
@@ -67,10 +65,8 @@
     rustup
     sccache
     sops
-    starship
     zellij
     zoxide
-    zsh
   ];
 
   programs.atuin = {
@@ -109,6 +105,7 @@
     icons = true;
     extraOptions = [ "--color=always" "--group-directories-first" ];
   };
+  programs.fzf.enable = true;
   programs.gpg = {
     enable = true;
     settings = {
@@ -116,6 +113,7 @@
     };
   };
   programs.home-manager.enable = true;
+  programs.navi.enable = true;
   programs.starship = {
     enable = true;
     settings = {

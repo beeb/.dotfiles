@@ -104,6 +104,7 @@
     enable = true;
     delta.enable = true;
     signing.key = builtins.readFile ../../.secrets/gpg_key_id;
+    signing.signByDefault = true;
     userEmail = "703631+beeb@users.noreply.github.com";
     userName = "beeb";
     extraConfig = {
@@ -320,11 +321,11 @@
       save = 100000;
       size = 100000;
     };
-    initExtra = ''
+    initExtra = with pkgs; ''
       function gpg_cache () {
         gpg-connect-agent /bye &> /dev/null
         eval $(op signin)
-        op item get ${builtins.readFile ../../.secrets/op_item_id} --fields password | "$(gpgconf --list-dirs libexecdir)"/gpg-preset-passphrase --preset ${builtins.readFile ../../.secrets/gpg_key_fingerprint}
+        op item get ${builtins.readFile ../../.secrets/op_item_id} --fields password | ${gnupg}/bin/libexec/gpg-preset-passphrase --preset ${builtins.readFile ../../.secrets/gpg_key_fingerprint}
       }
 
       zstyle ':completion:*' menu select
@@ -360,6 +361,9 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".gnupg/gpg-agent.conf".text = ''
+      allow-preset-passphrase
+    '';
   };
 
   # You can also manage environment variables but you will have to manually
@@ -372,7 +376,5 @@
   #  /etc/profiles/per-user/valentin/etc/profile.d/hm-session-vars.sh
   #
   # if you don't want to manage your shell through Home Manager.
-  home.sessionVariables = {
-    EDITOR = "hx";
-  };
+  home.sessionVariables = { };
 }

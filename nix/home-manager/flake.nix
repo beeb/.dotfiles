@@ -20,6 +20,7 @@
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
+          ./desktop.nix
           ./home.nix
           inputs.sops-nix.homeManagerModules.sops
           ({ ... }: {
@@ -30,11 +31,22 @@
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
       };
+      homeConfigurations."vbersier@PANEER" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        modules = [
+          ./paneer.nix
+          ./home.nix
+          inputs.sops-nix.homeManagerModules.sops
+          ({ ... }: {
+            nixpkgs.overlays = [ rust-overlay.overlays.default ];
+          })
+        ];
+      };
       homeConfigurations."valentin@Valentins-MacBook-Pro" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-darwin";
         modules = [
-          ./home.nix
           ./macbook.nix
+          ./home.nix
           inputs.sops-nix.homeManagerModules.sops
           ({ ... }: {
             nixpkgs.overlays = [ rust-overlay.overlays.default ];

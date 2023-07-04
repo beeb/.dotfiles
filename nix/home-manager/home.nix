@@ -1,20 +1,11 @@
 { pkgs, ... }:
-let
-  homeDir = if pkgs.stdenv.isDarwin then "/Users/valentin" else "/home/valentin";
-in
 {
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = _: true;
   };
 
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "valentin";
-  home.homeDirectory = homeDir;
-
   sops = {
-    age.keyFile = "${homeDir}/.config/sops/age/keys.txt";
     defaultSopsFile = ../../secrets/common.yaml;
   };
 

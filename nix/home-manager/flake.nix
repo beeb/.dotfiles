@@ -12,17 +12,17 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, rust-overlay, ... }@inputs:
-    {
-      homeConfigurations."valentin@DESKTOP-SNQ577U" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+  outputs = { nixpkgs, home-manager, rust-overlay, ... }@inputs: {
+    homeConfigurations = builtins.mapAttrs
+      (user: machine: home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${machine.system};
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
           ./common.nix
           ./home.nix
-          ./desktop.nix
+          machine.file
           inputs.sops-nix.homeManagerModules.sops
           ({ ... }: {
             nixpkgs.overlays = [ rust-overlay.overlays.default ];
@@ -31,30 +31,11 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
+      })
+      {
+        "valentin@DESKTOP-SNQ577U" = { system = "x86_64-linux"; file = ./desktop.nix; };
+        "vbersier@PANEER" = { system = "x86_64-linux"; file = ./paneer.nix; };
+        "valentin" = { system = "x86_64-darwin"; file = ./macbook.nix; };
       };
-      homeConfigurations."vbersier@PANEER" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        modules = [
-          ./common.nix
-          ./home.nix
-          ./paneer.nix
-          inputs.sops-nix.homeManagerModules.sops
-          ({ ... }: {
-            nixpkgs.overlays = [ rust-overlay.overlays.default ];
-          })
-        ];
-      };
-      homeConfigurations."valentin@Valentins-MacBook-Pro" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-darwin";
-        modules = [
-          ./common.nix
-          ./home.nix
-          ./macbook.nix
-          inputs.sops-nix.homeManagerModules.sops
-          ({ ... }: {
-            nixpkgs.overlays = [ rust-overlay.overlays.default ];
-          })
-        ];
-      };
-    };
+  };
 }

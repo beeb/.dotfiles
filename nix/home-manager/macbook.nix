@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
   home.username = "valentin";
-  home.homeDirectory = "/Users/vbersier";
+  home.homeDirectory = "/Users/valentin";
 
   sops = {
-    age.keyFile = "/Users/vbersier/.config/sops/age/keys.txt";
+    age.keyFile = "/Users/valentin/.config/sops/age/keys.txt";
   };
 
   home.packages = with pkgs; [

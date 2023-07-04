@@ -202,7 +202,6 @@
   programs.zoxide.enable = true;
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
     enableCompletion = true;
     history = {
       save = 100000;

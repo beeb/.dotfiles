@@ -1,12 +1,8 @@
 { pkgs, ... }:
-
+let
+  homeDir = if pkgs.stdenv.isDarwin then "/Users/valentin" else "/home/valentin";
+in
 {
-
-  sops = {
-    age.keyFile = "/home/valentin/.config/sops/age/keys.txt";
-    defaultSopsFile = ../../secrets/common.yaml;
-  };
-
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = _: true;
@@ -15,7 +11,12 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "valentin";
-  home.homeDirectory = if pkgs.stdenv.isDarwin then "/Users/valentin" else "/home/valentin";
+  home.homeDirectory = homeDir;
+
+  sops = {
+    age.keyFile = "${homeDir}/.config/sops/age/keys.txt";
+    defaultSopsFile = ../../secrets/common.yaml;
+  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

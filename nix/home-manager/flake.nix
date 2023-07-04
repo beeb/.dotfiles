@@ -30,7 +30,7 @@
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
       };
-      homeConfigurations."valentin@valentins-macbook-pro.home" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."valentin@Valentins-MacBook-Pro.local" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-darwin";
         modules = [
           ./home.nix

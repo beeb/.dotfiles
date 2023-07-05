@@ -17,7 +17,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    _1password
     cargo-binstall
     cargo-machete
     cargo-outdated
@@ -207,13 +206,7 @@
       save = 100000;
       size = 100000;
     };
-    initExtra = with pkgs; ''
-      function gpg_cache () {
-        gpg-connect-agent /bye &> /dev/null
-        eval $(op signin)
-        op item get ${builtins.readFile ../../.secrets/op_item_id} --fields password | ${gnupg}/bin/libexec/gpg-preset-passphrase --preset ${builtins.readFile ../../.secrets/gpg_key_fingerprint}
-      }
-
+    initExtra = ''
       zstyle ':completion:*' menu select
       bindkey '^[[Z' reverse-menu-complete
 

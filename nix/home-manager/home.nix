@@ -41,7 +41,7 @@
   };
   programs.fzf.enable = true;
   programs.git.signing = {
-    key = builtins.readFile ../../.secrets/gpg_key_id;
+    key = "D8E3AED1A980A04B";
     signByDefault = true;
   };
   programs.go = {

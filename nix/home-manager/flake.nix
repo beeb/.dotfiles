@@ -13,6 +13,7 @@
   };
 
   outputs = { nixpkgs, home-manager, rust-overlay, ... }@inputs: {
+    nix.settings.sandbox = true;
     homeConfigurations = builtins.mapAttrs
       (user: machine: home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${machine.system};

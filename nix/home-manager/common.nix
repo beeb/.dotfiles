@@ -117,6 +117,8 @@
           X = "extend_line_above";
           esc = [ "collapse_selection" "keep_primary_selection" ];
           space.i = [ ":toggle-option lsp.display-inlay-hints" ];
+          C-j = [ "extend_to_line_bounds" "delete_selection" "paste_after" ];
+          C-k = [ "extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" ];
         };
         insert = {
           C-c = "normal_mode";

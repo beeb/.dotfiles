@@ -22,8 +22,9 @@
         # the path to your home.nix.
         modules = [
           ./common.nix
-          ./home.nix
           machine.file
+        ] ++ nixpkgs.lib.optionals machine.home [
+          ./home.nix
           inputs.sops-nix.homeManagerModules.sops
           ({ ... }: {
             nixpkgs.overlays = [ rust-overlay.overlays.default ];
@@ -34,9 +35,10 @@
         # to pass through arguments to home.nix
       })
       {
-        "valentin@DESKTOP-SNQ577U" = { system = "x86_64-linux"; file = ./desktop.nix; };
-        "vbersier@PANEER" = { system = "x86_64-linux"; file = ./paneer.nix; };
-        "valentin" = { system = "x86_64-darwin"; file = ./macbook.nix; };
+        "valentin@DESKTOP-SNQ577U" = { system = "x86_64-linux"; file = ./desktop.nix; home = true; };
+        "vbersier@PANEER" = { system = "x86_64-linux"; file = ./paneer.nix; home = true; };
+        "valentin" = { system = "x86_64-darwin"; file = ./macbook.nix; home = true; };
+        "beeb@beebvpn" = { system = "x86_64-linux"; file = ./vpn.nix; home = false; };
       };
   };
 }

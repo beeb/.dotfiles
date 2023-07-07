@@ -31,7 +31,6 @@
     # '')
     du-dust
     fd
-    git-crypt
     magic-wormhole-rs
     neofetch
   ];

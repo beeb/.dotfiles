@@ -239,9 +239,6 @@
 
   services.gpg-agent = {
     enable = !pkgs.stdenv.isDarwin;
-    extraConfig = ''
-      allow-preset-passphrase
-    '';
   };
 
   home.file = {

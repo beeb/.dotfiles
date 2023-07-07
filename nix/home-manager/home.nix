@@ -219,7 +219,6 @@
         file = "zsh-syntax-highlighting.zsh";
       }
     ];
-    profileExtra = "";
     shellAliases = {
       cat = "bat";
       g = "lazygit";

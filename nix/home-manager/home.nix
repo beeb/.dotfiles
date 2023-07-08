@@ -29,8 +29,8 @@
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
     rage
-    rust-bin.stable.latest.default
     rust-analyzer-unwrapped
+    rust-bin.stable.latest.default
     sccache
     sops
   ];
@@ -105,6 +105,18 @@
   programs.lazygit = {
     enable = true;
     settings.gui.theme.selectedLineBgColor = [ "black" ];
+  };
+  programs.lf = {
+    enable = true;
+    settings = {
+      color256 = true;
+      dirfirst = true;
+      drawbox = true;
+      hidden = true;
+      icons = true;
+      preview = true;
+      ignorecase = true;
+    };
   };
   programs.navi.enable = true;
   programs.starship = {
@@ -230,6 +242,7 @@
       hms = "home-manager switch --flake ~/.dotfiles/nix/home-manager";
       hmp = "home-manager packages";
       hmu = "nix flake update ~/.dotfiles/nix/home-manager && hms";
+      rt = "trash put";
     };
     envExtra = ''
       export PATH="$PATH:$HOME/.foundry/bin"

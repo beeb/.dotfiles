@@ -41,6 +41,12 @@ config.default_domain = 'WSL:Ubuntu'
 {{/if}}
 config.window_close_confirmation = 'NeverPrompt'
 config.window_decorations = "RESIZE"
+config.audible_bell = "Disabled"
+config.visual_bell = {
+    fade_in_duration_ms = 75,
+    fade_out_duration_ms = 75,
+    target = 'CursorColor',
+};
 
 config.keys = {
     -- C-p ot enter pane mode

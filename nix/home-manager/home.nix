@@ -41,7 +41,7 @@
   };
   programs.fzf.enable = true;
   programs.git.signing = {
-    key = "D8E3AED1A980A04B";
+    key = "4592122C5C6B53B1";
     signByDefault = true;
   };
   programs.go = {
@@ -211,43 +211,27 @@
     };
   };
   programs.zoxide.enable = true;
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    history = {
-      save = 100000;
-      size = 100000;
-    };
-    initExtra = ''
-      zstyle ':completion:*' menu select
-      bindkey '^[[Z' reverse-menu-complete
+  # only add settings not already defined in common.nix
+  programs.zsh.initExtra = ''
+    zstyle ':completion:*' menu select
+    bindkey '^[[Z' reverse-menu-complete
 
-      eval "$(fnm env --use-on-cd)"
-    '';
-    plugins = [
-      {
-        name = "zsh-syntax-highlighting";
-        src = with pkgs; "${zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
-        file = "zsh-syntax-highlighting.zsh";
-      }
-    ];
-    shellAliases = {
-      cat = "bat";
-      g = "lazygit";
-      cd = "z";
-      ze = "zellij";
-      za = "zellij a -c";
-      wormhole = "wormhole-rs";
-      hm = "home-manager";
-      hms = "home-manager switch --flake ~/.dotfiles/nix/home-manager";
-      hmp = "home-manager packages";
-      hmu = "nix flake update ~/.dotfiles/nix/home-manager && hms";
-      rt = "trash put";
-    };
-    envExtra = ''
-      export PATH="$PATH:$HOME/.foundry/bin"
-    '';
+    eval "$(fnm env --use-on-cd)"
+  '';
+  programs.zsh.plugins = [
+    {
+      name = "zsh-syntax-highlighting";
+      src = with pkgs; "${zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
+      file = "zsh-syntax-highlighting.zsh";
+    }
+  ];
+  programs.zsh.shellAliases = {
+    g = "lazygit";
+    rt = "trash put";
   };
+  programs.zsh.envExtra = ''
+    export PATH="$PATH:$HOME/.foundry/bin"
+  '';
 
   services.gpg-agent = {
     enable = !pkgs.stdenv.isDarwin;

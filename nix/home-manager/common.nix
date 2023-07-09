@@ -81,7 +81,16 @@
       };
     };
   };
-  programs.gpg.enable = true;
+  programs.gpg = {
+    enable = true;
+    publicKeys = [{
+      source = ./public.asc;
+      trust = 5;
+    }];
+    settings = {
+      throw-keyids = true;
+    };
+  };
   programs.helix = {
     enable = true;
     defaultEditor = true;
@@ -165,17 +174,18 @@
       zstyle ':completion:*' menu select
       bindkey '^[[Z' reverse-menu-complete
     '';
-    shellAliases = {
-      cat = "bat";
-      cd = "z";
-      ze = "zellij";
-      za = "zellij a -c";
-      wormhole = "wormhole-rs";
-      hm = "home-manager";
-      hms = "home-manager switch --flake ~/.dotfiles/nix/home-manager";
-      hmp = "home-manager packages";
-      hmu = "nix flake update ~/.dotfiles/nix/home-manager && hms";
-    };
+  };
+  programs.zsh.shellAliases = {
+    cat = "bat";
+    cd = "z";
+    ze = "zellij";
+    za = "zellij a -c";
+    wormhole = "wormhole-rs";
+    hm = "home-manager";
+    hms = "home-manager switch --flake ~/.dotfiles/nix/home-manager";
+    hmp = "home-manager packages";
+    hmu = "nix flake update ~/.dotfiles/nix/home-manager && hms";
+    yubi = ''gpg-connect-agent "scd serialno" "learn --force" /bye'';
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

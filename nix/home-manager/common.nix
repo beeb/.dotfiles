@@ -181,9 +181,7 @@
     ze = "zellij";
     za = "zellij a -c";
     wormhole = "wormhole-rs";
-    hm = "home-manager";
     hms = "home-manager switch --flake ~/.dotfiles/nix/home-manager";
-    hmp = "home-manager packages";
     hmu = "nix flake update ~/.dotfiles/nix/home-manager && hms";
     yubi = ''gpg-connect-agent "scd serialno" "learn --force" /bye'';
   };

@@ -213,9 +213,6 @@
   programs.zoxide.enable = true;
   # only add settings not already defined in common.nix
   programs.zsh.initExtra = ''
-    zstyle ':completion:*' menu select
-    bindkey '^[[Z' reverse-menu-complete
-
     eval "$(fnm env --use-on-cd)"
   '';
   programs.zsh.plugins = [
@@ -227,7 +224,6 @@
   ];
   programs.zsh.shellAliases = {
     g = "lazygit";
-    rt = "trash put";
   };
   programs.zsh.envExtra = ''
     export PATH="$PATH:$HOME/.foundry/bin"

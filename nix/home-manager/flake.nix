@@ -36,7 +36,6 @@
       })
       {
         "valentin@DESKTOP-SNQ577U" = { system = "x86_64-linux"; file = ./desktop.nix; home = true; };
-        "vbersier@PANEER" = { system = "x86_64-linux"; file = ./paneer.nix; home = true; };
         "valentin" = { system = "x86_64-darwin"; file = ./macbook.nix; home = true; };
         "beeb@beebvpn" = { system = "x86_64-linux"; file = ./vpn.nix; home = false; };
       };

@@ -17,12 +17,14 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    bacon
     cargo-binstall
     cargo-machete
     cargo-outdated
     cargo-update
     dotter
     fnm
+    gcc
     gopls
     halp
     nil

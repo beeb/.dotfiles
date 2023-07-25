@@ -1,10 +1,5 @@
 { pkgs, inputs, ... }:
 {
-  nixpkgs = {
-    overlays = [
-      inputs.rust-overlay
-    ];
-  };
   home.packages = with pkgs.unstable; [
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -32,11 +27,6 @@
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
     rage
-    rust-analyzer-unwrapped
-    rust-bin.stable.latest.default.override
-    {
-      extensions = [ "rust-src" "rustfmt" ];
-    }
     sccache
     sops
   ];

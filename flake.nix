@@ -51,8 +51,8 @@
           modules = [
             # > Our main nixos configuration file <
             ./nixos/configuration.nix
-            ({ pkgs, ... }: {
-              nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            ({ pkgs, outputs, ... }: {
+              nixpkgs.overlays = [ outputs.overlays.unstable-packages rust-overlay.overlays.default ];
               environment.systemPackages = [
                 pkgs.unstable.rust-analyzer-unwrapped
                 pkgs.rust-bin.stable.latest.default.override

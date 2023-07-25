@@ -42,8 +42,9 @@
     # nvidiaPatches = true;
     xwayland.enable = true;
   };
+  # hyprland doesn't work in a virtualbox for now
+  # services.xserver.displayManager.defaultSession = "hyprland";
   programs.zsh.enable = true;
-  services.xserver.displayManager.defaultSession = "hyprland";
 
   environment.sessionVariables = {
     # WLR_NO_HARDWARE_CURSORS = "1";
@@ -52,7 +53,7 @@
 
   hardware = {
     opengl.enable = true;
-    # nvidia.modesetting.enable = true;
+    nvidia.modesetting.enable = true;
   };
 
   home-manager = {
@@ -63,6 +64,7 @@
   };
 
   # screensharing, link opening etc.
+  # not sure if needed, should be enabled by hyprland's module
   # xdg.portal.enable = true;
   # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }

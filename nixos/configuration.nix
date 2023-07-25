@@ -37,6 +37,7 @@
   users.defaultUserShell = pkgs.zsh;
   time.timeZone = "Europe/Zurich";
 
+  programs.hyprland.enable = true;
   programs.zsh.enable = true;
 
   environment.sessionVariables = {

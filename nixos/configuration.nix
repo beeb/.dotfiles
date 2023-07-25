@@ -37,7 +37,10 @@
   users.defaultUserShell = pkgs.zsh;
   time.timeZone = "Europe/Zurich";
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
   programs.zsh.enable = true;
 
   environment.sessionVariables = {
@@ -57,6 +60,6 @@
   };
 
   # screensharing, link opening etc.
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  # xdg.portal.enable = true;
+  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }

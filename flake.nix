@@ -55,10 +55,12 @@
               nixpkgs.overlays = [ outputs.overlays.unstable-packages rust-overlay.overlays.default ];
               environment.systemPackages = [
                 pkgs.unstable.rust-analyzer-unwrapped
-                pkgs.rust-bin.stable.latest.default.override
-                {
-                  extensions = [ "rust-src" "rustfmt" ];
-                }
+                (
+                  pkgs.rust-bin.stable.latest.default.override
+                    {
+                      extensions = [ "rust-src" "rustfmt" ];
+                    }
+                )
               ];
             })
           ];

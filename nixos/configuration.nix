@@ -1,10 +1,12 @@
-{ inputs, outputs, ... }:
+{ pkgs, inputs, outputs, ... }:
 
 {
   imports = [
     <nixpkgs/nixos/modules/installer/virtualbox-demo.nix>
     inputs.home-manager.nixosModules.home-manager
   ];
+
+  users.defaultUserShell = pkgs.zsh;
 
   time.timeZone = "Europe/Zurich";
 

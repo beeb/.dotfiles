@@ -13,6 +13,7 @@
     config = {
       allowUnfree = true;
     };
+    hostPlatform = "x86_64-linux";
   };
 
   nix = {
@@ -30,13 +31,22 @@
     };
   };
 
+  system.stateVersion = "23.05";
+
   networking.hostName = "nixos";
+  users.defaultUserShell = pkgs.zsh;
+  time.timeZone = "Europe/Zurich";
 
   programs.zsh.enable = true;
 
-  users.defaultUserShell = pkgs.zsh;
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
 
-  time.timeZone = "Europe/Zurich";
+  hardware = {
+    opengl.enable = true;
+    nvidia.modesetting.enable = true;
+  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
@@ -45,6 +55,7 @@
     };
   };
 
-  nixpkgs.hostPlatform = "x86_64-linux";
-  system.stateVersion = "23.05";
+  # screensharing, link opening etc.
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }

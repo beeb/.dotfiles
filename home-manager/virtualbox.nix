@@ -5,14 +5,29 @@
     ./home.nix
   ];
 
-
   home.username = "demo";
   home.homeDirectory = "/home/demo";
 
   home.packages = with pkgs.unstable; [
+    # nerdfont
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    # trashcan command
     trashy
+    # needed for dunst
+    libnotify
+    # wallpaper daemon
+    swww
   ];
+
+  programs.firefox.enable = true;
+
+  programs.waybar = {
+    enable = true;
+    package = pkgs.waybar.overrideAttrs
+      (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
+  };
 
   programs.wezterm = {
     enable = true;
@@ -109,7 +124,22 @@
     '';
   };
 
+  programs.wofi.enable = true;
+
   programs.zsh.shellAliases = {
     rt = "trash put";
+  };
+
+  services.dunst.enable = true;
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    settings = {
+      bind = [
+        "$mainMod, Q, exec, wezterm"
+      ];
+      exec-once = "swww init & swww img ~/.dotfiles/img/wallpaper_island.jpg & waybar & dunst";
+    };
   };
 }

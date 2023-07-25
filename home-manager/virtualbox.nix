@@ -142,12 +142,11 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    settings = {
-      bind = [
-        "$mainMod, Q, exec, wezterm"
-        ", Print, exec, grim -g \"$(slurp)\" - | swappy -f -"
-      ];
-      exec-once = "swww init & swww img ~/.dotfiles/img/wallpaper_island.jpg & waybar & dunst";
-    };
+    extraConfig = ''
+      exec-once = swww init & swww img ~/.dotfiles/img/wallpaper_island.jpg & waybar & dunst
+
+      bind = $mainMod, Q, exec, wezterm
+      bind = , Print, exec, grim -g \"$(slurp)\" - | swappy -f -
+    '';
   };
 }

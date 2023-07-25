@@ -24,6 +24,9 @@
     swappy
     # clipboard
     wl-clipboard
+
+    # temp
+    kitty
   ];
 
   programs.firefox.enable = true;
@@ -142,11 +145,11 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    extraConfig = ''
-      exec-once = swww init & swww img ~/.dotfiles/img/wallpaper_island.jpg & waybar & dunst
+    # extraConfig = ''
+    #   exec-once = swww init & swww img ~/.dotfiles/img/wallpaper_island.jpg & waybar & dunst
 
-      bind = $mainMod, Q, exec, wezterm
-      bind = , Print, exec, grim -g "$(slurp)" - | swappy -f -
-    '';
+    #   bind = $mainMod, Q, exec, wezterm
+    #   bind = , Print, exec, grim -g "$(slurp)" - | swappy -f -
+    # '';
   };
 }

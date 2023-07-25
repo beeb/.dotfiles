@@ -6,6 +6,8 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  programs.zsh.enable = true;
+
   users.defaultUserShell = pkgs.zsh;
 
   time.timeZone = "Europe/Zurich";

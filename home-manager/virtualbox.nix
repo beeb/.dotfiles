@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
+    inputs.hyprland.homeManagerModules.default
     ./common.nix
     ./home.nix
   ];

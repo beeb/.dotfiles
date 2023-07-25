@@ -39,12 +39,14 @@
 
   programs.hyprland = {
     enable = true;
+    nvidiaPatches = true;
     xwayland.enable = true;
   };
   programs.zsh.enable = true;
   services.xserver.displayManager.defaultSession = "hyprland";
 
   environment.sessionVariables = {
+    # WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
   };
 

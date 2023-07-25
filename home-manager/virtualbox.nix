@@ -17,6 +17,12 @@
     libnotify
     # wallpaper daemon
     swww
+    # screenshots
+    grim
+    slurp
+    swappy
+    # clipboard
+    wl-copy
   ];
 
   programs.firefox.enable = true;
@@ -138,6 +144,7 @@
     settings = {
       bind = [
         "$mainMod, Q, exec, wezterm"
+        ", Print, exec, grim -g \"$(slurp)\" - | swappy -f -"
       ];
       exec-once = "swww init & swww img ~/.dotfiles/img/wallpaper_island.jpg & waybar & dunst";
     };

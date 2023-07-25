@@ -9,6 +9,8 @@
   time.timeZone = "Europe/Zurich";
 
   home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       demo = import ../home-manager/virtualbox.nix; # imports all the stuff

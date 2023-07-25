@@ -23,7 +23,7 @@
     slurp
     swappy
     # clipboard
-    wl-copy
+    wl-clipboard
   ];
 
   programs.firefox.enable = true;

@@ -39,7 +39,7 @@
 
   programs.hyprland = {
     enable = true;
-    nvidiaPatches = true;
+    # nvidiaPatches = true;
     xwayland.enable = true;
   };
   programs.zsh.enable = true;
@@ -52,7 +52,7 @@
 
   hardware = {
     opengl.enable = true;
-    nvidia.modesetting.enable = true;
+    # nvidia.modesetting.enable = true;
   };
 
   home-manager = {

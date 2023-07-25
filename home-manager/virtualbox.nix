@@ -146,7 +146,7 @@
       exec-once = swww init & swww img ~/.dotfiles/img/wallpaper_island.jpg & waybar & dunst
 
       bind = $mainMod, Q, exec, wezterm
-      bind = , Print, exec, grim -g \"$(slurp)\" - | swappy -f -
+      bind = , Print, exec, grim -g "$(slurp)" - | swappy -f -
     '';
   };
 }

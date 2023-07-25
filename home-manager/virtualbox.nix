@@ -1,11 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./common.nix
-    ./home.nix
-  ];
-
-
   home.username = "demo";
   home.homeDirectory = "/home/demo";
 

@@ -42,7 +42,7 @@
     xwayland.enable = true;
   };
   programs.zsh.enable = true;
-  services.xserver.displayManager.defaultSession = "Hyprland";
+  services.xserver.displayManager.defaultSession = "hyprland";
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";

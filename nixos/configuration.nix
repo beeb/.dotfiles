@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    inputs.sops-nix.modules.sops
+    inputs.sops-nix.nixosModules.sops
   ];
 
   sops.defaultSopsFile = ../sops/common.yaml;

@@ -50,4 +50,6 @@ xkb_symbols "RPSF" {
 	key <SPCE> { [ U0020, U0020, NoSymbol ] }; // SPACE, SPACE, SPACE, <none>
 	key <LSGT> { [ U003c, U003e, U005c ] }; // LESS-THAN SIGN, GREATER-THAN SIGN, INFORMATION SEPARATOR FOUR, REVERSE SOLIDUS
 	key <KPDL> { [ U002e, U002e, NoSymbol ] }; // FULL STOP, FULL STOP, ,
+	include "level3(ralt_switch)"
 };
+

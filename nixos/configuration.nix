@@ -72,6 +72,12 @@
     LC_TIME = "fr_CH.UTF-8";
   };
 
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "beeb" ];
+  };
+
   programs.hyprland = {
     enable = true;
     # nvidiaPatches = true;

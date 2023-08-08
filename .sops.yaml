@@ -4,13 +4,8 @@ keys:
   - &hosts:
     - &wsl2204 age1x9tmkm40wyjht7lpmpyrpw6nx7qsj4pdyeeqwaxcydvvpy72da0qdek08e
 creation_rules:
-  - path_regex: secrets/common.yaml$
+  - path_regex: sops/common.yaml$
     key_groups:
-    - age:
-      - *beeb
-      - *wsl2204
-  - path_regex: secrets/wsl2204.yaml$
-    key_groups:
-    - age:
-      - *beeb
-      - *wsl2204
+      - age:
+          - *beeb
+          - *wsl2204

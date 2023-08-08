@@ -6,8 +6,8 @@
     ./home.nix
   ];
 
-  home.username = "demo";
-  home.homeDirectory = "/home/demo";
+  home.username = "beeb";
+  home.homeDirectory = "/home/beeb";
 
   home.packages = with pkgs.unstable; [
     # nerdfont
@@ -46,7 +46,7 @@
       if wezterm.config_builder then
         config = wezterm.config_builder()
       end
-      
+
       -- Show which key table is active in the status area
       wezterm.on('update-right-status', function(window, pane)
         local name = window:active_key_table()

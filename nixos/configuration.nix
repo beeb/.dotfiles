@@ -2,7 +2,7 @@
 
 {
   imports = [
-    <nixpkgs/nixos/modules/installer/virtualbox-demo.nix>
+    ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -31,9 +31,27 @@
     };
   };
 
+  boot.loader.systemd-boot.enable = true;
+
+  users.users = {
+    # FIXME: Replace with your username
+    beeb = {
+      # TODO: You can set an initial password for your user.
+      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
+      # Be sure to change it (using passwd) after rebooting!
+      # initialPassword = "correcthorsebatterystaple";
+      isNormalUser = true;
+      openssh.authorizedKeys.keys = [
+        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+      ];
+      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
+      extraGroups = [ "input" "lp" "wheel" "dialout" ];
+    };
+  };
+
   system.stateVersion = "23.05";
 
-  networking.hostName = "nixos";
+  networking.hostName = "aceraspire";
   users.defaultUserShell = pkgs.zsh;
   time.timeZone = "Europe/Zurich";
 
@@ -59,7 +77,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
-      demo = import ../home-manager/virtualbox.nix; # imports all the stuff
+      beeb = import ../home-manager/work.nix; # imports all the stuff
     };
   };
 

@@ -30,7 +30,6 @@
     wl-clipboard
     discord
     vscode
-    input-remapper
   ];
 
   programs.firefox.enable = true;
@@ -152,8 +151,19 @@
   programs.zsh.shellAliases = {
     rt = "trash put";
   };
+  programs.zsh.initExtra = ''
+    function gpg_cache () {
+      gpg-connect-agent /bye &> /dev/null
+      eval $(op signin)
+      op item get iavuc3a3tsdmhttass5rdvhsmy --fields password | "$(gpgconf --list-dirs libexecdir)"/gpg-preset-passphrase --preset 2F2C2096A6C39D0609D910300DECE20D665C8354
+    }
+  '';
 
   services.dunst.enable = true;
+
+  services.gpg-agent.extraConfig = ''
+    allow-preset-passphrase
+  '';
 
   # doesn't work in virtualbox
   wayland.windowManager.hyprland = {

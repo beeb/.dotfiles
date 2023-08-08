@@ -106,6 +106,7 @@
   };
 
   programs.zsh.enable = true;
+  services.input-remapper.enable = true;
 
   environment.sessionVariables = {
     # WLR_NO_HARDWARE_CURSORS = "1";

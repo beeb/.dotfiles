@@ -90,11 +90,18 @@
   # hyprland doesn't work in a virtualbox for now
   # services.xserver.displayManager.defaultSession = "hyprland";
   services.xserver = {
-    layout = "ch";
-    xkbVariant = "fr";
+    # layout = "ch";
+    # xkbVariant = "fr";
+    layout = "rpsf";
+    extraLayouts.rpsf = {
+      description = "Real Programer Swiss French";
+      languages = [ "eng" "fra" ];
+      symbolsFile = ../kbd/RPSF.xkb;
+    };
     xkbOptions = "caps:escape_shifted_capslock";
   };
-  console.keyMap = "fr_CH";
+  # console.keyMap = "fr_CH";
+  console.useXkbConfig = true;
   services.printing.enable = true;
   sound.enable = true;
   hardware.pulseaudio.enable = false;

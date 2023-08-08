@@ -76,7 +76,7 @@
         family = 'JetBrainsMono Nerd Font',
         weight = 'Light'
       }
-      config.font_size = 13
+      config.font_size = 11
       config.cell_width = 0.9
       config.window_close_confirmation = 'NeverPrompt'
       config.window_decorations = "RESIZE"

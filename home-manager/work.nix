@@ -32,7 +32,7 @@
 
   programs.firefox.enable = true;
 
-  program.ssh = {
+  programs.ssh = {
     enable = true;
   };
 

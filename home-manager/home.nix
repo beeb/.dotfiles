@@ -21,7 +21,6 @@
     cargo-outdated
     cargo-update
     dotter
-    fnm
     gcc
     gopls
     halp

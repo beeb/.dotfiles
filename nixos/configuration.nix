@@ -91,7 +91,7 @@
     xkbVariant = "fr";
   };
   console.keyMap = "fr_CH";
-  servies.printing.enable = true;
+  services.printing.enable = true;
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;

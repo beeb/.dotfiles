@@ -107,6 +107,12 @@
   };
 
   programs.zsh.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+    ];
+  };
   services.input-remapper.enable = true;
 
   environment.sessionVariables = {

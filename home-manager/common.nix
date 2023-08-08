@@ -151,7 +151,6 @@
       cmd_duration = {
         format = "in [$duration]($style) ";
         style = "bold italic green";
-        show_notifications = true;
       };
       sudo = {
         disabled = false;

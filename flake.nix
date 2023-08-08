@@ -17,7 +17,7 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
 
     # Hyprland
-    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland";
 
     # Sops-nix
     sops-nix.url = "github:mic92/sops-nix";
@@ -26,7 +26,7 @@
     # hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, home-manager, rust-overlay, hyprland, sops-nix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, rust-overlay, sops-nix, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [

@@ -78,16 +78,15 @@
     polkitPolicyOwners = [ "beeb" ];
   };
 
-  programs.hyprland = {
-    enable = true;
-    # nvidiaPatches = true;
-    xwayland.enable = true;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   nvidiaPatches = true;
+  #   xwayland.enable = true;
+  # };
 
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  # hyprland doesn't work in a virtualbox for now
   # services.xserver.displayManager.defaultSession = "hyprland";
   services.xserver = {
     # layout = "ch";
@@ -138,11 +137,6 @@
       beeb = import ../home-manager/work.nix; # imports all the stuff
     };
   };
-
-  # screensharing, link opening etc.
-  # not sure if needed, should be enabled by hyprland's module
-  # xdg.portal.enable = true;
-  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   system.stateVersion = "23.05";
 }

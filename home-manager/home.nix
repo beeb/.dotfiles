@@ -212,9 +212,9 @@
   };
   programs.zoxide.enable = true;
   # only add settings not already defined in common.nix
-  programs.zsh.initExtra = ''
-    eval "$(fnm env --use-on-cd)"
-  '';
+  # programs.zsh.initExtra = ''
+  #   eval "$(fnm env --use-on-cd)"
+  # '';
   programs.zsh.plugins = [
     {
       name = "zsh-syntax-highlighting";

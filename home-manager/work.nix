@@ -1,7 +1,7 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [
-    inputs.hyprland.homeManagerModules.default
+    # inputs.hyprland.homeManagerModules.default
     ./common.nix
     ./home.nix
   ];
@@ -16,18 +16,25 @@
   home.packages = with pkgs.unstable; [
     # nerdfont
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+
     # trashcan command
     trashy
+
     # needed for dunst
-    libnotify
+    # libnotify
+
     # wallpaper daemon
-    swww
+    # swww
+
     # screenshots
-    grim
-    slurp
-    swappy
+
+    # grim
+    # slurp
+    # swappy
+
     # clipboard
-    wl-clipboard
+    # wl-clipboard
+
     discord
     vscode
   ];
@@ -165,15 +172,14 @@
     allow-preset-passphrase
   '';
 
-  # doesn't work in virtualbox
-  wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    extraConfig = ''
-      exec-once = swww init & swww img ~/.dotfiles/img/wallpaper_island.jpg & waybar & dunst
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true;
+  #   extraConfig = ''
+  #     exec-once = swww init & swww img ~/.dotfiles/img/wallpaper_island.jpg & waybar & dunst
 
-      bind = $mainMod, Q, exec, wezterm
-      bind = , Print, exec, grim -g "$(slurp)" - | swappy -f -
-    '';
-  };
+  #     bind = SUPER, Q, exec, wezterm
+  #     bind = , Print, exec, grim -g "$(slurp)" - | swappy -f -
+  #   '';
+  # };
 }

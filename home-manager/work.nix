@@ -27,6 +27,7 @@
     discord
     _1password-gui
     _1password
+    vscode
   ];
 
   programs.firefox.enable = true;

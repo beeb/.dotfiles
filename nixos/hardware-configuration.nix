@@ -12,6 +12,10 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.extraModprobeConfig = ''
+    options snd-hda-intel model=alc255-acer
+    options snd-hda-intel dmic_detect=0
+  '';
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/aabd61df-7c8a-4414-bdf0-f1813b557563";

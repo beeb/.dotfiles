@@ -32,6 +32,10 @@
 
   programs.firefox.enable = true;
 
+  program.ssh = {
+    enable = true;
+  };
+
   programs.waybar = {
     enable = true;
     package = pkgs.waybar.overrideAttrs

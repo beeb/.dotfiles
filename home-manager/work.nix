@@ -28,6 +28,7 @@
     _1password-gui
     _1password
     vscode
+    input-remapper
   ];
 
   programs.firefox.enable = true;

@@ -8,7 +8,7 @@
   ];
 
   sops.defaultSopsFile = ../sops/common.yaml;
-  sops.age.keyFile = "~/.dotfiles/secrets/keys.txt";
+  sops.age.keyFile = "/home/beeb/.dotfiles/secrets/keys.txt";
   sops.secrets.beeb_password = {
     neededForUsers = true;
   };

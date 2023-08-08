@@ -36,9 +36,16 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
     };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+    };
   };
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 20;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   users.users = {

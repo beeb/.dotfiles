@@ -25,6 +25,8 @@
     # clipboard
     wl-clipboard
     discord
+    _1password-gui
+    _1password
   ];
 
   programs.firefox.enable = true;

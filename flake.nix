@@ -19,11 +19,14 @@
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
 
+    # Sops-nix
+    sops-nix.url = "github:mic92/sops-nix";
+
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, home-manager, rust-overlay, hyprland, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, rust-overlay, hyprland, sops-nix, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [

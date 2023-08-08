@@ -4,7 +4,14 @@
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.sops-nix.modules.sops
   ];
+
+  sops.defaultSopsFile = ../sops/common.yaml;
+  sops.age.keyFile = "~/.dotfiles/secrets/keys.txt";
+  sops.secrets.beeb_password = {
+    neededForUsers = true;
+  };
 
   nixpkgs = {
     overlays = [
@@ -40,12 +47,13 @@
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
       # initialPassword = "correcthorsebatterystaple";
+      passwordFile = config.sops.secrets.beeb_password.path;
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "input" "lp" "wheel" "dialout" ];
+      extraGroups = [ "networkmanager" "input" "lp" "wheel" "dialout" ];
     };
   };
 
@@ -54,14 +62,46 @@
   networking.hostName = "aceraspire";
   users.defaultUserShell = pkgs.zsh;
   time.timeZone = "Europe/Zurich";
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "fr_CH.UTF-8";
+    LC_IDENTIFICATION = "fr_CH.UTF-8";
+    LC_MEASUREMENT = "fr_CH.UTF-8";
+    LC_MONETARY = "fr_CH.UTF-8";
+    LC_NAME = "fr_CH.UTF-8";
+    LC_NUMERIC = "fr_CH.UTF-8";
+    LC_PAPER = "fr_CH.UTF-8";
+    LC_TELEPHONE = "fr_CH.UTF-8";
+    LC_TIME = "fr_CH.UTF-8";
+  };
 
   programs.hyprland = {
     enable = true;
     # nvidiaPatches = true;
     xwayland.enable = true;
   };
+
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
   # hyprland doesn't work in a virtualbox for now
   # services.xserver.displayManager.defaultSession = "hyprland";
+  services.xserver = {
+    layout = "ch";
+    xkbVariant = "fr";
+  };
+  console.keyMap = "fr_CH";
+  servies.printing.enable = true;
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  service.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   programs.zsh.enable = true;
 
   environment.sessionVariables = {

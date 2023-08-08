@@ -90,7 +90,7 @@
   programs.gpg = {
     enable = true;
     publicKeys = [{
-      source = ./public.asc;
+      source = ../pubkeys/public.asc;
       trust = 5;
     }];
     settings = {

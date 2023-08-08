@@ -8,7 +8,7 @@
     nativeBuildInputs = with pkgs; [ nix home-manager git git-crypt ];
     # After shell is open, run `gpg --edit-key 0x4592122C5C6B53B1` and the `trust` command
     shellHook = ''
-      gpg --import ~/.dotfiles/home-manager/public.asc
+      gpg --import ~/.dotfiles/pubkeys/public.asc
       gpg-connect-agent "scd serialno" "learn --force" /bye
     '';
   };

@@ -9,6 +9,10 @@
   home.username = "beeb";
   home.homeDirectory = "/home/beeb";
 
+  home.file = {
+    ".ssh/id_1password.pub".source = ../pubkeys/id_1password.pub;
+  };
+
   home.packages = with pkgs.unstable; [
     # nerdfont
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
@@ -35,7 +39,11 @@
 
   programs.ssh = {
     enable = true;
-    extraConfig = "IdentityAgent ~/.1password/agent.sock";
+    extraConfig = ''
+      IdentityAgent ~/.1password/agent.sock
+      IdentityFile ~/.ssh/id_1password.pub
+      IdentitiesOnly yes
+    '';
   };
 
   programs.waybar = {

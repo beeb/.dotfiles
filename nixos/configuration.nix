@@ -92,6 +92,7 @@
   services.xserver = {
     layout = "ch";
     xkbVariant = "fr";
+    xkbOptions = "caps:escape_shifted_capslock";
   };
   console.keyMap = "fr_CH";
   services.printing.enable = true;

@@ -24,6 +24,7 @@
     swappy
     # clipboard
     wl-clipboard
+    discord
   ];
 
   programs.firefox.enable = true;

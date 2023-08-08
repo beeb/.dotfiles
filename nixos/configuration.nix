@@ -39,6 +39,7 @@
   };
 
   boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   users.users = {
     # FIXME: Replace with your username
@@ -57,9 +58,8 @@
     };
   };
 
-  system.stateVersion = "23.05";
-
   networking.hostName = "aceraspire";
+  networking.networkmanager.enable = true;
   users.defaultUserShell = pkgs.zsh;
   time.timeZone = "Europe/Zurich";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -125,4 +125,6 @@
   # not sure if needed, should be enabled by hyprland's module
   # xdg.portal.enable = true;
   # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+  system.stateVersion = "23.05";
 }

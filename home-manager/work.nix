@@ -172,8 +172,8 @@
   services.dunst.enable = true;
 
   services.gpg-agent = {
-    defaultCacheTTL = 3600;
-    maxCacheTTL = 28800;
+    defaultCacheTtl = 3600;
+    maxCacheTtl = 28800;
     extraConfig = ''
       allow-preset-passphrase
     '';

@@ -37,6 +37,7 @@
 
     discord
     vscode
+    nodejs_18
   ];
 
   programs.firefox.enable = true;

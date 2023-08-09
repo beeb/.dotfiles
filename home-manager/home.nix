@@ -74,9 +74,27 @@
       {
         name = "typescript";
         auto-format = true;
-        language-server = with pkgs.unstable.nodePackages; {
-          command = "${typescript-language-server}/bin/typescript-language-server";
-          args = [ "--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib" ];
+        language-server = with pkgs.unstable; {
+          command = "${rome}/bin/rome";
+          args = [ "lsp-proxy" ];
+          # command = "${typescript-language-server}/bin/typescript-language-server";
+          # args = [ "--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib" ];
+        };
+        formatter = with pkgs.unstable; {
+          command = "${rome}/bin/rome";
+          args = [ "format" "--stdin-file-path" "test.ts" ];
+        };
+      }
+      {
+        name = "javascript";
+        auto-format = true;
+        language-server = with pkgs.unstable; {
+          command = "${rome}/bin/rome";
+          args = [ "lsp-proxy" ];
+        };
+        formatter = with pkgs.unstable; {
+          command = "${rome}/bin/rome";
+          args = [ "format" "--stdin-file-path" "test.js" ];
         };
       }
       {

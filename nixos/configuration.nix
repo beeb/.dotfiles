@@ -105,6 +105,16 @@
       symbolsFile = ../kbd/RPSF.xkb;
     };
     xkbOptions = "caps:escape_shifted_capslock";
+    libinput = {
+      enable = true;
+      touchpad = {
+        disableWhileTyping = true;
+        additionalOptions = ''
+          Option "PalmDetection" "True"
+        '';
+        tappingButtonMap = "lrm";
+      };
+    };
   };
   # console.keyMap = "fr_CH";
   console.useXkbConfig = true;

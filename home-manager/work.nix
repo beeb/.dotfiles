@@ -14,6 +14,8 @@
   };
 
   home.packages = with pkgs.unstable; [
+    wget
+
     # nerdfont
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 

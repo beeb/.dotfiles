@@ -79,6 +79,11 @@
     LC_TIME = "fr_CH.UTF-8";
   };
 
+  environment.systemPackages = with pkgs; [
+    wineWowPackages.waylandFull
+    winetricks
+  ];
+
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;

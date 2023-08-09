@@ -92,6 +92,14 @@
         };
       }
       {
+        name = "json";
+        auto-format = true;
+        formatter = with pkgs.unstable; {
+          command = "${rome}/bin/rome";
+          args = [ "format" "--stdin-file-path" "test.json" ];
+        };
+      }
+      {
         name = "svelte";
         auto-format = true;
         language-server = with pkgs.unstable.nodePackages; {

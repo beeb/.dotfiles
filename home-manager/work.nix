@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, outputs, ... }:
 {
   imports = [
     # inputs.hyprland.homeManagerModules.default
@@ -40,6 +40,7 @@
     discord
     vscode
     nodejs_18
+    outputs.packages.${pkgs.system}.substreams
   ];
 
   programs.firefox.enable = true;

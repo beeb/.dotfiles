@@ -118,6 +118,7 @@
         auto-format = true;
         language-server = with pkgs.unstable; {
           command = "${taplo}/bin/taplo";
+          args = [ "lsp" "stdio" ];
         };
       }
       {

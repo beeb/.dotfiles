@@ -37,7 +37,7 @@
         "x86_64-darwin"
       ];
     in
-    rec {
+    {
       # Your custom packages
       # Acessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system:

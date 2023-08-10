@@ -114,6 +114,13 @@
         auto-format = true;
       }
       {
+        name = "toml";
+        auto-format = true;
+        language-server = with pkgs.unstable; {
+          command = "${taplo}/bin/taplo";
+        };
+      }
+      {
         name = "yaml";
         language-server = with pkgs.unstable.nodePackages; {
           command = "${yaml-language-server}/bin/yaml-language-server";

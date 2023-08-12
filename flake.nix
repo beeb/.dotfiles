@@ -78,7 +78,7 @@
             ./home-manager/home.nix
           ];
 
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs outputs; };
 
           # Optionally use extraSpecialArgs
           # to pass through arguments to home.nix

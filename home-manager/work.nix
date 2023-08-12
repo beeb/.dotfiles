@@ -22,21 +22,6 @@
     # trashcan command
     trashy
 
-    # needed for dunst
-    # libnotify
-
-    # wallpaper daemon
-    # swww
-
-    # screenshots
-
-    # grim
-    # slurp
-    # swappy
-
-    # clipboard
-    # wl-clipboard
-
     discord
     vscode
     nodejs_18
@@ -182,15 +167,4 @@
       allow-preset-passphrase
     '';
   };
-
-  # wayland.windowManager.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true;
-  #   extraConfig = ''
-  #     exec-once = swww init & swww img ~/.dotfiles/img/wallpaper_island.jpg & waybar & dunst
-
-  #     bind = SUPER, Q, exec, wezterm
-  #     bind = , Print, exec, grim -g "$(slurp)" - | swappy -f -
-  #   '';
-  # };
 }

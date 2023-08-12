@@ -21,9 +21,6 @@
 
     # Sops-nix
     sops-nix.url = "github:mic92/sops-nix";
-
-    # TODO: Add any other flake you might need
-    # hardware.url = "github:nixos/nixos-hardware";
   };
 
   outputs = { self, nixpkgs, home-manager, rust-overlay, sops-nix, ... }@inputs:
@@ -67,5 +64,30 @@
           ];
         };
       };
+
+      # Home manager configurations for non-nixOS machines
+      homeConfigurations = builtins.mapAttrs
+        (user: machine: home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${machine.system};
+
+          modules = [
+            ./home-manager/common.nix
+            machine.file
+          ] ++ nixpkgs.lib.optionals machine.home [
+            sops-nix.homeManagerModules.sops
+            ./home-manager/home.nix
+          ];
+
+          extraSpecialArgs = { inherit inputs; };
+
+          # Optionally use extraSpecialArgs
+          # to pass through arguments to home.nix
+        })
+        {
+          "valentin@DESKTOP-SNQ577U" = { system = "x86_64-linux"; file = ./home-manager/desktop.nix; home = true; };
+          "valentin" = { system = "x86_64-darwin"; file = ./home-manager/macbook.nix; home = true; };
+          "beeb@beebvpn" = { system = "x86_64-linux"; file = ./home-manager/vpn.nix; home = false; };
+          "beeb@vps" = { system = "x86_64-linux"; file = ./home-manager/vps.nix; home = false; };
+        };
     };
 }

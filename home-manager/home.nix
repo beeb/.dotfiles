@@ -31,7 +31,6 @@
     rage
     sccache
     sops
-  ] ++ [
     (pkgs.rust-bin.stable.latest.default.override { extensions = [ "rust-src" "rustfmt" ]; })
   ];
 
@@ -107,7 +106,6 @@
         };
       }
       { name = "css"; auto-format = true; }
-      # TODO: add astro once @astrojs/language-server is available on pkgs
       {
         name = "nix";
         formatter.command = "nixpkgs-fmt";
@@ -128,6 +126,7 @@
         };
         auto-format = true;
       }
+      # TODO: add astro once @astrojs/language-server is available on pkgs
     ];
   };
   programs.lazygit = {
@@ -239,10 +238,6 @@
     };
   };
   programs.zoxide.enable = true;
-  # only add settings not already defined in common.nix
-  # programs.zsh.initExtra = ''
-  #   eval "$(fnm env --use-on-cd)"
-  # '';
   programs.zsh.plugins = [
     {
       name = "zsh-syntax-highlighting";

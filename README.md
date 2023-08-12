@@ -1,6 +1,6 @@
-# My dotfiles
+# My nix config
 
-Uses [home manager (nix)](https://nix-community.github.io/home-manager/) for deployment.
+This is a [nix flake](https://nixos.wiki/wiki/Flakes) containing all my configs for several machines and VMs.
 
 ## Potential additional tools
 

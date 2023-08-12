@@ -1,18 +1,21 @@
 { lib, config, pkgs, inputs, outputs, ... }:
 
 {
+  /* --------------------------------- Imports -------------------------------- */
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
 
+  /* ---------------------------------- SOPS ---------------------------------- */
   sops.defaultSopsFile = ../sops/common.yaml;
   sops.age.keyFile = "/home/beeb/.dotfiles/secrets/keys.txt";
   sops.secrets.beeb_password = {
     neededForUsers = true;
   };
 
+  /* --------------------------------- nixpkgs -------------------------------- */
   nixpkgs = {
     overlays = [
       outputs.overlays.unstable-packages
@@ -23,6 +26,7 @@
     hostPlatform = "x86_64-linux";
   };
 
+  /* ---------------------------------- NixOS --------------------------------- */
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
@@ -42,29 +46,16 @@
     };
   };
 
+  /* ---------------------------------- boot ---------------------------------- */
   boot.loader.systemd-boot = {
     enable = true;
     configurationLimit = 20;
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
-  users.users = {
-    # FIXME: Replace with your username
-    beeb = {
-      description = "Valentin Bersier";
-      passwordFile = config.sops.secrets.beeb_password.path;
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "networkmanager" "input" "lp" "wheel" "dialout" ];
-    };
-  };
-
+  /* --------------------------------- basics --------------------------------- */
   networking.hostName = "aceraspire";
   networking.networkmanager.enable = true;
-  users.defaultUserShell = pkgs.zsh;
   time.timeZone = "Europe/Zurich";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -78,31 +69,57 @@
     LC_TELEPHONE = "fr_CH.UTF-8";
     LC_TIME = "fr_CH.UTF-8";
   };
+  console.useXkbConfig = true;
 
+  /* ---------------------------------- users --------------------------------- */
+  users.users = {
+    defaultUserShell = pkgs.zsh;
+    beeb = {
+      description = "Valentin Bersier";
+      passwordFile = config.sops.secrets.beeb_password.path;
+      isNormalUser = true;
+      openssh.authorizedKeys.keys = [
+        # TODO: SSH public key(s) here, if you plan on using SSH to connect
+      ];
+      extraGroups = [ "networkmanager" "input" "lp" "wheel" "dialout" ];
+    };
+  };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      beeb = import ../home-manager/work.nix; # imports all the stuff
+    };
+  };
+
+  /* -------------------------------- programs -------------------------------- */
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1"; # helps for Electron apps
+  };
   environment.systemPackages = with pkgs; [
     wineWowPackages.waylandFull
     winetricks
   ];
-
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = [ "beeb" ];
   };
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+    ];
+  };
+  programs.zsh.enable = true;
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   nvidiaPatches = true;
-  #   xwayland.enable = true;
-  # };
-
+  /* -------------------------------- services -------------------------------- */
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  # services.xserver.displayManager.defaultSession = "hyprland";
   services.xserver = {
-    # layout = "ch";
-    # xkbVariant = "fr";
+    # layout = "ch"; # for standard swiss french keyboard
+    # xkbVariant = "fr"; # for standard swiss french keyboard
     layout = "rpsf";
     extraLayouts.rpsf = {
       description = "Real Programer Swiss French";
@@ -121,9 +138,10 @@
       };
     };
   };
-  # console.keyMap = "fr_CH";
-  console.useXkbConfig = true;
+  # console.keyMap = "fr_CH"; # for standard swiss french keyboard
   services.printing.enable = true;
+
+  /* ---------------------------------- sound --------------------------------- */
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -134,30 +152,10 @@
     pulse.enable = true;
   };
 
-  programs.zsh.enable = true;
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      stdenv.cc.cc
-    ];
-  };
-  services.input-remapper.enable = true;
-
-  environment.sessionVariables = {
-    # WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-  };
-
+  /* -------------------------------- hardware -------------------------------- */
   hardware = {
     opengl.enable = true;
     nvidia.modesetting.enable = true;
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      beeb = import ../home-manager/work.nix; # imports all the stuff
-    };
   };
 
   system.stateVersion = "23.05";

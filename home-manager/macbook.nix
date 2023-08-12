@@ -11,12 +11,13 @@
     pinentry
   ];
 
-  programs.zsh.shellAliases = {
-    hms = "home-manager switch --flake ~/.dotfiles";
-    hmu = "nix flake update ~/.dotfiles && hms";
+  programs.zsh = {
+    shellAliases = {
+      hms = "home-manager switch --flake ~/.dotfiles";
+      hmu = "nix flake update ~/.dotfiles && hms";
+    };
+    envExtra = ''
+      export PATH="$PATH:$HOME/.foundry/bin"
+    '';
   };
-
-  programs.zsh.envExtra = ''
-    export PATH="$PATH:$HOME/.foundry/bin"
-  '';
 }

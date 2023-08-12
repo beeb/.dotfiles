@@ -1,35 +1,30 @@
 { pkgs, outputs, ... }:
 {
+  /* --------------------------------- imports -------------------------------- */
   imports = [
     # inputs.hyprland.homeManagerModules.default
     ./common.nix
     ./home.nix
   ];
 
+  /* ---------------------------------- system -------------------------------- */
   home.username = "beeb";
   home.homeDirectory = "/home/beeb";
-
   home.file = {
     ".ssh/id_1password.pub".source = ../pubkeys/id_1password.pub;
   };
 
+  /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs.unstable; [
-    wget
-
-    # nerdfont
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-
-    # trashcan command
-    trashy
-
     discord
-    vscode
     nodejs_18
     outputs.packages.${pkgs.system}.substreams
+    trashy
+    vscode
+    wget
   ];
-
   programs.firefox.enable = true;
-
   programs.ssh = {
     enable = true;
     extraConfig = ''
@@ -38,15 +33,6 @@
       IdentitiesOnly yes
     '';
   };
-
-  programs.waybar = {
-    enable = true;
-    package = pkgs.waybar.overrideAttrs
-      (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
-  };
-
   programs.wezterm = {
     enable = true;
     extraConfig = ''
@@ -141,25 +127,23 @@
       return config
     '';
   };
-
-  programs.wofi.enable = true;
-
-  programs.zsh.shellAliases = {
-    rt = "trash put";
+  programs.zsh = {
+    shellAliases = {
+      rt = "trash put";
+    };
+    initExtra = ''
+      function gpg_cache () {
+        gpg-connect-agent /bye &> /dev/null
+        eval $(op signin)
+        op item get iavuc3a3tsdmhttass5rdvhsmy --fields password | "$(gpgconf --list-dirs libexecdir)"/gpg-preset-passphrase --preset 2F2C2096A6C39D0609D910300DECE20D665C8354
+      }
+    '';
+    envExtra = ''
+      export PATH="$PATH:$HOME/.foundry/bin"
+    '';
   };
-  programs.zsh.initExtra = ''
-    function gpg_cache () {
-      gpg-connect-agent /bye &> /dev/null
-      eval $(op signin)
-      op item get iavuc3a3tsdmhttass5rdvhsmy --fields password | "$(gpgconf --list-dirs libexecdir)"/gpg-preset-passphrase --preset 2F2C2096A6C39D0609D910300DECE20D665C8354
-    }
-  '';
-  programs.zsh.envExtra = ''
-    export PATH="$PATH:$HOME/.foundry/bin"
-  '';
 
-  services.dunst.enable = true;
-
+  /* -------------------------------- services -------------------------------- */
   services.gpg-agent = {
     defaultCacheTtl = 3600;
     maxCacheTtl = 28800;

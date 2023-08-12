@@ -1,14 +1,19 @@
 { pkgs, inputs, ... }:
 {
+  /* -------------------------------- overlays -------------------------------- */
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
 
-  home.packages = with pkgs.unstable; [
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+  /* --------------------------------- system --------------------------------- */
+  home.file = {
+    ".cargo/config.toml".text = ''
+      [build]
+      rustc-wrapper = "sccache"
+    '';
+  };
+  home.sessionVariables = { };
 
+  /* -------------------------------- programs -------------------------------- */
+  home.packages = with pkgs.unstable; [
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -33,7 +38,6 @@
     sops
     (pkgs.rust-bin.stable.latest.default.override { extensions = [ "rust-src" "rustfmt" ]; })
   ];
-
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -147,21 +151,7 @@
   };
   programs.navi.enable = true;
   programs.starship = {
-    enable = true;
     settings = {
-      command_timeout = 10000;
-      add_newline = true;
-      cmd_duration = {
-        format = "in [$duration]($style) ";
-        style = "bold italic green";
-        # show_notifications = false;
-      };
-      sudo = {
-        disabled = false;
-      };
-      container = {
-        disabled = true;
-      };
       aws = { symbol = "  "; };
       buf = { symbol = " "; };
       c = { symbol = " "; };
@@ -238,27 +228,21 @@
     };
   };
   programs.zoxide.enable = true;
-  programs.zsh.plugins = [
-    {
-      name = "zsh-syntax-highlighting";
-      src = with pkgs.unstable; "${zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
-      file = "zsh-syntax-highlighting.zsh";
-    }
-  ];
-  programs.zsh.shellAliases = {
-    g = "lazygit";
+  programs.zsh = {
+    plugins = [
+      {
+        name = "zsh-syntax-highlighting";
+        src = with pkgs.unstable; "${zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
+        file = "zsh-syntax-highlighting.zsh";
+      }
+    ];
+    shellAliases = {
+      g = "lazygit";
+    };
   };
 
+  /* -------------------------------- services -------------------------------- */
   services.gpg-agent = {
     enable = !pkgs.stdenv.isDarwin;
   };
-
-  home.file = {
-    ".cargo/config.toml".text = ''
-      [build]
-      rustc-wrapper = "sccache"
-    '';
-  };
-
-  home.sessionVariables = { };
 }

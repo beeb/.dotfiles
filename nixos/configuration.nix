@@ -72,16 +72,18 @@
   console.useXkbConfig = true;
 
   /* ---------------------------------- users --------------------------------- */
-  users.users = {
+  users = {
     defaultUserShell = pkgs.zsh;
-    beeb = {
-      description = "Valentin Bersier";
-      passwordFile = config.sops.secrets.beeb_password.path;
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: SSH public key(s) here, if you plan on using SSH to connect
-      ];
-      extraGroups = [ "networkmanager" "input" "lp" "wheel" "dialout" ];
+    users = {
+      beeb = {
+        description = "Valentin Bersier";
+        passwordFile = config.sops.secrets.beeb_password.path;
+        isNormalUser = true;
+        openssh.authorizedKeys.keys = [
+          # TODO: SSH public key(s) here, if you plan on using SSH to connect
+        ];
+        extraGroups = [ "networkmanager" "input" "lp" "wheel" "dialout" ];
+      };
     };
   };
 

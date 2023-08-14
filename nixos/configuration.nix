@@ -54,8 +54,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   /* --------------------------------- basics --------------------------------- */
-  networking.hostName = "aceraspire";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "aceraspire";
+    networkmanager.enable = true;
+    nameservers = [ "1.1.1.1" "1.0.0.1" ];
+  };
   time.timeZone = "Europe/Zurich";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {

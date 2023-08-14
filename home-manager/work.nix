@@ -17,7 +17,7 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs.unstable; [
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    discord
+    webcord
     nodejs_18
     outputs.packages.${pkgs.system}.substreams
     trashy

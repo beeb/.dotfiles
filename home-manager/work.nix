@@ -19,7 +19,7 @@
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     hunspell
     hunspellDicts.fr-moderne
-    hunspellDicts.uk_UA
+    hunspellDicts.en-us
     libreoffice-qt
     nodejs_18
     outputs.packages.${pkgs.system}.substreams

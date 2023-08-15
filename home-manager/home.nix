@@ -127,6 +127,7 @@
         name = "yaml";
         language-server = with pkgs.unstable.nodePackages; {
           command = "${yaml-language-server}/bin/yaml-language-server";
+          args = [ "--stdio" ];
         };
         auto-format = true;
       }

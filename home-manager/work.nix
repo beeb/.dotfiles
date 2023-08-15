@@ -17,11 +17,15 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs.unstable; [
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    webcord
+    hunspell
+    hunspellDicts.fr-moderne
+    hunspellDicts.uk_UA
+    libreoffice-qt
     nodejs_18
     outputs.packages.${pkgs.system}.substreams
     trashy
     vscode
+    webcord
     wget
   ];
   programs.firefox.enable = true;

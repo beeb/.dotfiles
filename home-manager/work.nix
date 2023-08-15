@@ -17,6 +17,7 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs.unstable; [
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    deno
     hunspell
     hunspellDicts.fr-moderne
     hunspellDicts.en-us

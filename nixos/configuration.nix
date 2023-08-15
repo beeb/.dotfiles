@@ -74,6 +74,8 @@
   };
   console.useXkbConfig = true;
 
+  virtualisation.docker.enable = true;
+
   /* ---------------------------------- users --------------------------------- */
   users = {
     defaultUserShell = pkgs.zsh;
@@ -85,7 +87,7 @@
         openssh.authorizedKeys.keys = [
           # TODO: SSH public key(s) here, if you plan on using SSH to connect
         ];
-        extraGroups = [ "networkmanager" "input" "lp" "wheel" "dialout" ];
+        extraGroups = [ "networkmanager" "input" "lp" "wheel" "dialout" "docker" ];
       };
     };
   };

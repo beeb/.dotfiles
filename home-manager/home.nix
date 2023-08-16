@@ -31,9 +31,10 @@
     halp
     nil
     nixpkgs-fmt
-    rust-analyzer-unwrapped
     nodePackages.vscode-langservers-extracted
     rage
+    rome
+    rust-analyzer-unwrapped
     sccache
     sops
     (pkgs.rust-bin.stable.latest.default.override { extensions = [ "rust-src" "rustfmt" ]; })

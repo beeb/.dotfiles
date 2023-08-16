@@ -33,7 +33,6 @@
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
     rage
-    rome
     rust-analyzer-unwrapped
     sccache
     sops

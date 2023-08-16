@@ -20,6 +20,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    awscli2
     bacon
     cargo-binstall
     cargo-machete

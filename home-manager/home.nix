@@ -25,7 +25,7 @@
     cargo-machete
     cargo-outdated
     cargo-update
-    dotter
+    deno
     gcc
     gopls
     halp

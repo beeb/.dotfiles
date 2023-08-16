@@ -181,6 +181,7 @@
     initExtra = ''
       zstyle ':completion:*' menu select
       bindkey '^[[Z' reverse-menu-complete
+      bindkey '^[[3~' delete-char
     '';
     shellAliases = {
       cat = "bat";

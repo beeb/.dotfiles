@@ -22,6 +22,7 @@
     hunspellDicts.en-us
     libreoffice-qt
     nodejs_18
+    nodePackages.rollup
     outputs.packages.${pkgs.system}.substreams
     trashy
     vscode

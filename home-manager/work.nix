@@ -13,6 +13,7 @@
   home.file = {
     ".ssh/id_1password.pub".source = ../pubkeys/id_1password.pub;
   };
+  sops.age.keyFile = "/home/beeb/.dotfiles/secrets/keys.txt";
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs.unstable; [

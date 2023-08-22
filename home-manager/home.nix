@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 {
   /* -------------------------------- overlays -------------------------------- */
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
@@ -11,6 +11,13 @@
     '';
   };
   home.sessionVariables = { };
+  imports = [
+    <sops-nix/modules/home-manager/sops.nix>
+  ];
+  sops.defaultSopsFile = ../sops/common.yaml;
+  sops.secrets.aws_codeartifact_script = {
+    mode = "0540";
+  };
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs.unstable; [
@@ -240,6 +247,7 @@
     ];
     shellAliases = {
       g = "lazygit";
+      npmrc = "/run/user/1000/secrets/aws_codeartifact_script";
     };
   };
 

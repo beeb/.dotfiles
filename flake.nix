@@ -74,7 +74,6 @@
             ./home-manager/common.nix
             machine.file
           ] ++ nixpkgs.lib.optionals machine.home [
-            sops-nix.homeManagerModules.sops
             ./home-manager/home.nix
           ];
 

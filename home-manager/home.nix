@@ -12,7 +12,7 @@
   };
   home.sessionVariables = { };
   imports = [
-    <sops-nix/modules/home-manager/sops.nix>
+    inputs.sops-nix.homeManagerModules.sops
   ];
   sops.defaultSopsFile = ../sops/common.yaml;
   sops.secrets.aws_codeartifact_script = {

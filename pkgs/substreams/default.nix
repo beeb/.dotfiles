@@ -2,16 +2,16 @@
 
 buildGoModule rec {
   pname = "substreams";
-  version = "1.1.10";
+  version = "1.1.11";
 
   src = fetchFromGitHub {
     owner = "streamingfast";
     repo = "substreams";
     rev = "v${version}";
-    sha256 = "sha256-MuDlugCx6FXf2OSCb7+bJ4U8m8rdkgai6Pw+mcZN7QE=";
+    sha256 = "sha256-vibbkUBNozs7kDW8Z9428YEa+RgaDz4yoYSn+sBjivI=";
   };
 
-  vendorHash = "sha256-2BmehVFRbMUsBto0XS1ENnUCC+Sx6HYaT01U7fMvSWE=";
+  vendorHash = "sha256-Ibb4VfVj3PsyGgRrIwd+92t4D8ui9sFwTrXtopv+mnE=";
   subPackages = [ "cmd/substreams" ];
   doCheck = false;
 

@@ -16,9 +16,5 @@
     hmu = "nix flake update ~/.dotfiles && hms";
   };
 
-  programs.zsh.envExtra = ''
-    export PATH="$PATH:$HOME/.foundry/bin"
-  '';
-
   sops.age.keyFile = "/home/valentin/.dotfiles/secrets/keys.txt";
 }

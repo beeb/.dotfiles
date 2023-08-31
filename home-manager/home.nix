@@ -1,7 +1,7 @@
 { pkgs, inputs, config, ... }:
 {
   /* -------------------------------- overlays -------------------------------- */
-  nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
+  nixpkgs.overlays = [ inputs.rust-overlay.overlays.default inputs.foundry.overlay inputs.solc.overlay ];
 
   /* --------------------------------- system --------------------------------- */
   home.file = {
@@ -24,12 +24,8 @@
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs.unstable; [
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    (inputs.solc.mkDefault pkgs pkgs.solc_0_8_20)
+    (pkgs.rust-bin.stable.latest.default.override { extensions = [ "rust-src" "rustfmt" ]; })
     awscli2
     bacon
     cargo-binstall
@@ -43,12 +39,13 @@
     nil
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
+    pkgs.foundry-bin
+    pkgs.solc_0_8_20
     rage
     rome
     rust-analyzer-unwrapped
     sccache
     sops
-    (pkgs.rust-bin.stable.latest.default.override { extensions = [ "rust-src" "rustfmt" ]; })
   ];
   programs.direnv = {
     enable = true;

@@ -17,9 +17,17 @@
     # Sops-nix
     sops-nix.url = "github:mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Foundry
+    foundry.url = "github:shazow/foundry.nix/monthly";
+    foundry.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Solc
+    solc.url = "github:hellwolf/solc.nix";
+    solc.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, rust-overlay, sops-nix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, rust-overlay, sops-nix, foundry, solc, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [

@@ -88,6 +88,9 @@
       core = {
         editor = "hx";
       };
+      init = {
+        defaultBranch = "main";
+      };
     };
   };
   programs.gpg = {

@@ -1,18 +1,20 @@
-{ pkgs, outputs, ... }:
+{ pkgs, outputs, config, ... }:
 {
-  /* --------------------------------- imports -------------------------------- */
-  imports = [
-    # inputs.hyprland.homeManagerModules.default
-    ./common.nix
-    ./home.nix
-  ];
-
   /* ---------------------------------- system -------------------------------- */
   home.username = "beeb";
   home.homeDirectory = "/home/beeb";
   home.file = {
     ".ssh/id_1password.pub".source = ../pubkeys/id_1password.pub;
   };
+  home.activation = {
+    linkDesktopApplications = {
+      after = [ "writeBoundary" "createXdgUserDirectories" ];
+      before = [ ];
+      data = "/usr/bin/update-desktop-database";
+    };
+  };
+  fonts.fontconfig.enable = true;
+  targets.genericLinux.enable = true;
   sops.age.keyFile = "/home/beeb/.dotfiles/secrets/keys.txt";
 
   /* -------------------------------- programs -------------------------------- */
@@ -29,7 +31,13 @@
     vscode
     webcord
     wget
-  ];
+  ]; /*
+  programs.bash = {
+  enable = true;
+  profileExtra = ''
+      export XDG_DATA_DIRS=$HOME/.home-manager-share:$XDG_DATA_DIRS
+  '';
+  }; */
   programs.firefox.enable = true;
   programs.ssh = {
     enable = true;
@@ -67,7 +75,7 @@
 
       config.color_scheme = 'Catppuccin Mocha'
       config.font = wezterm.font {
-        family = 'JetBrainsMono Nerd Font',
+        family = 'JetBrainsMonoNL Nerd Font',
         weight = 'Light'
       }
       config.font_size = 11
@@ -136,6 +144,8 @@
   programs.zsh = {
     shellAliases = {
       rt = "trash put";
+      hms = "home-manager switch --flake ~/.dotfiles";
+      hmu = "nix flake update ~/.dotfiles && hms";
     };
     initExtra = ''
       function gpg_cache () {

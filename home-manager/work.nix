@@ -31,6 +31,7 @@
     vscode
     webcord
     wget
+    ungoogled-chromium
   ]; /*
   programs.bash = {
   enable = true;

@@ -116,6 +116,9 @@
     enable = true;
     libraries = with pkgs; [
       stdenv.cc.cc
+      libthai
+      zlib
+      fuse
     ];
   };
   programs.zsh.enable = true;

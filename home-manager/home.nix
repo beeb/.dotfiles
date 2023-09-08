@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, ... }:
+{ pkgs, inputs, outputs, config, ... }:
 {
   /* -------------------------------- overlays -------------------------------- */
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default inputs.foundry.overlay inputs.solc.overlay ];
@@ -39,6 +39,7 @@
     nil
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
+    outputs.packages.${pkgs.system}.bun-v1
     pkgs.foundry-bin
     pkgs.solc_0_8_20
     rage

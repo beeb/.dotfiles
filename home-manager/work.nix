@@ -21,17 +21,17 @@
   home.packages = with pkgs.unstable; [
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     hunspell
-    hunspellDicts.fr-moderne
     hunspellDicts.en-us
+    hunspellDicts.fr-moderne
     libreoffice-qt
     nodejs_18
     nodePackages.rollup
-    outputs.packages.${pkgs.system}.substreams
+    pkgs.substreams
     trashy
+    ungoogled-chromium
     vscode
     webcord
     wget
-    ungoogled-chromium
   ]; /*
   programs.bash = {
   enable = true;

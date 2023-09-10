@@ -28,6 +28,7 @@
     (pkgs.rust-bin.stable.latest.default.override { extensions = [ "rust-src" "rustfmt" ]; })
     awscli2
     bacon
+    biome
     cargo-binstall
     cargo-machete
     cargo-outdated
@@ -43,7 +44,6 @@
     pkgs.foundry-bin
     pkgs.solc_0_8_20
     rage
-    rome
     rust-analyzer-unwrapped
     sccache
     sops
@@ -92,7 +92,7 @@
           args = [ "--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib" ];
         };
         formatter = with pkgs.unstable; {
-          command = "${rome}/bin/rome";
+          command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.ts" ];
         };
       }
@@ -100,7 +100,7 @@
         name = "javascript";
         auto-format = true;
         formatter = with pkgs.unstable; {
-          command = "${rome}/bin/rome";
+          command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.js" ];
         };
       }
@@ -108,7 +108,7 @@
         name = "json";
         auto-format = true;
         formatter = with pkgs.unstable; {
-          command = "${rome}/bin/rome";
+          command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.json" ];
         };
       }

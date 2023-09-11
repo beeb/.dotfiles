@@ -32,14 +32,7 @@
     ungoogled-chromium
     vscode
     wget
-  ]; /*
-  programs.bash = {
-  enable = true;
-  profileExtra = ''
-      export XDG_DATA_DIRS=$HOME/.home-manager-share:$XDG_DATA_DIRS
-  '';
-  }; */
-  programs.firefox.enable = true;
+  ];
   programs.ssh = {
     enable = true;
     extraConfig = ''

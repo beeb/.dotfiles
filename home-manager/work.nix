@@ -10,7 +10,7 @@
     linkDesktopApplications = {
       after = [ "writeBoundary" "createXdgUserDirectories" ];
       before = [ ];
-      data = "/usr/bin/update-desktop-database";
+      data = "/usr/bin/sudo /usr/bin/chmod -R 777 $HOME/.nix-profile/share/applications && /usr/bin/update-desktop-database";
     };
   };
   fonts.fontconfig.enable = true;
@@ -20,6 +20,7 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs.unstable; [
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    discord
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
@@ -30,7 +31,6 @@
     trashy
     ungoogled-chromium
     vscode
-    webcord
     wget
   ]; /*
   programs.bash = {

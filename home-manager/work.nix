@@ -10,7 +10,7 @@
     linkDesktopApplications = {
       after = [ "writeBoundary" "createXdgUserDirectories" ];
       before = [ ];
-      data = "/usr/bin/sudo /usr/bin/chmod -R 777 $HOME/.nix-profile/share/applications && /usr/bin/update-desktop-database";
+      data = "/usr/bin/sudo /usr/bin/update-desktop-database";
     };
   };
   fonts.fontconfig.enable = true;

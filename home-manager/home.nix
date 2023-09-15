@@ -29,6 +29,7 @@
     awscli2
     bacon
     biome
+    bun
     cargo-binstall
     cargo-machete
     cargo-outdated
@@ -40,7 +41,6 @@
     nil
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
-    pkgs.bun-v1
     pkgs.foundry-bin
     pkgs.solc_0_8_20
     rage

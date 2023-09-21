@@ -24,7 +24,6 @@
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
-    insomnia
     libreoffice-qt
     nodejs_18
     nodePackages.rollup

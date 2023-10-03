@@ -4,5 +4,6 @@
   home.homeDirectory = "/home/beeb";
 
   home.packages = with pkgs; [
+    podman
   ];
 }

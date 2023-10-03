@@ -90,7 +90,7 @@
           "valentin@DESKTOP-SNQ577U" = { system = "x86_64-linux"; file = ./home-manager/desktop.nix; home = true; };
           "valentin" = { system = "x86_64-darwin"; file = ./home-manager/macbook.nix; home = true; };
           "beeb@beebvpn" = { system = "x86_64-linux"; file = ./home-manager/vpn.nix; home = false; };
-          "beeb@vps" = { system = "x86_64-linux"; file = ./home-manager/vps.nix; home = false; };
+          "beeb@vps" = { system = "aarch64-linux"; file = ./home-manager/vps.nix; home = false; };
           "beeb@beeb-Aspire-A715-51G" = { system = "x86_64-linux"; file = ./home-manager/work.nix; home = true; };
         };
     };

@@ -19,7 +19,7 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Foundry
-    foundry.url = "github:shazow/foundry.nix";
+    foundry.url = "github:shazow/foundry.nix/monthly";
     foundry.inputs.nixpkgs.follows = "nixpkgs";
 
     # Solc

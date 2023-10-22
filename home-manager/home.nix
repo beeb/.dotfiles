@@ -41,12 +41,13 @@
     nil
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
-    pkgs.foundry-bin
     pkgs.solc_0_8_20
     rage
     rust-analyzer-unwrapped
     sccache
     sops
+  ] ++ lib.optionals pkgs.stdenv.isLinux [
+    pkgs.foundry-bin
   ];
   programs.direnv = {
     enable = true;

@@ -27,7 +27,7 @@
     libreoffice-qt
     nodejs_18
     nodePackages.rollup
-    pkgs.substreams
+    pkgs.spire
     trashy
     ungoogled-chromium
     vscode

@@ -3,4 +3,5 @@
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
   substreams = pkgs.callPackage ./substreams { };
+  spire = pkgs.callPackage ./spire { };
 }

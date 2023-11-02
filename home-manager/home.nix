@@ -63,22 +63,42 @@
     goPrivate = [ "github.com/beeb" ];
   };
   programs.helix.languages = {
-    language = [
-      {
-        name = "rust";
-        auto-format = true;
-        config.checkOnSave.command = "clippy";
-        config.inlayHints = {
+    language-server = {
+      ruff = with pkgs.unstable.python3.pkgs; {
+        command = "${ruff-lsp}/bin/ruff-lsp";
+      };
+      typescript-language-server = with pkgs.unstable.nodePackages; {
+        command = "${typescript-language-server}/bin/typescript-language-server";
+        args = [ "--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib" ];
+      };
+      svelteserver = with pkgs.unstable.nodePackages; {
+        command = "${svelte-language-server}/bin/svelteserver";
+      };
+      taplo = with pkgs.unstable; {
+        command = "${taplo}/bin/taplo";
+        args = [ "lsp" "stdio" ];
+      };
+      yaml-language-server = with pkgs.unstable.nodePackages; {
+        command = "${yaml-language-server}/bin/yaml-language-server";
+        args = [ "--stdio" ];
+      };
+      rust-analyzer.config = {
+        checkOnSave.command = "clippy";
+        inlayHints = {
           closingBraceHints.enable = false;
           parameterHints.enable = false;
           typeHints.enable = false;
         };
+      };
+    };
+    language = [
+      {
+        name = "rust";
+        auto-format = true;
       }
       {
         name = "python";
-        language-server = with pkgs.unstable.python3.pkgs; {
-          command = "${ruff-lsp}/bin/ruff-lsp";
-        };
+        language-servers = [ "ruff" ];
         formatter = with pkgs.unstable; {
           command = "${black}/bin/black";
           args = [ "--quiet" "--line-length" "120" "-" ];
@@ -88,10 +108,7 @@
       {
         name = "typescript";
         auto-format = true;
-        language-server = with pkgs.unstable.nodePackages; {
-          command = "${typescript-language-server}/bin/typescript-language-server";
-          args = [ "--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib" ];
-        };
+        language-servers = [ "typescript-language-server" ];
         formatter = with pkgs.unstable; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.ts" ];
@@ -116,9 +133,7 @@
       {
         name = "svelte";
         auto-format = true;
-        language-server = with pkgs.unstable.nodePackages; {
-          command = "${svelte-language-server}/bin/svelteserver";
-        };
+        language-servers = [ "svelteserver" ];
       }
       { name = "css"; auto-format = true; }
       {
@@ -129,17 +144,11 @@
       {
         name = "toml";
         auto-format = true;
-        language-server = with pkgs.unstable; {
-          command = "${taplo}/bin/taplo";
-          args = [ "lsp" "stdio" ];
-        };
+        language-servers = [ "taplo" ];
       }
       {
         name = "yaml";
-        language-server = with pkgs.unstable.nodePackages; {
-          command = "${yaml-language-server}/bin/yaml-language-server";
-          args = [ "--stdio" ];
-        };
+        language-servers = [ "yaml-language-server" ];
         auto-format = true;
       }
       # TODO: add astro once @astrojs/language-server is available on pkgs

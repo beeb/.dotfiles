@@ -28,6 +28,7 @@
     nodejs_18
     nodePackages.rollup
     pkgs.spire
+    telegram-desktop
     trashy
     ungoogled-chromium
     vscode

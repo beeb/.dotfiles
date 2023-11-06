@@ -31,7 +31,6 @@
     telegram-desktop
     trashy
     ungoogled-chromium
-    vscode
     wget
   ];
   programs.ssh = {

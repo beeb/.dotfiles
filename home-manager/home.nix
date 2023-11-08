@@ -31,6 +31,7 @@
     biome
     bun
     cargo-binstall
+    cargo-lambda
     cargo-machete
     cargo-outdated
     cargo-update

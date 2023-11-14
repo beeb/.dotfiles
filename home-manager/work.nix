@@ -132,6 +132,14 @@
         }
       }
 
+      config.background = {
+        {
+          source = {
+            File = '/home/beeb/.dotfiles/img/terminal_bg.png',
+          },
+        },
+      }
+
       return config
     '';
   };

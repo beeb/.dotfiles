@@ -108,8 +108,14 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
+    themes = {
+      my_catppuccin = {
+        inherits = "catppuccin_mocha";
+        "ui.background" = { };
+      };
+    };
     settings = {
-      theme = "catppuccin_mocha";
+      theme = "my_catppuccin";
       editor = {
         line-number = "relative";
         cursorline = true;

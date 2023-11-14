@@ -20,6 +20,15 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [ installShellFiles ];
 
+  postInstall = ''
+    installManPage tldr.1
+
+    installShellCompletion --cmd tldr \
+      --bash <(cat completions/tldr.bash) \
+      --fish <(cat completions/tldr.fish) \
+      --zsh <(cat completions/_tldr)
+  '';
+
   doCheck = false;
 
   meta = with lib; {
@@ -28,4 +37,6 @@ rustPlatform.buildRustPackage rec {
     license = with licenses; [ mit ];
     maintainers = with maintainers; [ beeb ];
   };
+
+  COMPLETION_DIR = "completions";
 }

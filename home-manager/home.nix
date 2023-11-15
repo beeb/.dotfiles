@@ -35,7 +35,6 @@
     cargo-machete
     cargo-outdated
     cargo-update
-    deno
     gcc
     gopls
     halp

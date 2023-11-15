@@ -41,6 +41,7 @@
     nil
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
+    pkgs.bulloak
     pkgs.solc_0_8_20
     rage
     rust-analyzer-unwrapped

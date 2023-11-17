@@ -5,20 +5,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "bulloak";
-  version = "0.5.3";
+  version = "0.5.4";
 
   src = fetchFromGitHub {
     owner = "alexfertel";
     repo = "bulloak";
-    rev = "d2f49efba30ba919e62762af00c577b9bc1676c5";
-    hash = "sha256-7CdS5melxqGlq3ued9Z+LS93H5Av932FV/vRtBVgZjg=";
+    rev = "v${version}";
+    hash = "sha256-lUTMQMBqCezuUsfvuYSCBFsokoY3bPoJDGWL90EjVqY=";
   };
 
-  cargoHash = "sha256-mqu+KOgKSy06wcC37kwo/AC5KyegyuzGX0oBsXBXngw=";
-
-  cargoPatches = [
-    ./add-Cargo.lock.patch
-  ];
+  cargoHash = "sha256-LH96e/dBbv4J7g7wzh3/vL+PzZn779zUMBgio6w3rJw=";
 
   doCheck = false;
 

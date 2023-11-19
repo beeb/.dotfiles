@@ -36,7 +36,7 @@
   home.sessionVariables = { };
 
   /* -------------------------------- programs -------------------------------- */
-  home.packages = with pkgs.unstable; [
+  home.packages = with pkgs; [
     du-dust
     fd
     git-crypt

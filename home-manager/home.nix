@@ -23,11 +23,12 @@
   };
 
   /* -------------------------------- programs -------------------------------- */
-  home.packages = with pkgs.unstable; [
+  home.packages = with pkgs; [
     (inputs.solc.mkDefault pkgs pkgs.solc_0_8_20)
-    (pkgs.rust-bin.stable.latest.default.override { extensions = [ "rust-src" "rustfmt" ]; })
+    (rust-bin.stable.latest.default.override { extensions = [ "rust-src" "rustfmt" ]; })
     bacon
     biome
+    bulloak
     bun
     cargo-binstall
     cargo-lambda
@@ -40,14 +41,13 @@
     nil
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
-    pkgs.bulloak
-    pkgs.solc_0_8_20
     rage
     rust-analyzer-unwrapped
     sccache
+    solc_0_8_20
     sops
   ] ++ lib.optionals pkgs.stdenv.isLinux [
-    #pkgs.unstable.awscli2
+    #pkgs.awscli2
     pkgs.foundry-bin
   ];
   programs.direnv = {
@@ -65,21 +65,21 @@
   };
   programs.helix.languages = {
     language-server = {
-      ruff = with pkgs.unstable; {
+      ruff = with pkgs; {
         command = "${ruff-lsp}/bin/ruff-lsp";
       };
-      typescript-language-server = with pkgs.unstable.nodePackages; {
+      typescript-language-server = with pkgs.nodePackages; {
         command = "${typescript-language-server}/bin/typescript-language-server";
         args = [ "--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib" ];
       };
-      svelteserver = with pkgs.unstable.nodePackages; {
+      svelteserver = with pkgs.nodePackages; {
         command = "${svelte-language-server}/bin/svelteserver";
       };
-      taplo = with pkgs.unstable; {
+      taplo = with pkgs; {
         command = "${taplo}/bin/taplo";
         args = [ "lsp" "stdio" ];
       };
-      yaml-language-server = with pkgs.unstable.nodePackages; {
+      yaml-language-server = with pkgs.nodePackages; {
         command = "${yaml-language-server}/bin/yaml-language-server";
         args = [ "--stdio" ];
       };
@@ -100,7 +100,7 @@
       {
         name = "python";
         language-servers = [ "ruff" ];
-        formatter = with pkgs.unstable; {
+        formatter = with pkgs; {
           command = "${black}/bin/black";
           args = [ "--quiet" "--line-length" "120" "-" ];
         };
@@ -110,7 +110,7 @@
         name = "typescript";
         auto-format = true;
         language-servers = [ "typescript-language-server" ];
-        formatter = with pkgs.unstable; {
+        formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.ts" ];
         };
@@ -118,7 +118,7 @@
       {
         name = "javascript";
         auto-format = true;
-        formatter = with pkgs.unstable; {
+        formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.js" ];
         };
@@ -126,7 +126,7 @@
       {
         name = "json";
         auto-format = true;
-        formatter = with pkgs.unstable; {
+        formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.json" ];
         };
@@ -254,7 +254,7 @@
     plugins = [
       {
         name = "zsh-syntax-highlighting";
-        src = with pkgs.unstable; "${zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
+        src = with pkgs; "${zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
         file = "zsh-syntax-highlighting.zsh";
       }
     ];

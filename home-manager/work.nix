@@ -18,8 +18,8 @@
   sops.age.keyFile = "/home/beeb/.dotfiles/secrets/keys.txt";
 
   /* -------------------------------- programs -------------------------------- */
-  home.packages = with pkgs.unstable; [
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  home.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     discord
     hunspell
     hunspellDicts.en-us
@@ -27,7 +27,7 @@
     libreoffice-qt
     nodejs_18
     nodePackages.rollup
-    pkgs.spire
+    spire
     telegram-desktop
     trashy
     ungoogled-chromium

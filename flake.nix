@@ -3,16 +3,16 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Rust overlay
     rust-overlay.url = "github:oxalica/rust-overlay";
-    rust-overlay.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     # Sops-nix
     sops-nix.url = "github:mic92/sops-nix";
@@ -20,11 +20,11 @@
 
     # Foundry
     foundry.url = "github:shazow/foundry.nix/monthly";
-    foundry.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    foundry.inputs.nixpkgs.follows = "nixpkgs";
 
     # Solc
     solc.url = "github:hellwolf/solc.nix";
-    solc.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    solc.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, rust-overlay, sops-nix, foundry, solc, ... }@inputs:

@@ -26,7 +26,6 @@
   home.packages = with pkgs.unstable; [
     (inputs.solc.mkDefault pkgs pkgs.solc_0_8_20)
     (pkgs.rust-bin.stable.latest.default.override { extensions = [ "rust-src" "rustfmt" ]; })
-    awscli2
     bacon
     biome
     bun
@@ -48,6 +47,7 @@
     sccache
     sops
   ] ++ lib.optionals pkgs.stdenv.isLinux [
+    pkgs.unstable.awscli2
     pkgs.foundry-bin
   ];
   programs.direnv = {
@@ -65,7 +65,7 @@
   };
   programs.helix.languages = {
     language-server = {
-      ruff = with pkgs.unstable.python3.pkgs; {
+      ruff = with pkgs.unstable; {
         command = "${ruff-lsp}/bin/ruff-lsp";
       };
       typescript-language-server = with pkgs.unstable.nodePackages; {

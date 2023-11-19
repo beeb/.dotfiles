@@ -5,5 +5,4 @@
   bulloak = pkgs.callPackage ./bulloak { };
   substreams = pkgs.callPackage ./substreams { };
   spire = pkgs.callPackage ./spire { };
-  tlrc = pkgs.callPackage ./tlrc { };
 }

@@ -47,7 +47,7 @@
     sccache
     sops
   ] ++ lib.optionals pkgs.stdenv.isLinux [
-    pkgs.unstable.awscli2
+    #pkgs.unstable.awscli2
     pkgs.foundry-bin
   ];
   programs.direnv = {

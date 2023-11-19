@@ -42,7 +42,7 @@
     git-crypt
     magic-wormhole-rs
     neofetch
-    pkgs.tlrc
+    tlrc
   ];
 
   programs.atuin = {

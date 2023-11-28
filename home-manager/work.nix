@@ -138,6 +138,7 @@
           source = {
             File = '/home/beeb/.dotfiles/img/terminal_bg.png',
           },
+          hsb = { brightness = 0.5 },
         },
       }
 

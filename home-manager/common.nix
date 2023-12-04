@@ -196,7 +196,7 @@
       bindkey '^[[3~' delete-char
     '';
     shellAliases = {
-      cat = "bat";
+      cat = "bat --style auto";
       cd = "z";
       ze = "zellij";
       za = "zellij a -c";

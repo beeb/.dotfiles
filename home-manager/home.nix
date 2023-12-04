@@ -38,6 +38,7 @@
     gcc
     gopls
     halp
+    jaq
     nil
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted

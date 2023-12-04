@@ -31,7 +31,7 @@ rustPlatform.buildRustPackage rec {
   '';
 
   meta = with lib; {
-    description = "An IDE plugin for Rust that helps you focus on relevant code. ";
+    description = "An IDE plugin for Rust that helps you focus on relevant code";
     homepage = "https://github.com/willcrichton/flowistry";
     license = licenses.mit;
     mainProgram = "cargo-flowistry";

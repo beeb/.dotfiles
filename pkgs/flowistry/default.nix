@@ -1,7 +1,9 @@
-{ lib
+{ stdenv
+, lib
 , fetchCrate
 , rustPlatform
 , rustc
+, patchelf
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -21,6 +23,12 @@ rustPlatform.buildRustPackage rec {
   RUSTC_BOOTSTRAP = 1;
 
   buildInputs = [ rustc.llvm ];
+
+  # Based on https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/compilers/rust/clippy.nix
+  preFixup = lib.optionalString stdenv.isDarwin ''
+    install_name_tool -add_rpath "${rustc}/lib" "$out/bin/flowistry-driver"
+    install_name_tool -add_rpath "${rustc}/lib" "$out/bin/cargo-flowistry"
+  '';
 
   meta = with lib; {
     description = "An IDE plugin for Rust that helps you focus on relevant code. ";

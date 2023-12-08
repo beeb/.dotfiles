@@ -4,6 +4,7 @@
   home.homeDirectory = "/home/valentin";
 
   home.packages = with pkgs; [
+    espup
     trashy
   ];
 

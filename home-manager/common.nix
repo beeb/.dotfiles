@@ -135,7 +135,6 @@
           select = "underline";
         };
         indent-guides.render = true;
-        file-picker.hidden = false;
         soft-wrap.enable = true;
       };
       keys = {

@@ -93,6 +93,10 @@
           typeHints.enable = false;
         };
       };
+      solidity-language-server = with pkgs; {
+        command = "${myNodePackages."@nomicfoundation/solidity-language-server"}/bin/nomicfoundation-solidity-language-server";
+        args = [ "--stdio" ];
+      };
     };
     language = [
       {
@@ -152,6 +156,11 @@
       {
         name = "yaml";
         language-servers = [ "yaml-language-server" ];
+        auto-format = true;
+      }
+      {
+        name = "solidity";
+        language-servers = [ "solidity-language-server" ];
         auto-format = true;
       }
       # TODO: add astro once @astrojs/language-server is available on pkgs

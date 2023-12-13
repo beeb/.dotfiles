@@ -49,7 +49,7 @@
     solc_0_8_20
     sops
   ] ++ lib.optionals pkgs.stdenv.isLinux [
-    #pkgs.awscli2
+    pkgs.awscli2
     pkgs.foundry-bin
   ];
   programs.direnv = {

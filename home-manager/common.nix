@@ -136,6 +136,7 @@
         };
         indent-guides.render = true;
         soft-wrap.enable = true;
+        file-picker.hidden = false; # show hidden files
       };
       keys = {
         normal = {

@@ -95,6 +95,9 @@
         defaultBranch = "main";
       };
     };
+    ignores = [
+      ".helix/ignore"
+    ];
   };
   programs.gpg = {
     enable = true;

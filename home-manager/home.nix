@@ -161,6 +161,10 @@
       {
         name = "solidity";
         language-servers = [ "solidity-language-server" ];
+        formatter = {
+          command = "${pkgs.foundry-bin}/bin/forge";
+          args = [ "fmt" "-r" "-" ];
+        };
         auto-format = true;
       }
       # TODO: add astro once @astrojs/language-server is available on pkgs

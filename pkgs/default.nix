@@ -2,7 +2,7 @@
 # You can build them using 'nix build .#example' or (legacy) 'nix-build -A example'
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
-  flowistry = pkgs.callPackage ./flowistry { };
+  # flowistry = pkgs.callPackage ./flowistry { };
   myNodePackages = pkgs.callPackage ./myNodePackages { };
   substreams = pkgs.callPackage ./substreams { };
   spire = pkgs.callPackage ./spire { };

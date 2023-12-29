@@ -35,7 +35,7 @@
     cargo-machete
     cargo-outdated
     cargo-update
-    flowistry
+    # flowistry
     gcc
     gopls
     halp

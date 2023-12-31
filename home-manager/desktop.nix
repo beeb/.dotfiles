@@ -16,6 +16,8 @@
     rt = "trash put";
     hms = "home-manager switch --flake ~/.dotfiles";
     hmu = "nix flake update ~/.dotfiles && hms";
+    ssh = "ssh.exe";
+    ssh-add = "ssh-add.exe";
   };
 
   sops.age.keyFile = "/home/valentin/.dotfiles/secrets/keys.txt";

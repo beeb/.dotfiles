@@ -283,5 +283,6 @@
   /* -------------------------------- services -------------------------------- */
   services.gpg-agent = {
     enable = !pkgs.stdenv.isDarwin;
+    pinentryFlavor = "curses";
   };
 }

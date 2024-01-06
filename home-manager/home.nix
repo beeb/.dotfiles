@@ -35,6 +35,7 @@
     cargo-machete
     cargo-outdated
     cargo-update
+    dua
     # flowistry
     gcc
     gopls
@@ -158,6 +159,8 @@
         language-servers = [ "yaml-language-server" ];
         auto-format = true;
       }
+      # TODO: add astro once @astrojs/language-server is available on pkgs
+    ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
       {
         name = "solidity";
         language-servers = [ "solidity-language-server" ];
@@ -167,7 +170,6 @@
         };
         auto-format = true;
       }
-      # TODO: add astro once @astrojs/language-server is available on pkgs
     ];
   };
   programs.lazygit = {

@@ -37,6 +37,7 @@
     cargo-update
     dua
     # flowistry
+    gavin-bc
     gcc
     gopls
     halp

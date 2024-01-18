@@ -63,6 +63,9 @@
     key = "4592122C5C6B53B1";
     signByDefault = true;
   };
+  programs.gpg = {
+    package = pkgs.gnupg.override { guiSupport = true; pinentry = pkgs.pinentry-gtk2; };
+  };
   programs.go = {
     enable = true;
     goPrivate = [ "github.com/beeb" ];
@@ -286,6 +289,5 @@
   /* -------------------------------- services -------------------------------- */
   services.gpg-agent = {
     enable = !pkgs.stdenv.isDarwin;
-    pinentryFlavor = "curses";
   };
 }

@@ -4,6 +4,7 @@
 { pkgs ? (import ../nixpkgs.nix) { } }: {
   # flowistry = pkgs.callPackage ./flowistry { };
   myNodePackages = pkgs.callPackage ./myNodePackages { };
+  roundme = pkgs.callPackage ./roundme { };
   substreams = pkgs.callPackage ./substreams { };
   spire = pkgs.callPackage ./spire { };
 }

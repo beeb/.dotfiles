@@ -27,6 +27,7 @@
     libreoffice-qt
     nodejs_18
     nodePackages.rollup
+    roundme
     spire
     telegram-desktop
     trashy

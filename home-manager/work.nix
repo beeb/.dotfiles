@@ -20,7 +20,6 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    discord
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
@@ -32,6 +31,7 @@
     telegram-desktop
     trashy
     ungoogled-chromium
+    webcord
     wget
   ];
   programs.ssh = {

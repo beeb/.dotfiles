@@ -35,7 +35,7 @@
     cargo-machete
     cargo-outdated
     cargo-update
-    cz-cli
+    convco
     dua
     # flowistry
     gavin-bc

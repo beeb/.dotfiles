@@ -35,6 +35,7 @@
     cargo-machete
     cargo-outdated
     cargo-update
+    cz-cli
     dua
     # flowistry
     gavin-bc

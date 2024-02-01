@@ -73,9 +73,10 @@
   };
   programs.helix.languages = {
     language-server = {
-      astro = with pkgs.nodePackages; {
-        command = "${"@astrojs/language-server"}/bin/astro-ls";
+      astro = {
+        command = "${pkgs.nodePackages."@astrojs/language-server"}/bin/astro-ls";
         args = [ "--stdio" ];
+        config.typescript.tsdk = "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib";
       };
       ruff = with pkgs; {
         command = "${ruff-lsp}/bin/ruff-lsp";

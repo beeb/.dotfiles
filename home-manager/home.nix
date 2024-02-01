@@ -73,6 +73,10 @@
   };
   programs.helix.languages = {
     language-server = {
+      astro = with pkgs.nodePackages; {
+        command = "${"@astrojs/language-server"}/bin/astro-ls";
+        args = [ "--stdio" ];
+      };
       ruff = with pkgs; {
         command = "${ruff-lsp}/bin/ruff-lsp";
       };
@@ -105,6 +109,11 @@
       };
     };
     language = [
+      {
+        name = "astro";
+        language-servers = [ "astro" ];
+        auto-format = true;
+      }
       {
         name = "rust";
         auto-format = true;

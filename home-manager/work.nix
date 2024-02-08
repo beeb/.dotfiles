@@ -150,7 +150,7 @@
     shellAliases = {
       rt = "trash put";
       hms = "home-manager switch --flake ~/.dotfiles";
-      hmu = "nix flake update ~/.dotfiles && hms";
+      hmu = "nix flake update --flake ~/.dotfiles && hms";
     };
     initExtra = ''
       function gpg_cache () {

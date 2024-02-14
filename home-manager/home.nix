@@ -34,7 +34,7 @@
     cargo-lambda
     cargo-machete
     cargo-outdated
-    cargo-update
+    # cargo-update
     convco
     dua
     # flowistry

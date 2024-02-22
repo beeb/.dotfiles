@@ -281,6 +281,10 @@
       scala = { symbol = " "; };
     };
   };
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   programs.zoxide.enable = true;
   programs.zsh = {
     plugins = [

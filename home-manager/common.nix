@@ -151,6 +151,7 @@
           space.i = [ ":toggle-option lsp.display-inlay-hints" ];
           C-j = [ "extend_to_line_bounds" "delete_selection" "paste_after" ];
           C-k = [ "extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" ];
+          C-e = [ "search_selection" "extend_search_next" ];
         };
         insert = {
           C-c = "normal_mode";

@@ -131,6 +131,7 @@
         lsp = {
           display-messages = true;
           display-inlay-hints = true;
+          auto-signature-help = false;
         };
         cursor-shape = {
           insert = "bar";
@@ -140,21 +141,29 @@
         indent-guides.render = true;
         soft-wrap.enable = true;
         file-picker.hidden = false; # show hidden files
+        statusline = {
+          center = [ "version-control" ];
+        };
       };
       keys = {
         normal = {
-          g.D = [ "hsplit" "jump_view_up" "goto_definition" ];
-          F8 = "goto_next_diag";
-          C-space = "expand_selection";
-          X = "extend_line_above";
-          esc = [ "collapse_selection" "keep_primary_selection" ];
-          space.i = [ ":toggle-option lsp.display-inlay-hints" ];
-          C-j = [ "extend_to_line_bounds" "delete_selection" "paste_after" ];
-          C-k = [ "extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" ];
-          C-e = [ "search_selection" "extend_search_next" ];
+          g.D = [ "hsplit" "jump_view_up" "goto_definition" ]; # go to definition in new split
+          F8 = "goto_next_diag"; # go to next diagnostic
+          C-space = "expand_selection"; # smart selection grow
+          X = [ "extend_line_up" "extend_to_line_bounds" ]; # move line selection up (unselect or select upwards)
+          esc = [ "collapse_selection" "keep_primary_selection" ]; # better escape
+          space.i = [ ":toggle-option lsp.display-inlay-hints" ]; # toggle inlay hints
+          C-j = [ "extend_to_line_bounds" "delete_selection" "paste_after" ]; # move current line down
+          C-k = [ "extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" ]; # move current line up
+          C-e = [ "search_selection" "extend_search_next" ]; # add to selection the next match of the current selection
+        };
+        select = {
+          C-space = "expand_selection"; # smart selection grow
+          X = [ "extend_line_up" "extend_to_line_bounds" ]; # move line selection up (unselect or select upwards)
+          C-e = [ "search_selection" "extend_search_next" ]; # add to selection the next match of the current selection
         };
         insert = {
-          C-c = "normal_mode";
+          C-c = "normal_mode"; # exit insert mode with ctrl+c
         };
       };
     };

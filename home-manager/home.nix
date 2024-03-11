@@ -117,6 +117,12 @@
         command = "${myNodePackages."@nomicfoundation/solidity-language-server"}/bin/nomicfoundation-solidity-language-server";
         args = [ "--stdio" ];
       };
+      typos = with pkgs; {
+        command = "${typos-lsp}/bin/typos-lsp";
+        config = {
+          diagnosticSeverity = "information";
+        };
+      };
     };
     language = [
       {
@@ -187,7 +193,7 @@
     ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
       {
         name = "solidity";
-        language-servers = [ "solidity-language-server" ];
+        language-servers = [ "solidity-language-server" "typos" ];
         formatter = {
           command = "${pkgs.foundry-bin}/bin/forge";
           args = [ "fmt" "-r" "-" ];

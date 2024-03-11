@@ -64,13 +64,32 @@
 
       -- Maximize on start
       wezterm.on('gui-startup', function(cmd)
-          local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
-          window:gui_window():maximize()
+        local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+        window:gui_window():maximize()
+      end)
+
+      -- Change font for helix
+      wezterm.on("update-status", function(window, pane)
+        local info = pane:get_foreground_process_info()
+        if info == nil then
+          return
+        end
+        if info.name == ".hx-wrapped" then
+          window:set_config_overrides({
+            font = wezterm.font {
+              family = 'JetBrainsMonoNL Nerd Font'
+            },
+          })
+        else
+          window:set_config_overrides({
+              family = 'JetBrainsMono Nerd Font'
+          })
+        end
       end)
 
       config.color_scheme = 'Catppuccin Mocha'
       config.font = wezterm.font {
-        family = 'JetBrainsMonoNL Nerd Font',
+        family = 'JetBrainsMono Nerd Font',
         weight = 'Light'
       }
       config.font_size = 10.5

@@ -76,8 +76,8 @@
       {
         name = "solidity";
         source = {
-          git = "https://github.com/JoranHonig/tree-sitter-solidity";
-          rev = "5cb506ae419c4ad620c77210fd47500d3d169dbc";
+          git = "https://github.com/beeb/tree-sitter-solidity";
+          rev = "feature/struct-enum-body";
         };
       }
     ];

@@ -1,4 +1,4 @@
-{ pkgs, inputs, outputs, config, ... }:
+{ pkgs, inputs, outputs, ... }:
 {
   /* -------------------------------- overlays -------------------------------- */
   nixpkgs.overlays = [ outputs.overlays.additions inputs.rust-overlay.overlays.default inputs.foundry.overlay inputs.solc.overlay ];
@@ -72,6 +72,15 @@
     goPrivate = [ "github.com/beeb" ];
   };
   programs.helix.languages = {
+    grammar = [
+      {
+        name = "solidity";
+        source = {
+          git = "https://github.com/JoranHonig/tree-sitter-solidity";
+          rev = "5cb506ae419c4ad620c77210fd47500d3d169dbc";
+        };
+      }
+    ];
     language-server = {
       astro = {
         command = "${pkgs.nodePackages."@astrojs/language-server"}/bin/astro-ls";

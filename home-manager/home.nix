@@ -26,7 +26,6 @@
   home.packages = with pkgs; [
     (inputs.solc.mkDefault pkgs pkgs.solc_0_8_20)
     (rust-bin.stable.latest.default.override { extensions = [ "rust-src" "rustfmt" ]; })
-    bacon
     biome
     bulloak
     bun
@@ -34,14 +33,12 @@
     cargo-lambda
     cargo-machete
     cargo-outdated
-    # cargo-update
+    cargo-update
     convco
     dua
-    # flowistry
     gavin-bc
     gcc
     gopls
-    halp
     jaq
     nil
     nixpkgs-fmt
@@ -52,9 +49,23 @@
     solc_0_8_20
     sops
   ] ++ lib.optionals pkgs.stdenv.isLinux [
-    pkgs.awscli2
     pkgs.foundry-bin
   ];
+  programs.awscli = {
+    enable = true;
+    settings = {
+      "default" = {
+        region = "eu-central-1";
+      };
+      "login" = {
+        region = "eu-central-1";
+      };
+    };
+  };
+  programs.bacon = {
+    enable = true;
+    settings = { };
+  };
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -77,7 +88,7 @@
         name = "solidity";
         source = {
           git = "https://github.com/beeb/tree-sitter-solidity";
-          rev = "fd3f380120da95234a2a529efe06d7018db95621";
+          rev = "76f17f4ba2460236c8e0cd54c70fd8dc3590bac5";
         };
       }
     ];

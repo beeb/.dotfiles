@@ -52,7 +52,7 @@
     pkgs.foundry-bin
   ];
   programs.awscli = {
-    enable = true;
+    enable = false;
     settings = {
       "default" = {
         region = "eu-central-1";
@@ -332,4 +332,5 @@
   services.gpg-agent = {
     enable = !pkgs.stdenv.isDarwin;
   };
+  services.pueue.enable = true;
 }

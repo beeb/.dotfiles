@@ -310,6 +310,11 @@
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
+    keymap = {
+      manager.prepend_keymap = [
+        { on = [ "|" ]; run = "help"; }
+      ];
+    };
   };
   programs.zoxide.enable = true;
   programs.zsh = {

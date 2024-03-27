@@ -42,6 +42,7 @@
     git-crypt
     magic-wormhole-rs
     neofetch
+    sd
     tlrc
   ];
 

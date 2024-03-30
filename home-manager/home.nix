@@ -47,6 +47,7 @@
     rust-analyzer-unwrapped
     sccache
     solc_0_8_20
+    solores
     sops
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     pkgs.foundry-bin

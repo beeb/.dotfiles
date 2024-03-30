@@ -5,6 +5,7 @@
   # flowistry = pkgs.callPackage ./flowistry { };
   myNodePackages = pkgs.callPackage ./myNodePackages { };
   roundme = pkgs.callPackage ./roundme { };
-  substreams = pkgs.callPackage ./substreams { };
+  solores = pkgs.callPackage ./solores { };
   spire = pkgs.callPackage ./spire { };
+  substreams = pkgs.callPackage ./substreams { };
 }

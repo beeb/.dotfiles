@@ -78,14 +78,14 @@
           window:set_config_overrides({
             font = wezterm.font {
               family = 'JetBrainsMonoNL Nerd Font',
-              weight = 'ExtraLight'
+              weight = 'Light'
             },
           })
         else
           window:set_config_overrides({
             font = wezterm.font {
               family = 'JetBrainsMono Nerd Font',
-              weight = 'ExtraLight'
+              weight = 'Light'
             },
           })
         end
@@ -94,7 +94,7 @@
       config.color_scheme = 'Catppuccin Mocha'
       config.font = wezterm.font {
         family = 'JetBrainsMono Nerd Font',
-        weight = 'ExtraLight'
+        weight = 'Light'
       }
       config.font_size = 10.5
       config.line_height = 1.05

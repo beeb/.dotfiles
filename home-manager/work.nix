@@ -77,12 +77,16 @@
         if info.name == ".hx-wrapped" then
           window:set_config_overrides({
             font = wezterm.font {
-              family = 'JetBrainsMonoNL Nerd Font'
+              family = 'JetBrainsMonoNL Nerd Font',
+              weight = 'ExtraLight'
             },
           })
         else
           window:set_config_overrides({
-              family = 'JetBrainsMono Nerd Font'
+            font = wezterm.font {
+              family = 'JetBrainsMono Nerd Font',
+              weight = 'ExtraLight'
+            },
           })
         end
       end)

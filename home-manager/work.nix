@@ -90,11 +90,12 @@
       config.color_scheme = 'Catppuccin Mocha'
       config.font = wezterm.font {
         family = 'JetBrainsMono Nerd Font',
-        weight = 'Light'
+        weight = 'ExtraLight'
       }
       config.font_size = 10.5
-      config.line_height = 1.1
-      config.cell_width = 0.9
+      config.line_height = 1.05
+      -- config.cell_width = 0.9
+      -- config.freetype_load_target = "Light"
       config.window_close_confirmation = 'NeverPrompt'
       config.window_decorations = "RESIZE"
       config.audible_bell = "Disabled"

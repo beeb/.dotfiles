@@ -100,6 +100,7 @@
       config.line_height = 1.05
       -- config.cell_width = 0.9
       -- config.freetype_load_target = "Light"
+      config.freetype_load_target = "HorizontalLcd"
       config.window_close_confirmation = 'NeverPrompt'
       config.window_decorations = "RESIZE"
       config.audible_bell = "Disabled"

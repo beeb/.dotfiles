@@ -99,6 +99,10 @@
         args = [ "--stdio" ];
         config.typescript.tsdk = "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib";
       };
+      biome = with pkgs; {
+        command = "${biome}/bin/biome";
+        args = [ "lsp-proxy" ];
+      };
       ruff = with pkgs; {
         command = "${ruff-lsp}/bin/ruff-lsp";
       };
@@ -158,7 +162,7 @@
       {
         name = "typescript";
         auto-format = true;
-        language-servers = [ "typescript-language-server" ];
+        language-servers = [{ name = "typescript-language-server"; except-features = [ "format" ]; } "biome"];
         formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.ts" ];
@@ -167,6 +171,7 @@
       {
         name = "javascript";
         auto-format = true;
+        language-servers = [{ name = "typescript-language-server"; except-features = [ "format" ]; } "biome"];
         formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.js" ];
@@ -175,6 +180,7 @@
       {
         name = "json";
         auto-format = true;
+        language-servers = [ "biome" ];
         formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.json" ];

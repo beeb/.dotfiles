@@ -108,7 +108,7 @@
       };
       typescript-language-server = with pkgs.nodePackages; {
         command = "${typescript-language-server}/bin/typescript-language-server";
-        args = [ "--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib" ];
+        args = [ "--stdio" ];
       };
       svelteserver = with pkgs.nodePackages; {
         command = "${svelte-language-server}/bin/svelteserver";

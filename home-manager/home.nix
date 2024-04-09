@@ -88,8 +88,8 @@
       {
         name = "solidity";
         source = {
-          git = "https://github.com/beeb/tree-sitter-solidity";
-          rev = "76f17f4ba2460236c8e0cd54c70fd8dc3590bac5";
+          git = "https://github.com/JoranHonig/tree-sitter-solidity";
+          rev = "08338dcee32603383fcef08f36321900bb7a354b";
         };
       }
     ];

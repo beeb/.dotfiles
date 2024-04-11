@@ -74,7 +74,7 @@
         if info == nil then
           return
         end
-        if info.name == ".hx-wrapped" then
+        if info.name == ".hx-wrapped" or info.name == "hx" then
           window:set_config_overrides({
             font = wezterm.font {
               family = 'JetBrainsMonoNL Nerd Font',

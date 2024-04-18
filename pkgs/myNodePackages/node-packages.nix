@@ -4,6 +4,15 @@
 
 let
   sources = {
+    "@nomicfoundation/slang-0.14.0" = {
+      name = "_at_nomicfoundation_slash_slang";
+      packageName = "@nomicfoundation/slang";
+      version = "0.14.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@nomicfoundation/slang/-/slang-0.14.0.tgz";
+        sha512 = "2VZCn/+SaAqlzRSVLuAf2j35BVIeSHbN1DQ9E1kwQSrXtVJTVzMogywLBvQE8hKKGTZIQV+Td9UV1qwxJYODVw==";
+      };
+    };
     "@nomicfoundation/solidity-analyzer-0.1.1" = {
       name = "_at_nomicfoundation_slash_solidity-analyzer";
       packageName = "@nomicfoundation/solidity-analyzer";
@@ -109,12 +118,13 @@ in
   "@nomicfoundation/solidity-language-server" = nodeEnv.buildNodePackage {
     name = "_at_nomicfoundation_slash_solidity-language-server";
     packageName = "@nomicfoundation/solidity-language-server";
-    version = "0.7.3";
+    version = "0.8.0";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@nomicfoundation/solidity-language-server/-/solidity-language-server-0.7.3.tgz";
-      sha512 = "A5Isa+9l3Ap+83pi9gsn+/XJ6sAaGa6yR33FoSG9eFk0JfgDczhPh1c2Myp1SR0UvGXEAQ4T4DhRctpPyb5EhA==";
+      url = "https://registry.npmjs.org/@nomicfoundation/solidity-language-server/-/solidity-language-server-0.8.0.tgz";
+      sha512 = "ZuFwxTTwpEN/EN6YmWn2qxdT4/HUqoFI6omx8b22iCGnkF300C6g5WQ3bnKyBhCWCGpgXMPaJ+97j4ULD/PMhQ==";
     };
     dependencies = [
+      sources."@nomicfoundation/slang-0.14.0"
       sources."@nomicfoundation/solidity-analyzer-0.1.1"
       sources."@nomicfoundation/solidity-analyzer-darwin-arm64-0.1.1"
       sources."@nomicfoundation/solidity-analyzer-darwin-x64-0.1.1"

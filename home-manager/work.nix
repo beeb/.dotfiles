@@ -6,13 +6,6 @@
   home.file = {
     ".ssh/id_1password.pub".source = ../pubkeys/id_1password.pub;
   };
-  home.activation = {
-    linkDesktopApplications = {
-      after = [ "writeBoundary" "createXdgUserDirectories" ];
-      before = [ ];
-      data = "/usr/bin/sudo /usr/bin/update-desktop-database";
-    };
-  };
   fonts.fontconfig.enable = true;
   targets.genericLinux.enable = true;
   sops.age.keyFile = "/home/beeb/.dotfiles/secrets/keys.txt";

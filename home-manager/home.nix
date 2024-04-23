@@ -1,7 +1,7 @@
 { pkgs, inputs, outputs, ... }:
 {
   /* -------------------------------- overlays -------------------------------- */
-  nixpkgs.overlays = [ outputs.overlays.additions inputs.rust-overlay.overlays.default inputs.foundry.overlay inputs.solc.overlay ];
+  nixpkgs.overlays = [ outputs.overlays.additions inputs.foundry.overlay inputs.solc.overlay ];
 
   /* --------------------------------- system --------------------------------- */
   home.file = {
@@ -25,7 +25,6 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
     (inputs.solc.mkDefault pkgs pkgs.solc_0_8_20)
-    (rust-bin.stable.latest.default.override { extensions = [ "rust-src" "rustfmt" ]; })
     biome
     bulloak
     bun
@@ -44,7 +43,7 @@
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
     rage
-    rust-analyzer-unwrapped
+    rustup
     sccache
     solc_0_8_20
     solores

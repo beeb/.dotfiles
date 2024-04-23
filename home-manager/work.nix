@@ -13,6 +13,7 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    anchor
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
@@ -176,6 +177,9 @@
         eval $(op signin)
         op item get iavuc3a3tsdmhttass5rdvhsmy --fields password | "$(gpgconf --list-dirs libexecdir)"/gpg-preset-passphrase --preset 2F2C2096A6C39D0609D910300DECE20D665C8354
       }
+    '';
+    envExtra = ''
+      export PATH="/home/beeb/.local/share/solana/install/active_release/bin:$PATH"
     '';
   };
 

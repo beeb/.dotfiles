@@ -106,18 +106,18 @@
 
       config.keys = {
         -- C-p ot enter pane mode
-        { key = 'p', mods = 'CTRL', action = act.ActivateKeyTable { name = 'pane', one_shot = true } },
+        -- { key = 'p', mods = 'CTRL', action = act.ActivateKeyTable { name = 'pane', one_shot = true } },
         -- C-n to enter pane resize mode
-        { key = 'n', mods = 'CTRL', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
+        -- { key = 'n', mods = 'CTRL', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
         -- Move around panes with Alt (can also be done in C-p pane mode)
-        { key = 'LeftArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Left' },
-        { key = 'h', mods = 'ALT', action = act.ActivatePaneDirection 'Left' },
-        { key = 'RightArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Right' },
-        { key = 'l', mods = 'ALT', action = act.ActivatePaneDirection 'Right' },
-        { key = 'UpArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Up' },
-        { key = 'k', mods = 'ALT', action = act.ActivatePaneDirection 'Up' },
-        { key = 'DownArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
-        { key = 'j', mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
+        -- { key = 'LeftArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Left' },
+        -- { key = 'h', mods = 'ALT', action = act.ActivatePaneDirection 'Left' },
+        -- { key = 'RightArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Right' },
+        -- { key = 'l', mods = 'ALT', action = act.ActivatePaneDirection 'Right' },
+        -- { key = 'UpArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Up' },
+        -- { key = 'k', mods = 'ALT', action = act.ActivatePaneDirection 'Up' },
+        -- { key = 'DownArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
+        -- { key = 'j', mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
         -- Paste
         { key = 'v', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
         -- Close tab

@@ -337,6 +337,9 @@
       awstoken = "/run/user/1000/secrets/aws_session_token_script";
       npmrc = "/run/user/1000/secrets/aws_codeartifact_script";
     };
+    envExtra = ''
+      export PATH="$HOME/.cargo/bin:$PATH"
+    '';
   };
 
   /* -------------------------------- services -------------------------------- */

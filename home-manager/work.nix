@@ -165,6 +165,9 @@
       return config
     '';
   };
+  programs.zellij = {
+    enableZshIntegration = true;
+  };
   programs.zsh = {
     shellAliases = {
       rt = "trash put";

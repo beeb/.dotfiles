@@ -2,8 +2,6 @@
 # You can build them using 'nix build .#example' or (legacy) 'nix-build -A example'
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
-  # flowistry = pkgs.callPackage ./flowistry { };
-  anchor = pkgs.callPackage ./anchor { };
   myNodePackages = pkgs.callPackage ./myNodePackages { };
   roundme = pkgs.callPackage ./roundme { };
   solores = pkgs.callPackage ./solores { };

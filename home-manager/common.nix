@@ -120,6 +120,7 @@
       my_catppuccin = {
         inherits = "catppuccin_mocha";
         "ui.background" = { };
+        "ui.virtual.jump-label" = { fg = "#fc44d4"; modifiers = [ "bold" ]; };
       };
     };
     settings = {

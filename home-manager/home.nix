@@ -321,6 +321,11 @@
         { on = [ "|" ]; run = "help"; }
       ];
     };
+    settings = {
+      manager = {
+        show_hidden = true;
+      };
+    };
   };
   programs.zoxide.enable = true;
   programs.zsh = {

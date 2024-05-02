@@ -21,7 +21,11 @@
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
-  home.file = { };
+  home.file = {
+    ".config/zellij/layouts/helix.kdl" = {
+      source = ../zellij/helix-layout.kdl;
+    };
+  };
 
   # You can also manage environment variables but you will have to manually
   # source
@@ -191,7 +195,6 @@
   programs.zellij = {
     enable = true;
     settings = {
-      pane_frames = false;
       theme = "catppuccin-mocha";
     };
   };

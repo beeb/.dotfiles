@@ -215,7 +215,7 @@
       cat = "bat --style auto";
       cd = "z";
       ze = "zellij";
-      za = "zellij a -c";
+      zh = "zellij -l helix";
       wormhole = "wormhole-rs";
       nrs = "sudo nixos-rebuild switch --impure --flake ~/.dotfiles";
       yubi = ''gpg-connect-agent "scd serialno" "learn --force" /bye'';

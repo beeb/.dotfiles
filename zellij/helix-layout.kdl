@@ -16,7 +16,7 @@ layout {
 	}
 	tab name="Explorer/Git" {
 		pane split_direction="vertical" {
-			pane command="lazygit"
+			pane size="60%" command="lazygit"
 			pane command="yazi"
 		}
 	}

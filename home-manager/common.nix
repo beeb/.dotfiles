@@ -215,8 +215,9 @@
     shellAliases = {
       cat = "bat --style auto";
       cd = "z";
+      h = "zellij -l helix";
       ze = "zellij";
-      zh = "zellij -l helix";
+      zk = "zellij kill-all-sessions";
       wormhole = "wormhole-rs";
       nrs = "sudo nixos-rebuild switch --impure --flake ~/.dotfiles";
       yubi = ''gpg-connect-agent "scd serialno" "learn --force" /bye'';

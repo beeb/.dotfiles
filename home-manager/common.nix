@@ -25,6 +25,9 @@
     ".config/zellij/layouts/helix.kdl" = {
       source = ../zellij/helix-layout.kdl;
     };
+    ".config/alacritty/catppuccin-mocha.toml" = {
+      source = ../alacritty/catppuccin-mocha.toml;
+    };
   };
 
   # You can also manage environment variables but you will have to manually

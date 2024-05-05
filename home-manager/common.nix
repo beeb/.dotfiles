@@ -51,6 +51,20 @@
     neofetch
     sd
     tlrc
+    (writeShellScriptBin "yz-fp" ''
+      #!/bin/env bash
+      selected_file="$1"
+      zellij action toggle-floating-panes
+      zellij action write 27 # send escape key
+      zellij action write-chars ":open $selected_file"
+      zellij action write 13 # send enter key
+      zellij action toggle-floating-panes
+      zellij action close-pane
+    '')
+    (writeShellScriptBin "yy" ''
+      #!/bin/env bash
+      zellij run -c -f -- yazi "$PWD"
+    '')
   ];
 
   programs.alacritty = {
@@ -186,6 +200,7 @@
           C-j = [ "extend_to_line_bounds" "delete_selection" "paste_after" ]; # move current line down
           C-k = [ "extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" ]; # move current line up
           C-e = [ "search_selection" "extend_search_next" ]; # add to selection the next match of the current selection
+          C-y = [ ":sh yy" ]; # yazi file picker
         };
         select = {
           C-space = "expand_selection"; # smart selection grow
@@ -215,6 +230,32 @@
       };
       container = {
         disabled = true;
+      };
+    };
+  };
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+    keymap = {
+      manager.prepend_keymap = [
+        { on = [ "|" ]; run = "help"; }
+      ];
+    };
+    settings = {
+      manager = {
+        show_hidden = true;
+      };
+      opener = {
+        helix = [{
+          run = "yz-fp \"$0\"";
+          desc = "Use yazi as file picker within helix";
+        }];
+      };
+      open = {
+        rules = [{
+          name = "**/*";
+          use = "helix";
+        }];
       };
     };
   };

@@ -206,7 +206,6 @@
         language-servers = [ "yaml-language-server" ];
         auto-format = true;
       }
-      # TODO: add astro once @astrojs/language-server is available on pkgs
     ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
       {
         name = "solidity";
@@ -222,18 +221,6 @@
   programs.lazygit = {
     enable = true;
     settings.gui.theme.selectedLineBgColor = [ "black" ];
-  };
-  programs.lf = {
-    enable = true;
-    settings = {
-      color256 = true;
-      dirfirst = true;
-      drawbox = true;
-      hidden = true;
-      icons = true;
-      preview = true;
-      ignorecase = true;
-    };
   };
   programs.navi.enable = true;
   programs.starship = {
@@ -313,21 +300,6 @@
       scala = { symbol = " "; };
     };
   };
-  programs.yazi = {
-    enable = true;
-    enableZshIntegration = true;
-    keymap = {
-      manager.prepend_keymap = [
-        { on = [ "|" ]; run = "help"; }
-      ];
-    };
-    settings = {
-      manager = {
-        show_hidden = true;
-      };
-    };
-  };
-  programs.zoxide.enable = true;
   programs.zsh = {
     plugins = [
       {

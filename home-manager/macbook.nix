@@ -21,6 +21,9 @@
         size = 10.5;
         offset = { y = 1; };
       };
+      window = {
+        option_as_alt = "OnlyLeft";
+      };
     };
   };
   programs.zsh = {

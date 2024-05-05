@@ -63,7 +63,7 @@
     '')
     (writeShellScriptBin "yy" ''
       #!/bin/env bash
-      zellij run -c -f -- yazi "$PWD"
+      zellij run -c -f --width 80% --height 80% -x 10% -y 10% -- yazi "$PWD"
     '')
   ];
 

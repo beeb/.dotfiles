@@ -8,9 +8,21 @@
   sops.age.keyFile = "/Users/valentin/.dotfiles/secrets/keys.txt";
 
   home.packages = with pkgs; [
-    pinentry
+    pinentry_mac
   ];
 
+  programs.alacritty = {
+    settings = {
+      font = {
+        normal = {
+          family = "JetBrainsMono Nerd Font";
+          style = "Light";
+        };
+        size = 10.5;
+        offset = { y = 1; };
+      };
+    };
+  };
   programs.zsh = {
     shellAliases = {
       hms = "home-manager switch --flake ~/.dotfiles";
@@ -18,6 +30,7 @@
     };
     envExtra = ''
       export PATH="$PATH:/Users/valentin/.foundry/bin"
+      export GPG_TTY=$(tty)
     '';
   };
 }

@@ -1,6 +1,8 @@
 { lib
+, stdenv
 , fetchFromGitHub
 , rustPlatform
+, darwin
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -16,9 +18,11 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-UdruR0b3fDJMj92C3dOdd4/asWBfzrdeXxdFDwaKyTc=";
 
+  buildInputs = lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.SystemConfiguration ];
+
   doCheck = false;
 
-  meta = with lib; {
+  meta = {
     description = "Solana IDL to Rust client / CPI interface generator";
     homepage = "https://github.com/igneous-labs/solores";
     mainProgram = "solores";

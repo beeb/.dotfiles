@@ -35,7 +35,6 @@
     cargo-update
     convco
     dua
-    gavin-bc
     gcc
     gopls
     jaq
@@ -50,6 +49,7 @@
     sops
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     pkgs.foundry-bin
+    pkgs.gavin-bc
   ];
   programs.awscli = {
     enable = false;
@@ -351,5 +351,7 @@
   services.gpg-agent = {
     enable = !pkgs.stdenv.isDarwin;
   };
-  services.pueue.enable = true;
+  services.pueue = {
+    enable = !pkgs.stdenv.isDarwin;
+  };
 }

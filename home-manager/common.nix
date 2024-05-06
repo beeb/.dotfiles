@@ -241,6 +241,8 @@
     keymap = {
       manager.prepend_keymap = [
         { on = [ "|" ]; run = "help"; }
+        { on = [ "<C-k>" ]; run = "seek -5"; }
+        { on = [ "<C-j>" ]; run = "seek 5"; }
       ];
     };
     settings = {

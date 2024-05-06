@@ -50,7 +50,6 @@
     git-crypt
     magic-wormhole-rs
     neofetch
-    nixgl.nixGLIntel
     sd
     tlrc
     (writeShellScriptBin "yz-fp" ''
@@ -67,6 +66,8 @@
       #!/bin/env bash
       zellij run -c -f --width 80% --height 80% -x 10% -y 10% -- yazi "$PWD"
     '')
+  ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+    pkgs.nixgl.nixGLIntel
   ];
 
   programs.alacritty = {

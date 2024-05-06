@@ -18,7 +18,7 @@
           family = "JetBrainsMono Nerd Font";
           style = "Light";
         };
-        size = 10.5;
+        size = 12;
         offset = { y = 1; };
       };
       window = {

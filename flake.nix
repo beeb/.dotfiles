@@ -2,28 +2,26 @@
   description = "beeb's nix config";
 
   inputs = {
-    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Sops-nix
     sops-nix.url = "github:mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Foundry
     foundry.url = "github:shazow/foundry.nix/monthly";
     foundry.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Solc
     solc.url = "github:hellwolf/solc.nix";
     solc.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixgl.url = "github:nix-community/nixGL";
+    nixgl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, foundry, solc, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, sops-nix, foundry, solc, nixgl, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [

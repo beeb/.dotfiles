@@ -1,9 +1,10 @@
-{ pkgs, outputs, ... }:
+{ pkgs, inputs, outputs, ... }:
 {
   /* -------------------------- nixpkgs and overlays -------------------------- */
   nixpkgs = {
     overlays = [
       outputs.overlays.unstable-packages
+      inputs.nixgl.overlay
     ];
     config = {
       allowUnfree = true;
@@ -49,6 +50,7 @@
     git-crypt
     magic-wormhole-rs
     neofetch
+    nixgl.nixGLIntel
     sd
     tlrc
     (writeShellScriptBin "yz-fp" ''

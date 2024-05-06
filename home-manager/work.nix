@@ -36,7 +36,7 @@
           style = "Light";
         };
         size = 10.5;
-        offeset = { y = 1; };
+        offset = { y = 1; };
       };
     };
   };

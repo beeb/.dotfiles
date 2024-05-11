@@ -128,6 +128,12 @@
           typeHints.enable = false;
         };
       };
+      scls = with pkgs; {
+        command = "${scls}/bin/simple-completion-language-server";
+        config = {
+          feature_snippets = false;
+        };
+      };
       solidity-language-server = with pkgs; {
         command = "${myNodePackages."@nomicfoundation/solidity-language-server"}/bin/nomicfoundation-solidity-language-server";
         args = [ "--stdio" ];
@@ -142,16 +148,17 @@
     language = [
       {
         name = "astro";
-        language-servers = [ "astro" ];
+        language-servers = [ "scls" "astro" ];
         auto-format = true;
       }
       {
         name = "rust";
+        language-servers = [ "scls" "rust-analyzer" ];
         auto-format = true;
       }
       {
         name = "python";
-        language-servers = [ "ruff" ];
+        language-servers = [ "scls" "ruff" ];
         formatter = with pkgs; {
           command = "${black}/bin/black";
           args = [ "--quiet" "--line-length" "120" "-" ];
@@ -161,7 +168,7 @@
       {
         name = "typescript";
         auto-format = true;
-        language-servers = [{ name = "typescript-language-server"; except-features = [ "format" ]; } "biome"];
+        language-servers = [ "scls" { name = "typescript-language-server"; except-features = [ "format" ]; } "biome" ];
         formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.ts" ];
@@ -170,7 +177,7 @@
       {
         name = "javascript";
         auto-format = true;
-        language-servers = [{ name = "typescript-language-server"; except-features = [ "format" ]; } "biome"];
+        language-servers = [ "scls" { name = "typescript-language-server"; except-features = [ "format" ]; } "biome" ];
         formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.js" ];
@@ -179,7 +186,7 @@
       {
         name = "json";
         auto-format = true;
-        language-servers = [ "biome" ];
+        language-servers = [ "scls" "biome" ];
         formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.json" ];
@@ -188,28 +195,33 @@
       {
         name = "svelte";
         auto-format = true;
-        language-servers = [ "svelteserver" ];
+        language-servers = [ "scls" "svelteserver" ];
       }
-      { name = "css"; auto-format = true; }
+      {
+        name = "css";
+        language-servers = [ "scls" "vscode-css-language-server" ];
+        auto-format = true;
+      }
       {
         name = "nix";
+        language-servers = [ "scls" "nil" ];
         formatter.command = "nixpkgs-fmt";
         auto-format = true;
       }
       {
         name = "toml";
         auto-format = true;
-        language-servers = [ "taplo" ];
+        language-servers = [ "scls" "taplo" ];
       }
       {
         name = "yaml";
-        language-servers = [ "yaml-language-server" ];
+        language-servers = [ "scls" "yaml-language-server" ];
         auto-format = true;
       }
     ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
       {
         name = "solidity";
-        language-servers = [ "solidity-language-server" "typos" ];
+        language-servers = [ "scls" "solidity-language-server" "typos" ];
         formatter = {
           command = "${pkgs.foundry-bin}/bin/forge";
           args = [ "fmt" "-r" "-" ];

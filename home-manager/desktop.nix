@@ -12,9 +12,6 @@
   programs.git.signing.gpgPath = "/mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe";
   programs.git.extraConfig.core.sshCommand = "ssh.exe";
 
-  programs.zellij = {
-    enableZshIntegration = true;
-  };
   programs.zsh = {
     shellAliases = {
       rt = "trash put";

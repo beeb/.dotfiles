@@ -191,7 +191,7 @@
       }
     '';
     envExtra = ''
-      export PATH="/home/beeb/.local/share/solana/install/active_release/bin:$PATH"
+      export PATH="$HOME/.local/share/solana/install/active_release/bin:$HOME/.bifrost/bin:$PATH"
     '';
   };
 

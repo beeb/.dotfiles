@@ -212,6 +212,10 @@
         name = "toml";
         auto-format = true;
         language-servers = [ "scls" "taplo" ];
+        formatter = with pkgs; {
+          command = "${taplo}/bin/taplo";
+          args = [ "fmt" "--option" "indent_string=    " "-" ];
+        };
       }
       {
         name = "yaml";

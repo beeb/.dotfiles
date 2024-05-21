@@ -2,6 +2,7 @@
 # You can build them using 'nix build .#example' or (legacy) 'nix-build -A example'
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
+  heimdall-rs = pkgs.callPackage ./heimdall-rs { };
   myNodePackages = pkgs.callPackage ./myNodePackages { };
   roundme = pkgs.callPackage ./roundme { };
   scls = pkgs.callPackage ./scls { };

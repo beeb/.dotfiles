@@ -14,6 +14,7 @@
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     anchor
+    heimdall-rs
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne

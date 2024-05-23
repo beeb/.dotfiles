@@ -99,10 +99,9 @@
     settings = {
       auto_sync = true;
       inline_height = 25;
-      search_mode = "skim";
       style = "compact";
       sync_address = "https://atuin.beeb-wol.cc";
-      sync_frequency = "5m";
+      sync_frequency = "0";
       update_check = true;
     };
   };

@@ -202,7 +202,7 @@
           C-j = [ "extend_to_line_bounds" "delete_selection" "paste_after" ]; # move current line down
           C-k = [ "extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" ]; # move current line up
           C-e = [ "search_selection" "extend_search_next" ]; # add to selection the next match of the current selection
-          C-y = [ ":sh yy" ]; # yazi file picker
+          C-f = [ ":sh yy" ]; # yazi file picker
         };
         select = {
           C-space = "expand_selection"; # smart selection grow

@@ -25,6 +25,7 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
     (inputs.solc.mkDefault pkgs pkgs.solc_0_8_20)
+    amber
     biome
     bulloak
     bun

@@ -4,13 +4,22 @@
 
 let
   sources = {
-    "@nomicfoundation/slang-0.14.0" = {
+    "@nomicfoundation/slang-linux-x64-gnu-0.14.2" = {
+      name = "_at_nomicfoundation_slash_slang-linux-x64-gnu";
+      packageName = "@nomicfoundation/slang-linux-x64-gnu";
+      version = "0.14.2";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@nomicfoundation/slang-linux-x64-gnu/-/slang-linux-x64-gnu-0.14.2.tgz";
+        sha256 = "sha256-92JYoB9hL0BCZ4nKOcYdLE+a2wvxzt2kh2i6DRhfxKw=";
+      };
+    };
+    "@nomicfoundation/slang-0.14.2" = {
       name = "_at_nomicfoundation_slash_slang";
       packageName = "@nomicfoundation/slang";
-      version = "0.14.0";
+      version = "0.14.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@nomicfoundation/slang/-/slang-0.14.0.tgz";
-        sha512 = "2VZCn/+SaAqlzRSVLuAf2j35BVIeSHbN1DQ9E1kwQSrXtVJTVzMogywLBvQE8hKKGTZIQV+Td9UV1qwxJYODVw==";
+        url = "https://registry.npmjs.org/@nomicfoundation/slang/-/slang-0.14.2.tgz";
+        sha512 = "3CiiJHuqGo5G9oDhRUDexFMlkguwSQMDcapZtJi+vz8x53HOwH4/ZwzwaNi1ZwKGnwT3fp9dxSzxrLYImFcZhA==";
       };
     };
     "@nomicfoundation/solidity-analyzer-0.1.1" = {
@@ -112,28 +121,19 @@ let
         sha512 = "HrVJr6+WjIXGnw3Q9u6KQcbZCtk0caVWhCdFADySvRyUxJ8PnzlaP+MhwNE8oyT8OZ6ejHBRrrgjSqDCFXGirw==";
       };
     };
-    "@nomicfoundation/slang-linux-x64-gnu-0.14.2" = {
-      name = "_at_nomicfoundation_slash_slang-linux-x64-gnu";
-      packageName = "@nomicfoundation/slang-linux-x64-gnu";
-      version = "0.14.2";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@nomicfoundation/slang-linux-x64-gnu/-/slang-linux-x64-gnu-0.14.2.tgz";
-        sha256 = "sha256-92JYoB9hL0BCZ4nKOcYdLE+a2wvxzt2kh2i6DRhfxKw=";
-      };
-    };
   };
 in
 {
   "@nomicfoundation/solidity-language-server" = nodeEnv.buildNodePackage {
     name = "_at_nomicfoundation_slash_solidity-language-server";
     packageName = "@nomicfoundation/solidity-language-server";
-    version = "0.8.2";
+    version = "0.8.3";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@nomicfoundation/solidity-language-server/-/solidity-language-server-0.8.2.tgz";
-      sha512 = "shBWZB47FzbHQEGzxJKMc34/hOZ86XW39bT5WUc4F3cjSFk7UGaPOKNLVK0trPSs9ZNi9csczwFgsye0fNt4AQ==";
+      url = "https://registry.npmjs.org/@nomicfoundation/solidity-language-server/-/solidity-language-server-0.8.3.tgz";
+      sha512 = "1XDeWgP1K38ulykwhi2bEE5sQI+ViQXSpTMm39gsRjiPRSb2956ubVxY0yySRVh0u6rFvh+NCvZMPeKbbpoipg==";
     };
     dependencies = [
-      sources."@nomicfoundation/slang-0.14.0"
+      sources."@nomicfoundation/slang-0.14.2"
       sources."@nomicfoundation/solidity-analyzer-0.1.1"
       sources."@nomicfoundation/solidity-analyzer-darwin-arm64-0.1.1"
       sources."@nomicfoundation/solidity-analyzer-darwin-x64-0.1.1"

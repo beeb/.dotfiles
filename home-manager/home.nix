@@ -139,6 +139,10 @@
         command = "${myNodePackages."@nomicfoundation/solidity-language-server"}/bin/nomicfoundation-solidity-language-server";
         args = [ "--stdio" ];
       };
+      tailwindcss-ls = with pkgs; {
+        command = "${myNodePackages."@tailwindcss/language-server"}/bin/tailwindcss-language-server";
+        args = [ "--stdio" ];
+      };
       typos = with pkgs; {
         command = "${typos-lsp}/bin/typos-lsp";
         config = {
@@ -149,7 +153,7 @@
     language = [
       {
         name = "astro";
-        language-servers = [ "scls" "astro" ];
+        language-servers = [ "scls" "astro" "tailwindcss-ls" ];
         auto-format = true;
       }
       {
@@ -196,11 +200,11 @@
       {
         name = "svelte";
         auto-format = true;
-        language-servers = [ "scls" "svelteserver" ];
+        language-servers = [ "scls" "svelteserver" "tailwindcss-ls" ];
       }
       {
         name = "css";
-        language-servers = [ "scls" "vscode-css-language-server" ];
+        language-servers = [ "scls" "vscode-css-language-server" "tailwindcss-ls" ];
         auto-format = true;
       }
       {

@@ -103,7 +103,9 @@
       sync_address = "https://atuin.beeb-wol.cc";
       sync_frequency = "0";
       update_check = true;
-      records = true;
+      sync = {
+        records = true;
+      };
     };
   };
   programs.bat = {

@@ -6,4 +6,10 @@
   home.packages = with pkgs; [
     podman
   ];
+
+  programs.zsh = {
+    envExtra = ''
+      export PATH="$HOME/.cargo/bin:$PATH"
+    '';
+  };
 }

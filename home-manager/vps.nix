@@ -3,7 +3,7 @@
   home.username = "beeb";
   home.homeDirectory = "/home/beeb";
 
-  packages = with pkgs; [
+  home.packages = with pkgs; [
     podman
   ];
 

@@ -24,7 +24,7 @@
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
-    (inputs.solc.mkDefault pkgs pkgs.solc_0_8_20)
+    (inputs.solc.mkDefault pkgs pkgs.solc_0_8_25)
     biome
     bulloak
     bun
@@ -45,7 +45,7 @@
     rage
     rustup
     sccache
-    solc_0_8_20
+    solc_0_8_25
     solores
     sops
   ] ++ lib.optionals pkgs.stdenv.isLinux [

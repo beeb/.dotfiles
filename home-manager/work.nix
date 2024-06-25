@@ -41,6 +41,11 @@
       };
     };
   };
+  programs.git = {
+    extraConfig = {
+      url."git@github.com:".insteadOf = "https://github.com/";
+    };
+  };
   programs.ssh = {
     enable = true;
     extraConfig = ''

@@ -29,7 +29,6 @@
     bulloak
     bun
     cargo-binstall
-    cargo-lambda
     cargo-machete
     cargo-outdated
     cargo-update
@@ -52,6 +51,7 @@
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     pkgs.foundry-bin
     pkgs.gavin-bc
+    pkgs.cargo-lambda
   ];
   programs.awscli = {
     enable = false;

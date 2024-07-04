@@ -48,6 +48,7 @@
     du-dust
     fd
     git-crypt
+    just
     magic-wormhole-rs
     neofetch
     sd

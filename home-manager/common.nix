@@ -285,6 +285,9 @@
       zstyle ':completion:*' menu select
       bindkey '^[[Z' reverse-menu-complete
       bindkey '^[[3~' delete-char
+      autoload edit-command-line
+      zle -N edit-command-line
+      bindkey '^X^E' edit-command-line
     '';
     shellAliases = {
       cat = "bat --style auto";

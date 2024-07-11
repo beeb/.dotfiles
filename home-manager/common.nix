@@ -63,9 +63,13 @@
       zellij action toggle-floating-panes
       zellij action close-pane
     '')
-    (writeShellScriptBin "yy" ''
+    (writeShellScriptBin "floating-yazi" ''
       #!/bin/env bash
       zellij run -c -f --width 80% --height 80% -x 10% -y 10% -- yazi "$PWD"
+    '')
+    (writeShellScriptBin "floating-lazygit" ''
+      #!/bin/env bash
+      zellij run -c -f --width 80% --height 80% -x 10% -y 10% -- lazygit
     '')
   ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
     pkgs.nixgl.nixGLIntel
@@ -206,7 +210,9 @@
           C-j = [ "extend_to_line_bounds" "delete_selection" "paste_after" ]; # move current line down
           C-k = [ "extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" ]; # move current line up
           C-e = [ "search_selection" "extend_search_next" ]; # add to selection the next match of the current selection
-          C-f = [ ":sh yy" ]; # yazi file picker
+          C-f = [ ":sh floating-yazi" ]; # yazi file picker
+          C-l = [ ":sh floating-lazygit" ]; # lazygit
+          C-r = [ ":reload-all" ]; # reload all files from disk
         };
         select = {
           C-space = "expand_selection"; # smart selection grow
@@ -221,6 +227,10 @@
   };
   programs.home-manager.enable = true;
   programs.htop.enable = true;
+  programs.lazygit = {
+    enable = true;
+    settings.gui.theme.selectedLineBgColor = [ "black" ];
+  };
   programs.ripgrep.enable = true;
   programs.starship = {
     enable = true;

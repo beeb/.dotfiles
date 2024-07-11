@@ -240,10 +240,6 @@
       }
     ];
   };
-  programs.lazygit = {
-    enable = true;
-    settings.gui.theme.selectedLineBgColor = [ "black" ];
-  };
   programs.navi.enable = true;
   programs.starship = {
     settings = {

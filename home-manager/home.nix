@@ -1,4 +1,4 @@
-{ pkgs, inputs, outputs, ... }:
+{ pkgs, inputs, outputs, config, ... }:
 {
   /* -------------------------------- overlays -------------------------------- */
   nixpkgs.overlays = [ outputs.overlays.additions inputs.foundry.overlay inputs.solc.overlay ];
@@ -21,6 +21,7 @@
   sops.secrets.aws_session_token_script = {
     mode = "0540";
   };
+  sops.secrets.copilot_token = { };
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
@@ -104,6 +105,10 @@
         command = "${biome}/bin/biome";
         args = [ "lsp-proxy" ];
       };
+      copilot = with pkgs; {
+        command = "${helix-gpt}/bin/helix-gpt";
+        args = [ "--handler" "copilot" ];
+      };
       ruff = with pkgs; {
         command = "${ruff-lsp}/bin/ruff-lsp";
       };
@@ -159,7 +164,7 @@
       }
       {
         name = "rust";
-        language-servers = [ "scls" "rust-analyzer" ];
+        language-servers = [ "scls" "rust-analyzer" "copilot" ];
         auto-format = true;
       }
       {
@@ -174,7 +179,7 @@
       {
         name = "typescript";
         auto-format = true;
-        language-servers = [ "scls" { name = "typescript-language-server"; except-features = [ "format" ]; } "biome" ];
+        language-servers = [ "scls" { name = "typescript-language-server"; except-features = [ "format" ]; } "biome" "copilot" ];
         formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.ts" ];
@@ -183,7 +188,7 @@
       {
         name = "javascript";
         auto-format = true;
-        language-servers = [ "scls" { name = "typescript-language-server"; except-features = [ "format" ]; } "biome" ];
+        language-servers = [ "scls" { name = "typescript-language-server"; except-features = [ "format" ]; } "biome" "copilot" ];
         formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.js" ];
@@ -201,7 +206,7 @@
       {
         name = "svelte";
         auto-format = true;
-        language-servers = [ "scls" "svelteserver" "tailwindcss-ls" ];
+        language-servers = [ "scls" "svelteserver" "tailwindcss-ls" "copilot" ];
       }
       {
         name = "css";
@@ -210,7 +215,7 @@
       }
       {
         name = "nix";
-        language-servers = [ "scls" "nil" ];
+        language-servers = [ "scls" "nil" "copilot" ];
         formatter.command = "nixpkgs-fmt";
         auto-format = true;
       }
@@ -231,7 +236,7 @@
     ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
       {
         name = "solidity";
-        language-servers = [ "scls" "solidity-language-server" "typos" ];
+        language-servers = [ "scls" "solidity-language-server" "typos" "copilot" ];
         formatter = {
           command = "${pkgs.foundry-bin}/bin/forge";
           args = [ "fmt" "-r" "-" ];
@@ -334,6 +339,7 @@
     };
     envExtra = ''
       export PATH="$HOME/.cargo/bin:$PATH"
+      export COPILOT_API_KEY="$(cat ${config.sops.secrets.copilot_token.path})"
     '';
   };
 

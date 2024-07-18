@@ -86,7 +86,7 @@
         if info == nil then
           return
         end
-        if info.name == ".hx-wrapped" or info.name == "hx" then
+        if info.name == ".hx-wrapped" or info.name == "hx" or pane:get_title():match"Editor$" then
           window:set_config_overrides({
             font = wezterm.font {
               family = 'JetBrainsMonoNL Nerd Font',

@@ -55,12 +55,9 @@
     pkgs.cargo-lambda
   ];
   programs.awscli = {
-    enable = false;
+    enable = true;
     settings = {
       "default" = {
-        region = "eu-central-1";
-      };
-      "login" = {
         region = "eu-central-1";
       };
     };

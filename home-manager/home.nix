@@ -83,15 +83,6 @@
     goPrivate = [ "github.com/beeb" ];
   };
   programs.helix.languages = {
-    grammar = [
-      {
-        name = "solidity";
-        source = {
-          git = "https://github.com/JoranHonig/tree-sitter-solidity";
-          rev = "08338dcee32603383fcef08f36321900bb7a354b";
-        };
-      }
-    ];
     language-server = {
       astro = {
         command = "${pkgs.nodePackages."@astrojs/language-server"}/bin/astro-ls";
@@ -161,7 +152,7 @@
       }
       {
         name = "rust";
-        language-servers = [ "scls" "rust-analyzer" "copilot" ];
+        language-servers = [ "scls" "rust-analyzer" ];
         auto-format = true;
       }
       {
@@ -176,7 +167,7 @@
       {
         name = "typescript";
         auto-format = true;
-        language-servers = [ "scls" { name = "typescript-language-server"; except-features = [ "format" ]; } "biome" "copilot" ];
+        language-servers = [ "scls" { name = "typescript-language-server"; except-features = [ "format" ]; } "biome" ];
         formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.ts" ];
@@ -185,7 +176,7 @@
       {
         name = "javascript";
         auto-format = true;
-        language-servers = [ "scls" { name = "typescript-language-server"; except-features = [ "format" ]; } "biome" "copilot" ];
+        language-servers = [ "scls" { name = "typescript-language-server"; except-features = [ "format" ]; } "biome" ];
         formatter = with pkgs; {
           command = "${biome}/bin/biome";
           args = [ "format" "--stdin-file-path" "test.js" ];
@@ -203,7 +194,7 @@
       {
         name = "svelte";
         auto-format = true;
-        language-servers = [ "scls" "svelteserver" "tailwindcss-ls" "copilot" ];
+        language-servers = [ "scls" "svelteserver" "tailwindcss-ls" ];
       }
       {
         name = "css";
@@ -212,7 +203,7 @@
       }
       {
         name = "nix";
-        language-servers = [ "scls" "nil" "copilot" ];
+        language-servers = [ "scls" "nil" ];
         formatter.command = "nixpkgs-fmt";
         auto-format = true;
       }
@@ -233,7 +224,7 @@
     ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
       {
         name = "solidity";
-        language-servers = [ "scls" "solidity-language-server" "typos" "copilot" ];
+        language-servers = [ "scls" "solidity-language-server" "typos" ];
         formatter = {
           command = "${pkgs.foundry-bin}/bin/forge";
           args = [ "fmt" "-r" "-" ];

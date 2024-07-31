@@ -150,6 +150,8 @@
     };
     ignores = [
       ".helix/ignore"
+      ".helix/languages.toml"
+      ".helix/config.toml"
     ];
   };
   programs.gpg = {

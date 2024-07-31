@@ -11,7 +11,7 @@
     sops-nix.url = "github:mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    foundry.url = "github:shazow/foundry.nix/monthly";
+    foundry.url = "github:shazow/foundry.nix";
     foundry.inputs.nixpkgs.follows = "nixpkgs";
 
     solc.url = "github:hellwolf/solc.nix";

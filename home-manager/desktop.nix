@@ -13,7 +13,7 @@
     signing.gpgPath = "/mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe";
     extraConfig = {
       core.sshCommand = "ssh.exe";
-      url."git@github.com:".insteadOf = "https://github.com/";
+      # url."git@github.com:".insteadOf = "https://github.com/";
     };
   };
 

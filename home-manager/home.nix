@@ -85,7 +85,7 @@
   programs.helix.languages = {
     language-server = {
       astro = {
-        command = "${pkgs.nodePackages."@astrojs/language-server"}/bin/astro-ls";
+        command = "${pkgs.astro-language-server}/bin/astro-ls";
         args = [ "--stdio" ];
         config.typescript.tsdk = "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib";
       };

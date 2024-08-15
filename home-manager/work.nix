@@ -19,7 +19,7 @@
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
     libreoffice-qt
-    nodejs_18
+    nodejs_20
     nodePackages.rollup
     roundme
     spire

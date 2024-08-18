@@ -252,6 +252,7 @@
     };
   };
   programs.yazi = {
+    package = pkgs.yazi-master;
     enable = true;
     enableZshIntegration = true;
     keymap = {

@@ -10,4 +10,5 @@
   solores = pkgs.callPackage ./solores { };
   spire = pkgs.callPackage ./spire { };
   substreams = pkgs.callPackage ./substreams { };
+  yazi-master = pkgs.callPackage ./yazi-master { };
 }

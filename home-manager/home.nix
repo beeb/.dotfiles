@@ -31,7 +31,7 @@
     bun
     cargo-binstall
     cargo-machete
-    cargo-outdated
+    # cargo-outdated # broken on rust 1.80.0
     cargo-update
     convco
     dua

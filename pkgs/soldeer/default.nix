@@ -2,18 +2,24 @@
 , rustPlatform
 }:
 
-rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage {
   pname = "soldeer";
-  version = "0.2.19";
+  version = "0.3.0";
 
   src = fetchFromGitHub {
-    owner = "mario-eth";
+    owner = "beeb";
     repo = "soldeer";
-    rev = "v${version}";
-    hash = "sha256-lA+ZvB5tjJzfLozUfzNCb/O7kvVb5F7yLxKOMPRIWlU=";
+    rev = "3f6cbd549fdbd8059b5151ff7300c9a91b3a2f4e";
+    hash = "sha256-ixhZ1OFckiQVUAho16r0MrmLrD/po/QxWxUPwfTmduU=";
   };
 
-  cargoHash = "sha256-G60TDJDrL6+jXxsAq/ghYn2I5j5MN1PY9WFa0+h69jg=";
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "cliclack-0.3.3" = "sha256-E/5+qPmcyXwtQWeLb9R2p9HBxSDgnO9AJq1/ofP5xEo=";
+    };
+  };
+
 
   doCheck = false;
 

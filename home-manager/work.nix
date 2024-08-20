@@ -43,7 +43,7 @@
   };
   programs.git = {
     extraConfig = {
-      url."git@github.com:".insteadOf = "https://github.com/";
+      # url."git@github.com:".insteadOf = "https://github.com/";
     };
   };
   programs.ssh = {

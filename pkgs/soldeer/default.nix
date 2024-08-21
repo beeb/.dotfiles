@@ -9,8 +9,8 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "beeb";
     repo = "soldeer";
-    rev = "3f6cbd549fdbd8059b5151ff7300c9a91b3a2f4e";
-    hash = "sha256-ixhZ1OFckiQVUAho16r0MrmLrD/po/QxWxUPwfTmduU=";
+    rev = "49a645a70da674ef7e1c8a4aaedfd7cf84b2263a";
+    hash = "sha256-8hAZOIUPVflkiFXso2u3O3Yn/Dgu1aJSs7ElWbP8rOs=";
   };
 
   cargoLock = {

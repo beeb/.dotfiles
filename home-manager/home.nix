@@ -47,7 +47,6 @@
     sccache
     solc_0_8_26
     soldeer
-    solores
     sops
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     pkgs.foundry-bin

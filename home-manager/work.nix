@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   /* ---------------------------------- system -------------------------------- */
   home.username = "beeb";
@@ -13,8 +13,9 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    anchor
-    heimdall-rs
+    inputs.zen-browser.packages."${system}".default
+    # anchor
+    # heimdall-rs
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
@@ -39,11 +40,6 @@
         size = 10.5;
         offset = { y = 1; };
       };
-    };
-  };
-  programs.git = {
-    extraConfig = {
-      # url."git@github.com:".insteadOf = "https://github.com/";
     };
   };
   programs.ssh = {

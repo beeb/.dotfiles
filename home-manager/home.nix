@@ -1,7 +1,7 @@
 { pkgs, inputs, outputs, config, ... }:
 {
   /* -------------------------------- overlays -------------------------------- */
-  nixpkgs.overlays = [ outputs.overlays.additions inputs.foundry.overlay inputs.solc.overlay ];
+  nixpkgs.overlays = [ outputs.overlays.additions inputs.foundry.overlay ];
 
   /* --------------------------------- system --------------------------------- */
   home.file = {
@@ -25,7 +25,6 @@
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
-    (inputs.solc.mkDefault pkgs pkgs.solc_0_8_26)
     biome
     bulloak
     bun
@@ -45,7 +44,6 @@
     rage
     rustup
     sccache
-    solc_0_8_26
     soldeer
     sops
   ] ++ lib.optionals pkgs.stdenv.isLinux [

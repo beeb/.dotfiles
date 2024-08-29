@@ -14,9 +14,6 @@
     foundry.url = "github:shazow/foundry.nix";
     foundry.inputs.nixpkgs.follows = "nixpkgs";
 
-    solc.url = "github:hellwolf/solc.nix";
-    solc.inputs.nixpkgs.follows = "nixpkgs";
-
     nixgl.url = "github:nix-community/nixGL";
     nixgl.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -24,7 +21,7 @@
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, foundry, solc, nixgl, zen-browser, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, sops-nix, foundry, nixgl, zen-browser, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [

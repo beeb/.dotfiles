@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   /* ---------------------------------- system -------------------------------- */
   home.username = "beeb";
@@ -13,7 +13,6 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    inputs.zen-browser.packages."${system}".default
     # anchor
     # heimdall-rs
     hunspell

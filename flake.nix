@@ -16,12 +16,9 @@
 
     nixgl.url = "github:nix-community/nixGL";
     nixgl.inputs.nixpkgs.follows = "nixpkgs";
-
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, foundry, nixgl, zen-browser, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, sops-nix, foundry, nixgl, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [

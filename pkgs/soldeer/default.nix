@@ -9,8 +9,8 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "mario-eth";
     repo = "soldeer";
-    rev = "940039cb39742c95408b3a7047739c0140842dcd";
-    hash = "sha256-vxq6GqT+ecr6NptS37I20Eh4U7ry52wwnYQ+nEhZAfU=";
+    rev = "13412f1137ef5bea970deec5517c1e970c065d2a";
+    hash = "sha256-+cCvQesFknRvZmNjf7QTBn7dL3JwfUC2f9sBi5ANPe4=";
   };
 
   cargoHash = "sha256-t1qO0W2GX24G1WBMRfSITdPQTdqKe959eNh08Hkrs3c=";

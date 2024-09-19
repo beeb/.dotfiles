@@ -6,16 +6,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "heimdall-rs";
-  version = "0.8.1";
+  version = "0.8.4";
 
   src = fetchFromGitHub {
     owner = "Jon-Becker";
     repo = "heimdall-rs";
     rev = version;
-    hash = "sha256-F1bhgUkgH6dHOTiCzpNksDMS9p6aX0cogtQZbKoKFHg=";
+    hash = "sha256-+hIcnCiBEI/Nokvsm+/x6TP3+G15hFqjF62rJDRGbqQ=";
   };
 
-  cargoHash = "sha256-Yr/eT9+bdcQHhozojLRcDIlwdcxpVEp0m7oDd6DScXE=";
+  cargoHash = "sha256-QcMqqxzFF7COJ5osegU3MG2uMjNl7yb11DOaE5Jey4g";
 
   doCheck = false;
 

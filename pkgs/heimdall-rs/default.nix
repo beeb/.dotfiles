@@ -4,18 +4,18 @@
 , pkg-config
 }:
 
-rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage {
   pname = "heimdall-rs";
   version = "0.8.4";
 
   src = fetchFromGitHub {
     owner = "Jon-Becker";
     repo = "heimdall-rs";
-    rev = version;
-    hash = "sha256-+hIcnCiBEI/Nokvsm+/x6TP3+G15hFqjF62rJDRGbqQ=";
+    rev = "5517ba7032fc155b945465b1419af91fddc58489";
+    hash = "sha256-J4EJs0aONFEuL2ZvdnNUXVOcb3BaXqxKK/aTuGcfV/E=";
   };
 
-  cargoHash = "sha256-QcMqqxzFF7COJ5osegU3MG2uMjNl7yb11DOaE5Jey4g";
+  cargoHash = "sha256-PjPdUpb9t+70PaR9ITPTNSdsA7qD4vw9kZjD/eP05CI=";
 
   doCheck = false;
 

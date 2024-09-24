@@ -29,6 +29,7 @@
     bulloak
     bun
     cargo-binstall
+    cargo-nextest
     cargo-machete
     cargo-outdated
     cargo-update

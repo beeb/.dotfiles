@@ -26,7 +26,7 @@
       ssh-add = "ssh-add.exe";
     };
     envExtra = ''
-      export PATH="/home/valentin/.local/share/solana/install/active_release/bin:$PATH"
+      export PATH="$HOME/.deno/bin:$PATH"
     '';
   };
 

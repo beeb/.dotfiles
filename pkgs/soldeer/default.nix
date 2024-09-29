@@ -9,11 +9,11 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "mario-eth";
     repo = "soldeer";
-    rev = "bf645f44b1ab3919133c7e335f5cc9cf8d2eb4b2";
-    hash = "sha256-BnIPeUM277+Q9q469ZnO19ai4gq1ClfjCNxkSCUntVU=";
+    rev = "978478d2ad5e16f13ebb38d6a1eb99fcc6b09c7a";
+    hash = "sha256-+G/sSo48WMoK23v1vRPfMyiD0wwK5BCUnL7qX3Wvuis=";
   };
 
-  cargoHash = "sha256-frKRAaBm/KAzJKeuX8AhUWvE1d7iUEGZHr9RCfAv+PU=";
+  cargoHash = "sha256-vRlBmAX/Q9DrGWfDTb85M1n3Gqg5MCEQvfBSraTm5IQ=";
 
   doCheck = false;
 

@@ -29,7 +29,7 @@
   programs.zsh = {
     shellAliases = {
       hms = "home-manager switch --flake ~/.dotfiles";
-      hmu = "nix flake update ~/.dotfiles && hms";
+      hmu = "nix flake update --flake ~/.dotfiles && hms";
     };
     envExtra = ''
       export PATH="$PATH:/Users/valentin/.foundry/bin"

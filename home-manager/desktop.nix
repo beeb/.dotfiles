@@ -5,7 +5,7 @@
 
   home.packages = with pkgs; [
     espup
-    heimdall-rs
+    # heimdall-rs
     trashy
   ];
 
@@ -21,7 +21,7 @@
     shellAliases = {
       rt = "trash put";
       hms = "home-manager switch --flake ~/.dotfiles";
-      hmu = "nix flake update ~/.dotfiles && hms";
+      hmu = "nix flake update --flake ~/.dotfiles && hms";
       ssh = "ssh.exe";
       ssh-add = "ssh-add.exe";
     };

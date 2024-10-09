@@ -172,6 +172,10 @@
         inherits = "catppuccin_mocha";
         "ui.background" = { };
         "ui.virtual.jump-label" = { fg = "#fc44d4"; modifiers = [ "bold" ]; };
+        "diagnostic.error" = { bg = "crust"; };
+        "diagnostic.warning" = { bg = "crust"; };
+        "diagnostic.info" = { bg = "crust"; };
+        "diagnostic.hint" = { bg = "crust"; };
       };
     };
     settings = {

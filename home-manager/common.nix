@@ -152,6 +152,7 @@
       ".helix/ignore"
       ".helix/languages.toml"
       ".helix/config.toml"
+      ".copilotignore"
     ];
   };
   programs.gpg = {

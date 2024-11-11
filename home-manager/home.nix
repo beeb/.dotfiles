@@ -47,6 +47,7 @@
     sccache
     soldeer
     sops
+    systemctl-tui
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     pkgs.foundry-bin
     pkgs.gavin-bc

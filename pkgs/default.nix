@@ -6,7 +6,6 @@
   myNodePackages = pkgs.callPackage ./myNodePackages { };
   roundme = pkgs.callPackage ./roundme { };
   scls = pkgs.callPackage ./scls { };
-  soldeer = pkgs.callPackage ./soldeer { };
   solores = pkgs.callPackage ./solores { };
   spire = pkgs.callPackage ./spire { };
   substreams = pkgs.callPackage ./substreams { };

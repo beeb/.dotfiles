@@ -45,7 +45,6 @@
     rage
     rustup
     sccache
-    soldeer
     sops
     systemctl-tui
   ] ++ lib.optionals pkgs.stdenv.isLinux [

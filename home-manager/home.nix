@@ -44,6 +44,7 @@
     rage
     rustup
     sccache
+    solar
     sops
     systemctl-tui
   ] ++ lib.optionals pkgs.stdenv.isLinux [

@@ -21,7 +21,6 @@
   sops.secrets.aws_session_token_script = {
     mode = "0540";
   };
-  sops.secrets.copilot_token = { };
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
@@ -90,10 +89,6 @@
       biome = with pkgs; {
         command = "${biome}/bin/biome";
         args = [ "lsp-proxy" ];
-      };
-      copilot = with pkgs; {
-        command = "${helix-gpt}/bin/helix-gpt";
-        args = [ "--handler" "copilot" ];
       };
       ruff = with pkgs; {
         command = "${ruff-lsp}/bin/ruff-lsp";
@@ -325,7 +320,6 @@
     };
     envExtra = ''
       export PATH="$HOME/.cargo/bin:$PATH"
-      export COPILOT_API_KEY="$(cat ${config.sops.secrets.copilot_token.path})"
     '';
   };
 

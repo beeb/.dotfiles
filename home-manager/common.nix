@@ -191,7 +191,7 @@
         auto-format = true;
         lsp = {
           display-messages = true;
-          display-inlay-hints = true;
+          display-inlay-hints = false;
           auto-signature-help = false;
         };
         cursor-shape = {

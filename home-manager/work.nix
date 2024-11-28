@@ -12,9 +12,9 @@
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
     # anchor
-    # heimdall-rs
+    heimdall-rs
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
@@ -22,8 +22,6 @@
     localstack
     nodejs_20
     nodePackages.rollup
-    roundme
-    spire
     telegram-desktop
     trashy
     ungoogled-chromium

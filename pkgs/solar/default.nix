@@ -9,8 +9,8 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "paradigmxyz";
     repo = "solar";
-    rev = "53e1f85b4bedda6bdc75319d3ee29639054b2cf3";
-    hash = "sha256-qWyQG+yHnhQ+zs1fEKvPBku1NzkdPQIPuyH4NSWQ7Fw=";
+    rev = "3a9c5c5004c287a7d3c0ccec25749b00a0475726";
+    hash = "sha256-kxqEn98tt+DFVGBZkuIR/9ncGTenaiOM5INAUj+tMtc=";
   };
 
   cargoLock = {

@@ -106,7 +106,7 @@
       inline_height = 25;
       style = "compact";
       sync_address = "https://atuin.beeb-wol.cc";
-      sync_frequency = "0";
+      sync_frequency = "2";
       update_check = true;
       sync = {
         records = true;

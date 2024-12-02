@@ -13,7 +13,6 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
     # anchor
-    gyre-fonts
     heimdall-rs
     hunspell
     hunspellDicts.en-us

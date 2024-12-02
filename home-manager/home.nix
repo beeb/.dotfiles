@@ -47,6 +47,8 @@
     solar
     sops
     systemctl-tui
+    typst
+    typst-live
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     pkgs.foundry-bin
     pkgs.gavin-bc

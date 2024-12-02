@@ -12,14 +12,15 @@
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
     # anchor
+    gyre-fonts
     heimdall-rs
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
     libreoffice-qt
     localstack
+    nerd-fonts.jetbrains-mono
     nodejs_20
     nodePackages.rollup
     telegram-desktop

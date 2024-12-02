@@ -49,7 +49,6 @@
     systemctl-tui
     typst
     typst-live
-    typstyle
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     pkgs.foundry-bin
     pkgs.gavin-bc

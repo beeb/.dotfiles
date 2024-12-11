@@ -229,7 +229,15 @@
       }
     ];
   };
-  programs.jujutsu.enable = true;
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        email = "703631+beeb@users.noreply.github.com";
+        name = "beeb";
+      };
+    };
+  };
   programs.navi.enable = true;
   programs.starship = {
     settings = {

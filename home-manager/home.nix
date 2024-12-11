@@ -229,6 +229,7 @@
       }
     ];
   };
+  programs.jujutsu.enable = true;
   programs.navi.enable = true;
   programs.starship = {
     settings = {

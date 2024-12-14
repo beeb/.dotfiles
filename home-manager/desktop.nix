@@ -17,6 +17,8 @@
     };
   };
 
+  programs.jujutsu.settings.signing.backends.gpg.program = "/mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe";
+
   programs.zsh = {
     shellAliases = {
       rt = "trash put";

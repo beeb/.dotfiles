@@ -236,6 +236,11 @@
         email = "703631+beeb@users.noreply.github.com";
         name = "beeb";
       };
+      signing = {
+        "sign-all" = true;
+        "backend" = "gpg";
+        "key" = "4592122C5C6B53B1";
+      };
     };
   };
   programs.navi.enable = true;

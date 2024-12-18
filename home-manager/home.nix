@@ -44,7 +44,6 @@
     rage
     rustup
     sccache
-    solar
     sops
     systemctl-tui
     typst

@@ -69,7 +69,7 @@
     '')
     (writeShellScriptBin "floating-lazygit" ''
       #!/bin/env bash
-      zellij run -c -f --width 80% --height 80% -x 10% -y 10% -- lazygit
+      zellij run -c -f --width 95% --height 95% -x 2% -y 2% -- lazygit
     '')
   ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
     pkgs.nixgl.nixGLIntel

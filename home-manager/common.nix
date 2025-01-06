@@ -136,6 +136,13 @@
     icons = "auto";
     extraOptions = [ "--color=always" "--group-directories-first" ];
   };
+  programs.ghostty = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      theme = "catppuccin-mocha";
+    };
+  };
   programs.git = {
     enable = true;
     userEmail = "703631+beeb@users.noreply.github.com";

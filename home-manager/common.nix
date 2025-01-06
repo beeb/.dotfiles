@@ -212,6 +212,10 @@
         statusline = {
           center = [ "version-control" ];
         };
+        end-of-line-diagnostics = "hint";
+        inline-diagnostics = {
+          cursor-line = "warning";
+        };
       };
       keys = {
         normal = {

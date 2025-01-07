@@ -199,10 +199,10 @@ in
   "@nomicfoundation/solidity-language-server" = nodeEnv.buildNodePackage {
     name = "_at_nomicfoundation_slash_solidity-language-server";
     packageName = "@nomicfoundation/solidity-language-server";
-    version = "0.8.6";
+    version = "0.8.7";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@nomicfoundation/solidity-language-server/-/solidity-language-server-0.8.6.tgz";
-      sha512 = "jDfceohb59eE/QE4gQ+BHDXnSC/FUdMkg6WQfRDEj0qLYJvVOlwZz8ESUOpVv90kO6gYtWuqYm7Awb58LI5JSw==";
+      url = "https://registry.npmjs.org/@nomicfoundation/solidity-language-server/-/solidity-language-server-0.8.7.tgz";
+      sha512 = "hX5ykSAOVdA3ctYIHQvpv1B9tft6qnRVLFHXoFwDsN6ecxTxUfBTmezB3oX1UDXMQ577gBnYxmp5MQdkN19Clg==";
     };
     dependencies = [
       sources."@nomicfoundation/slang-0.16.0"

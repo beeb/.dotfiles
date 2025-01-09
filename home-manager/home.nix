@@ -82,6 +82,15 @@
     goPrivate = [ "github.com/beeb" ];
   };
   programs.helix.languages = {
+    grammar = [
+      {
+        name = "solidity";
+        source = {
+          git = "https://github.com/JoranHonig/tree-sitter-solidity";
+          rev = "f7f5251a3f5b1d04f0799b3571b12918af177fc8";
+        };
+      }
+    ];
     language-server = {
       astro = {
         command = "${pkgs.astro-language-server}/bin/astro-ls";

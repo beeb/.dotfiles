@@ -87,7 +87,7 @@
         name = "solidity";
         source = {
           git = "https://github.com/JoranHonig/tree-sitter-solidity";
-          rev = "f7f5251a3f5b1d04f0799b3571b12918af177fc8";
+          rev = "09e222e0259f013ac8755a300c6252989b30e186";
         };
       }
     ];

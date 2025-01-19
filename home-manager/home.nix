@@ -1,4 +1,4 @@
-{ pkgs, inputs, outputs, config, ... }:
+{ pkgs, inputs, outputs, ... }:
 {
   /* -------------------------------- overlays -------------------------------- */
   nixpkgs.overlays = [ outputs.overlays.additions inputs.foundry.overlay ];

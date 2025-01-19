@@ -227,7 +227,7 @@
           space.i = [ ":toggle-option lsp.display-inlay-hints" ]; # toggle inlay hints
           C-j = [ "extend_to_line_bounds" "delete_selection" "paste_after" ]; # move current line down
           C-k = [ "extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" ]; # move current line up
-          C-e = [ "search_selection" "extend_search_next" ]; # add to selection the next match of the current selection
+          C-e = [ "search_selection_detect_word_boundaries" "extend_search_next" ]; # add to selection the next match of the current selection
           C-f = [ ":sh floating-yazi" ]; # yazi file picker
           C-l = [ ":sh floating-lazygit" ]; # lazygit
           C-r = [ ":reload-all" ]; # reload all files from disk

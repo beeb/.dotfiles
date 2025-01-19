@@ -239,6 +239,7 @@
         };
         insert = {
           C-c = "normal_mode"; # exit insert mode with ctrl+c
+          C-space = "completion"; # open completion popup
         };
       };
     };

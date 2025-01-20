@@ -28,8 +28,8 @@
     bulloak
     bun
     cargo-binstall
-    cargo-nextest
     cargo-machete
+    cargo-nextest
     cargo-outdated
     cargo-update
     convco
@@ -48,6 +48,7 @@
     systemctl-tui
     typst
     typst-live
+    uv
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     pkgs.foundry-bin
     pkgs.gavin-bc

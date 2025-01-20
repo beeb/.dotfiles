@@ -103,7 +103,9 @@
         args = [ "lsp-proxy" ];
       };
       ruff = with pkgs; {
-        command = "${ruff-lsp}/bin/ruff-lsp";
+        command = "${ruff}/bin/ruff";
+        args = [ "server" ];
+        config.settings.lineLength = 120;
       };
       typescript-language-server = with pkgs.nodePackages; {
         command = "${typescript-language-server}/bin/typescript-language-server";
@@ -163,10 +165,6 @@
       {
         name = "python";
         language-servers = [ "scls" "ruff" ];
-        formatter = with pkgs; {
-          command = "${black}/bin/black";
-          args = [ "--quiet" "--line-length" "120" "-" ];
-        };
         auto-format = true;
       }
       {

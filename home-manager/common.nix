@@ -101,6 +101,7 @@
     enable = true;
     enableZshIntegration = true;
     flags = [ "--disable-up-arrow" ];
+    daemon.enable = true;
     settings = {
       auto_sync = true;
       inline_height = 25;
@@ -108,9 +109,8 @@
       sync_address = "https://atuin.beeb-wol.cc";
       sync_frequency = "2";
       update_check = true;
-      sync = {
-        records = true;
-      };
+      sync.records = true;
+      daemon.enabled = true;
     };
   };
   programs.bat = {

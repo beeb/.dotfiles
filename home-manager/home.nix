@@ -248,6 +248,7 @@
         "backend" = "gpg";
         "key" = "4592122C5C6B53B1";
       };
+      git.subprocess = true;
     };
   };
   programs.navi.enable = true;

@@ -9,6 +9,7 @@
       [build]
       rustc-wrapper = "sccache"
     '';
+    ".config/sops/age/keys.txt".source = ../secrets/keys.txt;
   };
   home.sessionVariables = { };
   imports = [

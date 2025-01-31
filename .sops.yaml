@@ -1,11 +1,8 @@
 keys:
-  - &users:
-    - &beeb age1dn4ffrlad3qh2l84ywhf0fqm8x0zry065uxyzpp33gtyqfy0fquqvelp97
-  - &hosts:
-    - &wsl2204 age1x9tmkm40wyjht7lpmpyrpw6nx7qsj4pdyeeqwaxcydvvpy72da0qdek08e
+  - users:
+    - &beeb age149eq4u8ytmgeg7dc9tdqptemsttm48l8yv9c3fqchegnj6rjzueq6msq4d
 creation_rules:
   - path_regex: sops/common.yaml$
     key_groups:
       - age:
           - *beeb
-          - *wsl2204

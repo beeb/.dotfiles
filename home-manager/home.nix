@@ -15,12 +15,6 @@
     inputs.sops-nix.homeManagerModules.sops
   ];
   sops.defaultSopsFile = ../sops/common.yaml;
-  sops.secrets.aws_codeartifact_script = {
-    mode = "0540";
-  };
-  sops.secrets.aws_session_token_script = {
-    mode = "0540";
-  };
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
@@ -341,8 +335,6 @@
     shellAliases = {
       g = "lazygit";
       c = "convco commit";
-      awstoken = "/run/user/1000/secrets/aws_session_token_script";
-      npmrc = "/run/user/1000/secrets/aws_codeartifact_script";
     };
     envExtra = ''
       export PATH="$HOME/.cargo/bin:$PATH"

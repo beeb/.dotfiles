@@ -238,6 +238,7 @@
   };
   programs.jujutsu = {
     enable = true;
+    package = pkgs.jujutsu-main;
     settings = {
       user = {
         email = "703631+beeb@users.noreply.github.com";

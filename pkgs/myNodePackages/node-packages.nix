@@ -199,10 +199,10 @@ in
   "@nomicfoundation/solidity-language-server" = nodeEnv.buildNodePackage {
     name = "_at_nomicfoundation_slash_solidity-language-server";
     packageName = "@nomicfoundation/solidity-language-server";
-    version = "0.8.7";
+    version = "0.8.8";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@nomicfoundation/solidity-language-server/-/solidity-language-server-0.8.7.tgz";
-      sha512 = "hX5ykSAOVdA3ctYIHQvpv1B9tft6qnRVLFHXoFwDsN6ecxTxUfBTmezB3oX1UDXMQ577gBnYxmp5MQdkN19Clg==";
+      url = "https://registry.npmjs.org/@nomicfoundation/solidity-language-server/-/solidity-language-server-0.8.8.tgz";
+      sha512 = "nURp+40TXb/pz5nbWU6nDaZaI7PdwaO+Ut5Gg5Lr6oXcF6qZoKZl3kkAGvis72EKXC7OOFpjYIDzvu0Q22iBrQ==";
     };
     dependencies = [
       sources."@nomicfoundation/slang-0.16.0"
@@ -240,10 +240,10 @@ in
   "@tailwindcss/language-server" = nodeEnv.buildNodePackage {
     name = "_at_tailwindcss_slash_language-server";
     packageName = "@tailwindcss/language-server";
-    version = "0.0.27";
+    version = "0.14.2";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@tailwindcss/language-server/-/language-server-0.0.27.tgz";
-      sha512 = "p1E2SbuoZiynUaK6PLsN0FMPEdvx1VXowdj0VykcPnjcAbBPzek3zZLfHDDnYY6HR4zbsWTBpuVRf5gL9ja90Q==";
+      url = "https://registry.npmjs.org/@tailwindcss/language-server/-/language-server-0.14.2.tgz";
+      sha512 = "BXKCY4AFh+CmB76a7K9ZMdvPi06BGSTrO56q10VoDRDD68lNEtk3TeLemeOO0KzsrDD0n76WWb6RShF1GiBfUQ==";
     };
     buildInputs = globalBuildInputs;
     meta = {

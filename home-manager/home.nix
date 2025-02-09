@@ -105,7 +105,7 @@
     extraConfig = {
       merge.mergiraf = {
         name = "mergiraf";
-        driver = "${pkgs.mergiraf}/bin/mergiraf merge --git -s %S -x %X -y %Y -p %P %O %A %B";
+        driver = "${pkgs.mergiraf}/bin/mergiraf merge --git -s %S -x %X -y %Y -p %P -l %L %O %A %B";
       };
     };
     signing = {
@@ -276,7 +276,6 @@
   };
   programs.jujutsu = {
     enable = true;
-    package = pkgs.jujutsu-main;
     settings = {
       user = {
         email = "703631+beeb@users.noreply.github.com";

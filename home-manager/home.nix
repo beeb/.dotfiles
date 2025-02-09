@@ -34,6 +34,7 @@
     gcc
     gopls
     jaq
+    mergiraf
     nil
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
@@ -67,9 +68,50 @@
     nix-direnv.enable = true;
   };
   programs.fzf.enable = true;
-  programs.git.signing = {
-    key = "4592122C5C6B53B1";
-    signByDefault = true;
+  programs.git = {
+    attributes = [
+      "*.java merge=mergiraf"
+      "*.rs merge=mergiraf"
+      "*.go merge=mergiraf"
+      "*.js merge=mergiraf"
+      "*.jsx merge=mergiraf"
+      "*.json merge=mergiraf"
+      "*.yml merge=mergiraf"
+      "*.yaml merge=mergiraf"
+      "*.toml merge=mergiraf"
+      "*.html merge=mergiraf"
+      "*.htm merge=mergiraf"
+      "*.xhtml merge=mergiraf"
+      "*.xml merge=mergiraf"
+      "*.c merge=mergiraf"
+      "*.cc merge=mergiraf"
+      "*.h merge=mergiraf"
+      "*.cpp merge=mergiraf"
+      "*.hpp merge=mergiraf"
+      "*.cs merge=mergiraf"
+      "*.dart merge=mergiraf"
+      "*.dts merge=mergiraf"
+      "*.scala merge=mergiraf"
+      "*.sbt merge=mergiraf"
+      "*.ts merge=mergiraf"
+      "*.tsx merge=mergiraf"
+      "*.py merge=mergiraf"
+      "*.php merge=mergiraf"
+      "*.sol merge=mergiraf"
+      "*.lua merge=mergiraf"
+      "*.kt merge=mergiraf"
+      "*.rb merge=mergiraf"
+    ];
+    extraConfig = {
+      merge.mergiraf = {
+        name = "mergiraf";
+        driver = "${pkgs.mergiraf}/bin/mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L";
+      };
+    };
+    signing = {
+      key = "4592122C5C6B53B1";
+      signByDefault = true;
+    };
   };
   programs.gpg = {
     package = pkgs.gnupg.override { guiSupport = true; pinentry = pkgs.pinentry-gtk2; };

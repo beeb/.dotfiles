@@ -26,6 +26,7 @@
     cargo-machete
     cargo-nextest
     cargo-outdated
+    cargo-semver-checks
     cargo-update
     convco
     dua

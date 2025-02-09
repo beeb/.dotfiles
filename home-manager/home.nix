@@ -105,7 +105,7 @@
     extraConfig = {
       merge.mergiraf = {
         name = "mergiraf";
-        driver = "${pkgs.mergiraf}/bin/mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L";
+        driver = "${pkgs.mergiraf}/bin/mergiraf merge --git -s %S -x %X -y %Y -p %P %O %A %B";
       };
     };
     signing = {

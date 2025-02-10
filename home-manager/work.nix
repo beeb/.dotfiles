@@ -18,7 +18,7 @@
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
     libreoffice-qt
-    localstack
+    # localstack
     nerd-fonts.jetbrains-mono
     nodejs_20
     nodePackages.rollup

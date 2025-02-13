@@ -38,6 +38,7 @@
     nil
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
+    ouch
     rage
     rustup
     sccache

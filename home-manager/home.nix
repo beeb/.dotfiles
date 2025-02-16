@@ -141,6 +141,9 @@
         command = "${biome}/bin/biome";
         args = [ "lsp-proxy" ];
       };
+      crates = with pkgs; {
+        command = "${crates-lsp}/bin/crates-lsp";
+      };
       ruff = with pkgs; {
         command = "${ruff}/bin/ruff";
         args = [ "server" ];
@@ -252,7 +255,7 @@
       {
         name = "toml";
         auto-format = true;
-        language-servers = [ "scls" "taplo" ];
+        language-servers = [ "scls" "taplo" { name = "crates"; except-features = [ "format" ]; } ];
         formatter = with pkgs; {
           command = "${taplo}/bin/taplo";
           args = [ "fmt" "--option" "indent_string=    " "-" ];

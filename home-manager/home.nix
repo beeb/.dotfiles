@@ -23,6 +23,7 @@
     bulloak
     bun
     cargo-binstall
+    cargo-dist
     cargo-machete
     cargo-nextest
     cargo-outdated

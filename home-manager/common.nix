@@ -148,12 +148,22 @@
     userEmail = "703631+beeb@users.noreply.github.com";
     userName = "beeb";
     extraConfig = {
-      core = {
-        editor = "hx";
+      branch.sort = "-committerdate";
+      core.editor = "hx";
+      diff = {
+        algorithm = "histogram";
+        colorMoved = "plain";
+        mnemonicPrefix = true;
+        renames = true;
       };
-      init = {
-        defaultBranch = "main";
+      fetch = {
+        prune = true;
+        pruneTags = true;
+        all = true;
       };
+      init.defaultBranch = "main";
+      push.autoSetupRemote = true;
+      tag.sort = "version:refname";
     };
     ignores = [
       ".helix/ignore"

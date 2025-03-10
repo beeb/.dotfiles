@@ -11,7 +11,13 @@
     '';
     ".config/sops/age/keys.txt".source = ../secrets/keys.txt;
   };
-  home.sessionVariables = { };
+  home.sessionVariables = {
+    PATH = "$HOME/.cargo/bin:$PATH";
+  };
+  home.shell = {
+    enableFishIntegration = true;
+    enableZshIntegration = true;
+  };
   imports = [
     inputs.sops-nix.homeManagerModules.sops
   ];
@@ -386,6 +392,12 @@
       swift = { symbol = " "; };
       zig = { symbol = " "; };
       gradle = { symbol = " "; };
+    };
+  };
+  programs.fish = {
+    shellAliases = {
+      g = "lazygit";
+      c = "convco commit";
     };
   };
   programs.zsh = {

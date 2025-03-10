@@ -78,7 +78,7 @@
 
   /* ---------------------------------- users --------------------------------- */
   users = {
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.fish;
     users = {
       beeb = {
         description = "Valentin Bersier";
@@ -121,7 +121,7 @@
       fuse
     ];
   };
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   /* -------------------------------- services -------------------------------- */
   services.xserver.enable = true;

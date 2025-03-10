@@ -99,7 +99,6 @@
   };
   programs.atuin = {
     enable = true;
-    enableZshIntegration = true;
     flags = [ "--disable-up-arrow" ];
     daemon.enable = true;
     settings = {
@@ -138,7 +137,6 @@
   };
   # programs.ghostty = {
   #   enable = true;
-  #   enableZshIntegration = true;
   #   settings = {
   #     theme = "catppuccin-mocha";
   #   };
@@ -280,7 +278,6 @@
   };
   programs.yazi = {
     enable = true;
-    enableZshIntegration = true;
     keymap = {
       manager.prepend_keymap = [
         { on = [ "|" ]; run = "help"; }
@@ -309,11 +306,25 @@
   programs.zellij = {
     enable = true;
     enableZshIntegration = false;
+    enableFishIntegration = false;
     settings = {
       theme = "catppuccin-mocha";
     };
   };
   programs.zoxide.enable = true;
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      cat = "bat --style auto";
+      cd = "z";
+      h = "zellij -l helix";
+      ze = "zellij";
+      zk = "zellij kill-all-sessions";
+      wormhole = "wormhole-rs";
+      nrs = "sudo nixos-rebuild switch --impure --flake ~/.dotfiles";
+      yubi = ''gpg-connect-agent "scd serialno" "learn --force" /bye'';
+    };
+  };
   programs.zsh = {
     enable = true;
     enableCompletion = true;

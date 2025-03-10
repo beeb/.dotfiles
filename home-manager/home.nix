@@ -11,9 +11,9 @@
     '';
     ".config/sops/age/keys.txt".source = ../secrets/keys.txt;
   };
-  home.sessionVariables = {
-    PATH = "$HOME/.cargo/bin:$PATH";
-  };
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+  ];
   home.shell = {
     enableFishIntegration = true;
     enableZshIntegration = true;
@@ -412,9 +412,6 @@
       g = "lazygit";
       c = "convco commit";
     };
-    envExtra = ''
-      export PATH="$HOME/.cargo/bin:$PATH"
-    '';
   };
 
   /* -------------------------------- services -------------------------------- */

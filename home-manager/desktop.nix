@@ -8,6 +8,9 @@
     # heimdall-rs
     trashy
   ];
+  home.sessionPath = [
+    "$HOME/.deno/bin"
+  ];
 
   programs.git = {
     # Forwarding the agent and so on was too much of a pain and didn't work. Using the binary from Windows solves it.
@@ -27,9 +30,6 @@
       ssh = "ssh.exe";
       ssh-add = "ssh-add.exe";
     };
-    envExtra = ''
-      export PATH="$HOME/.deno/bin:$PATH"
-    '';
   };
 
   sops.age.keyFile = "/home/valentin/.dotfiles/secrets/keys.txt";

@@ -10,6 +10,12 @@
   home.packages = with pkgs; [
     pinentry_mac
   ];
+  home.sessionVariables = {
+    GPG_TTY = "$(tty)";
+  };
+  home.sessionPath = [
+    "/Users/valentin/.foundry/bin"
+  ];
 
   programs.alacritty = {
     settings = {
@@ -31,9 +37,5 @@
       hms = "home-manager switch --flake ~/.dotfiles";
       hmu = "nix flake update --flake ~/.dotfiles && hms";
     };
-    envExtra = ''
-      export PATH="$PATH:/Users/valentin/.foundry/bin"
-      export GPG_TTY=$(tty)
-    '';
   };
 }

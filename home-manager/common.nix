@@ -244,7 +244,10 @@
   programs.htop.enable = true;
   programs.lazygit = {
     enable = true;
-    settings.gui.theme.selectedLineBgColor = [ "black" ];
+    settings = {
+      git.overrideGpg = true;
+      gui.theme.selectedLineBgColor = [ "black" ];
+    };
   };
   programs.ripgrep.enable = true;
   programs.starship = {

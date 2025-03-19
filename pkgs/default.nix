@@ -3,9 +3,6 @@
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
   crates-lsp = pkgs.callPackage ./crates-lsp { };
-  heimdall-rs = pkgs.callPackage ./heimdall-rs { };
   myNodePackages = pkgs.callPackage ./myNodePackages { };
   scls = pkgs.callPackage ./scls { };
-  solar = pkgs.callPackage ./solar { };
-  solores = pkgs.callPackage ./solores { };
 }

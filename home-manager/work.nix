@@ -13,7 +13,6 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
     # anchor
-    # heimdall-rs
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne

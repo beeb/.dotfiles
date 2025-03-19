@@ -5,7 +5,6 @@
 
   home.packages = with pkgs; [
     espup
-    # heimdall-rs
     trashy
   ];
   home.sessionPath = [

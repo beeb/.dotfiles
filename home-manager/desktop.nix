@@ -22,6 +22,13 @@
 
   programs.jujutsu.settings.signing.backends.gpg.program = "/mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe";
 
+  programs.fish.shellAliases = {
+    rt = "trash put";
+    hms = "home-manager switch --flake ~/.dotfiles";
+    hmu = "nix flake update --flake ~/.dotfiles && hms";
+    ssh = "ssh.exe";
+    ssh-add = "ssh-add.exe";
+  };
   programs.zsh = {
     shellAliases = {
       rt = "trash put";

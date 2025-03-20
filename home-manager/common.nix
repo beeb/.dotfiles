@@ -227,6 +227,8 @@
           C-f = [ ":sh floating-yazi" ]; # yazi file picker
           C-l = [ ":sh floating-lazygit" ]; # lazygit
           C-r = [ ":reload-all" ]; # reload all files from disk
+          "]".w = [ "rotate_view" ]; # go to next window
+          "[".w = [ "rotate_view_reverse" ]; # go to prev window
         };
         select = {
           C-space = "expand_selection"; # smart selection grow

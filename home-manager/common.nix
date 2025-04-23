@@ -325,7 +325,7 @@
       save = 100000;
       size = 100000;
     };
-    initExtra = ''
+    initContent = ''
       zstyle ':completion:*' menu select
       bindkey '^[[Z' reverse-menu-complete
       bindkey '^[[3~' delete-char

@@ -193,7 +193,7 @@
       hms = "home-manager switch --flake ~/.dotfiles";
       hmu = "nix flake update --flake ~/.dotfiles && hms";
     };
-    initExtra = ''
+    initContent = ''
       function gpg_cache () {
         gpg-connect-agent /bye &> /dev/null
         eval $(op signin)

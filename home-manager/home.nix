@@ -167,6 +167,9 @@
         command = "${taplo}/bin/taplo";
         args = [ "lsp" "stdio" ];
       };
+      tinymist = with pkgs; {
+        command = "${tinymist}/bin/tinymist";
+      };
       yaml-language-server = with pkgs.nodePackages; {
         command = "${yaml-language-server}/bin/yaml-language-server";
         args = [ "--stdio" ];
@@ -271,6 +274,11 @@
       {
         name = "yaml";
         language-servers = [ "scls" "yaml-language-server" ];
+        auto-format = true;
+      }
+      {
+        name = "typst";
+        language-servers = [ "tinymist" ];
         auto-format = true;
       }
     ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [

@@ -29,6 +29,7 @@
   ];
   home.sessionPath = [
     "$HOME/.local/share/solana/install/active_release/bin"
+    "$HOME/.local/share/dfx/bin"
     "$HOME/.local/bin"
   ];
   programs.alacritty = {

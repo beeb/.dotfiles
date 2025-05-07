@@ -229,6 +229,8 @@
           C-r = [ ":reload-all" ]; # reload all files from disk
           "]".w = [ "rotate_view" ]; # go to next window
           "[".w = [ "rotate_view_reverse" ]; # go to prev window
+          C-up = "page_cursor_half_up";
+          C-down = "page_cursor_half_down";
         };
         select = {
           C-space = "expand_selection"; # smart selection grow

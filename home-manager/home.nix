@@ -175,7 +175,7 @@
         args = [ "--stdio" ];
       };
       rust-analyzer.config = {
-        checkOnSave.command = "clippy";
+        check.command = "clippy";
         inlayHints = {
           closingBraceHints.enable = false;
           parameterHints.enable = false;

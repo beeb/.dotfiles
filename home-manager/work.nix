@@ -32,6 +32,7 @@
     "$HOME/.local/bin"
   ];
   programs.alacritty = {
+    package = pkgs.emptyDirectory;
     settings = {
       font = {
         normal = {

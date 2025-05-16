@@ -17,6 +17,7 @@
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
     libreoffice-qt
+    lm_sensors
     # localstack
     nerd-fonts.jetbrains-mono
     nodejs_20

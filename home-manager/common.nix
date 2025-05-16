@@ -69,7 +69,7 @@
       import = [ "~/.config/alacritty/catppuccin-mocha.toml" ];
       env = { TERM = "xterm-256color"; };
       window = {
-        startup_mode = "Maximized";
+        # startup_mode = "Maximized";
         padding = {
           x = 5;
           y = 5;
@@ -319,6 +319,9 @@
       nrs = "sudo nixos-rebuild switch --impure --flake ~/.dotfiles";
       yubi = ''gpg-connect-agent "scd serialno" "learn --force" /bye'';
     };
+    interactiveShellInit = ''
+      set -Ux SUDO_EDITOR ${pkgs.helix}/bin/hx
+    '';
   };
   programs.zsh = {
     enable = true;

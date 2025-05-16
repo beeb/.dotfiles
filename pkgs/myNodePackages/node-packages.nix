@@ -4,94 +4,22 @@
 
 let
   sources = {
-    "@nomicfoundation/slang-0.16.0" = {
+    "@bytecodealliance/preview2-shim-0.17.2" = {
+      name = "_at_bytecodealliance_slash_preview2-shim";
+      packageName = "@bytecodealliance/preview2-shim";
+      version = "0.17.2";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@bytecodealliance/preview2-shim/-/preview2-shim-0.17.2.tgz";
+        sha512 = "mNm/lblgES8UkVle8rGImXOz4TtL3eU3inHay/7TVchkKrb/lgcVvTK0+VAw8p5zQ0rgQsXm1j5dOlAAd+MeoA==";
+      };
+    };
+    "@nomicfoundation/slang-1.0.0" = {
       name = "_at_nomicfoundation_slash_slang";
       packageName = "@nomicfoundation/slang";
-      version = "0.16.0";
+      version = "1.0.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@nomicfoundation/slang/-/slang-0.16.0.tgz";
-        sha512 = "JBI+X+6/1WnaVNvnWp7o9PRbIFpgxKDmEKzYnMUfrBGFmm7rT2PsvFvVBoZPeM09B0AFYK+XJt9tqnbJvzhlLw==";
-      };
-    };
-    "@nomicfoundation/slang-darwin-arm64-0.16.0" = {
-      name = "_at_nomicfoundation_slash_slang-darwin-arm64";
-      packageName = "@nomicfoundation/slang-darwin-arm64";
-      version = "0.16.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@nomicfoundation/slang-darwin-arm64/-/slang-darwin-arm64-0.16.0.tgz";
-        sha512 = "tdrpV2/sEy9pWevl6pg2qdG8chV5R2lO80D0vgwP3FTd27vwLRgAdSMSUlhtVSb8NWKx6E1dagjjNfabUzmZpQ==";
-      };
-    };
-    "@nomicfoundation/slang-darwin-x64-0.16.0" = {
-      name = "_at_nomicfoundation_slash_slang-darwin-x64";
-      packageName = "@nomicfoundation/slang-darwin-x64";
-      version = "0.16.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@nomicfoundation/slang-darwin-x64/-/slang-darwin-x64-0.16.0.tgz";
-        sha512 = "a4OsidbwzaKOR7693ImYUSRKnmOs1xvTJviln0bc9nr6fngSkzXF7ijlHL/9/FrBhCIR+jY2ozmncWNOmqrvjQ==";
-      };
-    };
-    "@nomicfoundation/slang-linux-arm64-gnu-0.16.0" = {
-      name = "_at_nomicfoundation_slash_slang-linux-arm64-gnu";
-      packageName = "@nomicfoundation/slang-linux-arm64-gnu";
-      version = "0.16.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@nomicfoundation/slang-linux-arm64-gnu/-/slang-linux-arm64-gnu-0.16.0.tgz";
-        sha512 = "4kHqeVbJ6HvmhSIP3p/vS4SjiaC8/TRbeh+6jT77mr6fb6fVxUcVdNwCTVPocn7GRx1rYAsuYqjYZkeS72ubzg==";
-      };
-    };
-    "@nomicfoundation/slang-linux-arm64-musl-0.16.0" = {
-      name = "_at_nomicfoundation_slash_slang-linux-arm64-musl";
-      packageName = "@nomicfoundation/slang-linux-arm64-musl";
-      version = "0.16.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@nomicfoundation/slang-linux-arm64-musl/-/slang-linux-arm64-musl-0.16.0.tgz";
-        sha512 = "seuEaQSEGa3yqBI6Y/HH4X10+f7BNkX5OzOTNjWejqSIFAVBj0mWNBNWetT2YWDHRqiOSm5khD3+8LaSvShDRQ==";
-      };
-    };
-    "@nomicfoundation/slang-linux-x64-gnu-0.16.0" = {
-      name = "_at_nomicfoundation_slash_slang-linux-x64-gnu";
-      packageName = "@nomicfoundation/slang-linux-x64-gnu";
-      version = "0.16.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@nomicfoundation/slang-linux-x64-gnu/-/slang-linux-x64-gnu-0.16.0.tgz";
-        sha512 = "DI8sIWhz1EsuAE2L4vlBM48WaSaWpRgUixG1ZHIlxpTwzn6s+DxmfAxmOcBeLpNdtfba9eSpqF+2539zllktPQ==";
-      };
-    };
-    "@nomicfoundation/slang-linux-x64-musl-0.16.0" = {
-      name = "_at_nomicfoundation_slash_slang-linux-x64-musl";
-      packageName = "@nomicfoundation/slang-linux-x64-musl";
-      version = "0.16.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@nomicfoundation/slang-linux-x64-musl/-/slang-linux-x64-musl-0.16.0.tgz";
-        sha512 = "80obGwJ336r5wxQ/dLzEDp1nlAYtMWdnP5G5T2JmCnIkxxEVnyQIH62VcK6mc7RMSVeAlL1RGGx2LdNbk9V4QA==";
-      };
-    };
-    "@nomicfoundation/slang-win32-arm64-msvc-0.16.0" = {
-      name = "_at_nomicfoundation_slash_slang-win32-arm64-msvc";
-      packageName = "@nomicfoundation/slang-win32-arm64-msvc";
-      version = "0.16.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@nomicfoundation/slang-win32-arm64-msvc/-/slang-win32-arm64-msvc-0.16.0.tgz";
-        sha512 = "hcmsfXjRaCuy5/eUhrdDOnE5uqfJ0vVXvon5mTHaWzf6UE4REIx3vJwf/t4QQu1Q4mKKO5ZxzauBdzRtbhOKsw==";
-      };
-    };
-    "@nomicfoundation/slang-win32-ia32-msvc-0.16.0" = {
-      name = "_at_nomicfoundation_slash_slang-win32-ia32-msvc";
-      packageName = "@nomicfoundation/slang-win32-ia32-msvc";
-      version = "0.16.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@nomicfoundation/slang-win32-ia32-msvc/-/slang-win32-ia32-msvc-0.16.0.tgz";
-        sha512 = "W9959+Tdq71kkE5EGxoQWBxhpe9bjxpY7ozDoPjz2lBzaGi8X24z4toS6us3W83URIf6Cve0VizAX4fz5MWjFw==";
-      };
-    };
-    "@nomicfoundation/slang-win32-x64-msvc-0.16.0" = {
-      name = "_at_nomicfoundation_slash_slang-win32-x64-msvc";
-      packageName = "@nomicfoundation/slang-win32-x64-msvc";
-      version = "0.16.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@nomicfoundation/slang-win32-x64-msvc/-/slang-win32-x64-msvc-0.16.0.tgz";
-        sha512 = "sOKuMtm3g62ugdhgpWqjF+o3clIR4eAIiAbx6oRPGB/9fPukgZnI5untsgTYJyVldAzby7jlIQ4R7df18aNraw==";
+        url = "https://registry.npmjs.org/@nomicfoundation/slang/-/slang-1.0.0.tgz";
+        sha512 = "dnfv/+84/+iTSLBvqNQDA4/OZuq0tvJgFFwvnMwIdnMvn8QDcdouPTgF/nOwEuDtcIw5KWFzEf++UqpfwXCRpw==";
       };
     };
     "@nomicfoundation/solidity-analyzer-0.1.1" = {
@@ -199,22 +127,14 @@ in
   "@nomicfoundation/solidity-language-server" = nodeEnv.buildNodePackage {
     name = "_at_nomicfoundation_slash_solidity-language-server";
     packageName = "@nomicfoundation/solidity-language-server";
-    version = "0.8.18";
+    version = "0.8.19";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@nomicfoundation/solidity-language-server/-/solidity-language-server-0.8.18.tgz";
-      sha512 = "7VK5T+9PSX+DgjsHvWscmgo3r5qSjqt8FKfJ9t7LJa3qvxhjJOcA0KEwQMwDJ/rEN/BOYZyHmR3quvglssxcmA==";
+      url = "https://registry.npmjs.org/@nomicfoundation/solidity-language-server/-/solidity-language-server-0.8.19.tgz";
+      sha512 = "PZHCPI6eG9lqJgi/EOXSOK+g4O9Lr3HVagrrPDZEjhKce935otgHuCOH+B4Fowq76UYiVt09LgsCKFzBzVWTog==";
     };
     dependencies = [
-      sources."@nomicfoundation/slang-0.16.0"
-      sources."@nomicfoundation/slang-darwin-arm64-0.16.0"
-      sources."@nomicfoundation/slang-darwin-x64-0.16.0"
-      sources."@nomicfoundation/slang-linux-arm64-gnu-0.16.0"
-      sources."@nomicfoundation/slang-linux-arm64-musl-0.16.0"
-      sources."@nomicfoundation/slang-linux-x64-gnu-0.16.0"
-      sources."@nomicfoundation/slang-linux-x64-musl-0.16.0"
-      sources."@nomicfoundation/slang-win32-arm64-msvc-0.16.0"
-      sources."@nomicfoundation/slang-win32-ia32-msvc-0.16.0"
-      sources."@nomicfoundation/slang-win32-x64-msvc-0.16.0"
+      sources."@bytecodealliance/preview2-shim-0.17.2"
+      sources."@nomicfoundation/slang-1.0.0"
       sources."@nomicfoundation/solidity-analyzer-0.1.1"
       sources."@nomicfoundation/solidity-analyzer-darwin-arm64-0.1.1"
       sources."@nomicfoundation/solidity-analyzer-darwin-x64-0.1.1"
@@ -240,10 +160,10 @@ in
   "@tailwindcss/language-server" = nodeEnv.buildNodePackage {
     name = "_at_tailwindcss_slash_language-server";
     packageName = "@tailwindcss/language-server";
-    version = "0.14.16";
+    version = "0.14.17";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@tailwindcss/language-server/-/language-server-0.14.16.tgz";
-      sha512 = "f8lgFSjdWLaCG7kFKwczgRQZf5iQxFUw6Uk06tkVUXrgKAT2k7h4j/6VoYL+l7u5lrvgynl6bZ+HR5Lk+0SBTQ==";
+      url = "https://registry.npmjs.org/@tailwindcss/language-server/-/language-server-0.14.17.tgz";
+      sha512 = "U7PhN0uMnZC09OHp20VJmLuEubqf6j8BBiJV83FyZdeNos7vWqGe2uzn9JmgDqwPHB+zlY9NMROmX5x2uZF6Rw==";
     };
     buildInputs = globalBuildInputs;
     meta = {

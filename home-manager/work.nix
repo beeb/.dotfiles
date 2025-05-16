@@ -20,7 +20,6 @@
     # localstack
     nerd-fonts.jetbrains-mono
     nodejs_20
-    nodePackages.rollup
     telegram-desktop
     trashy
     ungoogled-chromium

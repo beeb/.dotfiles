@@ -13,7 +13,6 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
     # anchor
-    discord
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne

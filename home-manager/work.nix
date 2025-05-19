@@ -13,6 +13,7 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
     # anchor
+    discord
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
@@ -24,7 +25,6 @@
     telegram-desktop
     trashy
     ungoogled-chromium
-    webcord
     wget
   ];
   home.sessionPath = [

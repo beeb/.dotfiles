@@ -54,6 +54,7 @@
     typst
     typst-live
     uv
+    xh
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     pkgs.foundry-bin
     pkgs.gavin-bc

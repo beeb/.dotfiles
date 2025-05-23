@@ -333,7 +333,6 @@
       git.subprocess = true;
     };
   };
-  programs.navi.enable = true;
   programs.starship = {
     settings = {
       aws = { symbol = "  "; };

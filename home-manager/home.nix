@@ -61,6 +61,29 @@
     pkgs.gavin-bc
     pkgs.cargo-lambda
   ];
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      import = [ "~/.config/alacritty/catppuccin-mocha.toml" ];
+      env = { TERM = "xterm-256color"; };
+      window = {
+        # startup_mode = "Maximized";
+        padding = {
+          x = 5;
+          y = 5;
+        };
+      };
+      keyboard = {
+        bindings = [
+          { key = "V"; mods = "Control"; action = "Paste"; }
+        ];
+      };
+      mouse = {
+        hide_when_typing = true;
+      };
+    };
+  };
   programs.awscli = {
     enable = true;
     settings = {

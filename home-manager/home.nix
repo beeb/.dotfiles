@@ -41,6 +41,7 @@
     gcc
     gopls
     jaq
+    kondo
     mergiraf
     nil
     nixpkgs-fmt

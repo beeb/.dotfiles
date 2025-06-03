@@ -2,7 +2,7 @@
   description = "beeb's nix config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     home-manager.url = "github:nix-community/home-manager";
@@ -18,31 +18,25 @@
     nixgl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, foundry, nixgl, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, sops-nix, foundry, nixgl, ... }@inputs:
     let
       inherit (self) outputs;
-      forAllSystems = nixpkgs.lib.genAttrs [
+      systems = [
         "aarch64-linux"
-        "i686-linux"
         "x86_64-linux"
         "aarch64-darwin"
         "x86_64-darwin"
       ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
       # Your custom packages
       # Acessible through 'nix build', 'nix shell', etc
-      packages = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs; }
-      );
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
-      devShells = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./shell.nix { inherit pkgs; }
-      );
+      devShells = forAllSystems (system: import /.shell.nix nixpkgs.legacyPackages.${system});
 
       # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
@@ -63,7 +57,7 @@
       # Home manager configurations for non-nixOS machines
       homeConfigurations = builtins.mapAttrs
         (user: machine: home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${machine.system};
+          pkgs = nixpkgs-unstable.legacyPackages.${machine.system};
 
           modules = [
             ./home-manager/common.nix
@@ -82,7 +76,7 @@
           "valentin" = { system = "x86_64-darwin"; file = ./home-manager/macbook.nix; home = true; };
           "beeb@beebvpn" = { system = "x86_64-linux"; file = ./home-manager/vpn.nix; home = false; };
           "beeb@vps" = { system = "aarch64-linux"; file = ./home-manager/vps.nix; home = false; };
-          "beeb@pop-os" = { system = "x86_64-linux"; file = ./home-manager/work.nix; home = true; };
+          "beeb@aceraspire" = { system = "x86_64-linux"; file = ./home-manager/work.nix; home = true; };
         };
     };
 }

@@ -23,28 +23,26 @@
     config = {
       allowUnfree = true;
     };
-    hostPlatform = "x86_64-linux";
   };
 
   /* ---------------------------------- NixOS --------------------------------- */
-  nix = {
-    # This will add each flake input as a registry
-    # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-    # This will additionally add your inputs to the system's legacy channels
-    # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-    settings = {
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-      # Deduplicate and optimize nix store
-      auto-optimise-store = true;
+  nix =
+    let
+      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+    in
+    {
+      settings = {
+        experimental-features = "nix-command flakes";
+        flake-registry = "";
+      };
+      channel.enable = false;
+      registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
+      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+      gc = {
+        automatic = true;
+        dates = "weekly";
+      };
     };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-    };
-  };
 
   /* ---------------------------------- boot ---------------------------------- */
   boot.loader.systemd-boot = {
@@ -81,7 +79,7 @@
     defaultUserShell = pkgs.fish;
     users = {
       beeb = {
-        description = "Valentin Bersier";
+        description = "Valentin";
         passwordFile = config.sops.secrets.beeb_password.path;
         isNormalUser = true;
         openssh.authorizedKeys.keys = [
@@ -168,5 +166,5 @@
     nvidia.modesetting.enable = true;
   };
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "25.05";
 }

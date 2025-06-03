@@ -33,7 +33,7 @@
     "$HOME/.local/bin"
   ];
   programs.alacritty = {
-    package = pkgs.emptyDirectory;
+    # package = pkgs.emptyDirectory; # to disable install but set config
     settings = {
       font = {
         normal = {

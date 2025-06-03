@@ -112,6 +112,7 @@
     ];
   };
   programs.fish.enable = true;
+  programs.firefox.enable = true;
 
   /* -------------------------------- services -------------------------------- */
   services.xserver.enable = true;

@@ -13,6 +13,7 @@
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
     # anchor
+    discord
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
@@ -211,4 +212,7 @@
       allow-preset-passphrase
     '';
   };
+
+  systemd.user.startServices = "sd-switch";
+  home.stateVersion = "25.05";
 }

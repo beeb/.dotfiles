@@ -79,7 +79,7 @@
     users = {
       beeb = {
         description = "Valentin";
-        passwordFile = config.sops.secrets.beeb_password.path;
+        hashedPasswordFile = config.sops.secrets.beeb_password.path;
         isNormalUser = true;
         openssh.authorizedKeys.keys = [
           # TODO: SSH public key(s) here, if you plan on using SSH to connect
@@ -88,13 +88,6 @@
       };
     };
   };
-
-  # home-manager = {
-  #   extraSpecialArgs = { inherit inputs outputs; };
-  #   users = {
-  #     beeb = import ../home-manager/work.nix; # imports all the stuff
-  #   };
-  # };
 
   /* -------------------------------- programs -------------------------------- */
   environment.sessionVariables = {

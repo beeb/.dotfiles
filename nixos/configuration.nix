@@ -50,6 +50,7 @@
     configurationLimit = 20;
   };
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   /* --------------------------------- basics --------------------------------- */
   networking = {
@@ -123,8 +124,6 @@
 
   /* -------------------------------- services -------------------------------- */
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
   services.xserver = {
     # layout = "ch"; # for standard swiss french keyboard
     # xkbVariant = "fr"; # for standard swiss french keyboard
@@ -147,11 +146,12 @@
     };
   };
   # console.keyMap = "fr_CH"; # for standard swiss french keyboard
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
   services.printing.enable = true;
 
   /* ---------------------------------- sound --------------------------------- */
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

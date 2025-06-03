@@ -65,7 +65,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      import = [ "~/.config/alacritty/catppuccin-mocha.toml" ];
+      general.import = [ "~/.config/alacritty/catppuccin-mocha.toml" ];
       env = { TERM = "xterm-256color"; };
       window = {
         # startup_mode = "Maximized";

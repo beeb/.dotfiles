@@ -90,12 +90,12 @@
     };
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      beeb = import ../home-manager/work.nix; # imports all the stuff
-    };
-  };
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs outputs; };
+  #   users = {
+  #     beeb = import ../home-manager/work.nix; # imports all the stuff
+  #   };
+  # };
 
   /* -------------------------------- programs -------------------------------- */
   environment.sessionVariables = {

@@ -182,6 +182,7 @@
       return config
     '';
   };
+  programs.vscode.enable = true;
   programs.fish = {
     shellAliases = {
       rt = "trash put";

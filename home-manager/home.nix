@@ -68,7 +68,7 @@
       general.import = [ "~/.config/alacritty/catppuccin-mocha.toml" ];
       env = { TERM = "xterm-256color"; };
       window = {
-        # startup_mode = "Maximized";
+        startup_mode = "Maximized";
         padding = {
           x = 5;
           y = 5;

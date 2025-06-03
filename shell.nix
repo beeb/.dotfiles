@@ -5,7 +5,7 @@
   default = pkgs.mkShell {
     # Enable experimental features without having to specify the argument
     NIX_CONFIG = "experimental-features = nix-command flakes";
-    nativeBuildInputs = with pkgs; [ nix home-manager git git-crypt gnupg1 ];
+    nativeBuildInputs = with pkgs; [ nix home-manager git git-crypt gnupg ];
     # After shell is open, run `gpg --edit-key 0x4592122C5C6B53B1` and the `trust` command
     # Pre-requirement: sudo apt install scdaemon
     shellHook = ''

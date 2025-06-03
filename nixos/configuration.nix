@@ -138,6 +138,9 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
   services.printing.enable = true;
+  services.udev.packages = with pkgs; [
+    ledger-udev-rules
+  ];
 
   /* ---------------------------------- sound --------------------------------- */
   services.pulseaudio.enable = false;

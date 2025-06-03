@@ -17,7 +17,7 @@
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne
-    ledger-udev-rules
+    ledger-live-desktop
     libreoffice-qt
     lm_sensors
     localstack

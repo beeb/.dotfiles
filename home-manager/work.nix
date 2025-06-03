@@ -19,9 +19,10 @@
     hunspellDicts.fr-moderne
     libreoffice-qt
     lm_sensors
-    # localstack
+    localstack
     nerd-fonts.jetbrains-mono
     nodejs_20
+    protonvpn-gui
     telegram-desktop
     trashy
     ungoogled-chromium

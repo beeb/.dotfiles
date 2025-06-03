@@ -125,27 +125,26 @@
   /* -------------------------------- services -------------------------------- */
   services.xserver.enable = true;
   services.xserver = {
-    # layout = "ch"; # for standard swiss french keyboard
-    # xkbVariant = "fr"; # for standard swiss french keyboard
-    layout = "rpsf";
-    extraLayouts.rpsf = {
-      description = "Real Programer Swiss French";
-      languages = [ "eng" "fra" ];
-      symbolsFile = ../kbd/RPSF.xkb;
-    };
-    xkbOptions = "caps:escape_shifted_capslock";
-    libinput = {
-      enable = true;
-      touchpad = {
-        disableWhileTyping = true;
-        additionalOptions = ''
-          Option "PalmDetection" "True"
-        '';
-        tappingButtonMap = "lrm";
+    xkb = {
+      layout = "rpsf";
+      extraLayouts.rpsf = {
+        description = "Real Programer Swiss French";
+        languages = [ "eng" "fra" ];
+        symbolsFile = ../kbd/RPSF.xkb;
       };
+      options = "caps:escape_shifted_capslock";
     };
   };
-  # console.keyMap = "fr_CH"; # for standard swiss french keyboard
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      disableWhileTyping = true;
+      additionalOptions = ''
+        Option "PalmDetection" "True"
+      '';
+      tappingButtonMap = "lrm";
+    };
+  };
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
   services.printing.enable = true;
@@ -162,7 +161,7 @@
 
   /* -------------------------------- hardware -------------------------------- */
   hardware = {
-    opengl.enable = true;
+    graphics.enable = true;
     nvidia.modesetting.enable = true;
   };
 

@@ -217,6 +217,16 @@
         command = "1password --quick-access";
         key = "Meta+Space";
       };
+      "launch-terminal" = {
+        name = "Launch Alacritty";
+        command = "alacritty";
+        key = "Meta+T";
+      };
+      "launch-browser" = {
+        name = "Launch Firefox";
+        command = "firefox";
+        key = "Meta+B";
+      };
     };
     input = {
       keyboard.numlockOnStartup = "on";

@@ -204,6 +204,32 @@
     '';
   };
 
+
+  /* --------------------------------- plasma --------------------------------- */
+  programs.plasma = {
+    enable = true;
+    hotkeys.commands = {
+      "op-quick-access" = {
+        name = "1Password Quick Access";
+        command = "1password --quick-access";
+        key = "Meta+Space";
+      };
+    };
+    input = {
+      keyboard.numlockOnStartup = "on";
+      mice = [
+        {
+          name = "Logitech USB Receiver Mouse";
+          productId = "c548";
+          vendorId = "046d";
+          acceleration = -0.2;
+          accelerationProfile = "none";
+        }
+      ];
+    };
+    workspace.theme = "breeze-dark";
+  };
+
   /* -------------------------------- services -------------------------------- */
   services.gpg-agent = {
     defaultCacheTtl = 3600;

@@ -8,6 +8,12 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     sops-nix.url = "github:mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -18,7 +24,7 @@
     nixgl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, sops-nix, foundry, nixgl, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, sops-nix, foundry, nixgl, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -65,6 +71,7 @@
           pkgs = nixpkgs-unstable.legacyPackages.${machine.system};
 
           modules = [
+            inputs.plasma-manager.homeManagerModules.plasma-manager
             ./home-manager/common.nix
             machine.file
           ] ++ nixpkgs.lib.optionals machine.home [

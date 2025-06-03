@@ -93,10 +93,8 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # helps for Electron apps
   };
-  environment.systemPackages = with pkgs; [
-    wineWowPackages.waylandFull
-    winetricks
-  ];
+  # environment.systemPackages = with pkgs; [
+  # ];
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;

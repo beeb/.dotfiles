@@ -13,7 +13,10 @@
 
   programs.git = {
     # Forwarding the agent and so on was too much of a pain and didn't work. Using the binary from Windows solves it.
-    signing.signer = "/mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe";
+    signing = {
+      format = "openpgp";
+      signer = "/mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe";
+    };
     extraConfig = {
       core.sshCommand = "ssh.exe";
     };

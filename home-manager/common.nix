@@ -20,6 +20,7 @@
       source = ../alacritty/catppuccin-mocha.toml;
     };
   };
+  home.stateVersion = "25.05";
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
@@ -33,11 +34,13 @@
     tlrc
     (writeShellScriptBin "yz-fp" ''
       #!/bin/env bash
-      selected_file="$1"
       zellij action toggle-floating-panes
       zellij action write 27 # send escape key
-      zellij action write-chars ":open $selected_file"
-      zellij action write 13 # send enter key
+      for selected_file in "$@"
+      do
+        zellij action write-chars ":open $selected_file"
+        zellij action write 13 # send enter key
+      done
       zellij action toggle-floating-panes
       zellij action close-pane
     '')
@@ -254,7 +257,7 @@
       };
       opener = {
         helix = [{
-          run = "yz-fp \"$0\"";
+          run = "yz-fp \"$@\"";
           desc = "Use yazi as file picker within helix";
         }];
       };

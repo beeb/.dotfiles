@@ -127,10 +127,10 @@ in
   "@nomicfoundation/solidity-language-server" = nodeEnv.buildNodePackage {
     name = "_at_nomicfoundation_slash_solidity-language-server";
     packageName = "@nomicfoundation/solidity-language-server";
-    version = "0.8.19";
+    version = "0.8.20";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@nomicfoundation/solidity-language-server/-/solidity-language-server-0.8.19.tgz";
-      sha512 = "PZHCPI6eG9lqJgi/EOXSOK+g4O9Lr3HVagrrPDZEjhKce935otgHuCOH+B4Fowq76UYiVt09LgsCKFzBzVWTog==";
+      url = "https://registry.npmjs.org/@nomicfoundation/solidity-language-server/-/solidity-language-server-0.8.20.tgz";
+      sha512 = "8MkV9a/NsYBRLRTR7oNA1mRcFxWcf9wqR0iWV8penSI2iPDSq+b+ZhSD3jrtGYoIUTNMLHtCOlQt8ldF0noiqA==";
     };
     dependencies = [
       sources."@bytecodealliance/preview2-shim-0.17.2"
@@ -151,24 +151,6 @@ in
     meta = {
       description = "Solidity language server by Nomic Foundation";
       homepage = "https://github.com/NomicFoundation/hardhat-vscode#readme";
-      license = "MIT";
-    };
-    production = true;
-    bypassCache = true;
-    reconstructLock = true;
-  };
-  "@tailwindcss/language-server" = nodeEnv.buildNodePackage {
-    name = "_at_tailwindcss_slash_language-server";
-    packageName = "@tailwindcss/language-server";
-    version = "0.14.17";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/@tailwindcss/language-server/-/language-server-0.14.17.tgz";
-      sha512 = "U7PhN0uMnZC09OHp20VJmLuEubqf6j8BBiJV83FyZdeNos7vWqGe2uzn9JmgDqwPHB+zlY9NMROmX5x2uZF6Rw==";
-    };
-    buildInputs = globalBuildInputs;
-    meta = {
-      description = "Tailwind CSS Language Server";
-      homepage = "https://github.com/tailwindlabs/tailwindcss-intellisense/tree/HEAD/packages/tailwindcss-language-server#readme";
       license = "MIT";
     };
     production = true;

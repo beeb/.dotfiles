@@ -218,7 +218,7 @@
         args = [ "--stdio" ];
       };
       tailwindcss-ls = with pkgs; {
-        command = "${myNodePackages."@tailwindcss/language-server"}/bin/tailwindcss-language-server";
+        command = "${tailwindcss-language-server}/bin/tailwindcss-language-server";
         args = [ "--stdio" ];
       };
       typos = with pkgs; {

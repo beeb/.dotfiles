@@ -94,12 +94,6 @@
     icons = "auto";
     extraOptions = [ "--color=always" "--group-directories-first" ];
   };
-  # programs.ghostty = {
-  #   enable = true;
-  #   settings = {
-  #     theme = "catppuccin-mocha";
-  #   };
-  # };
   programs.git = {
     enable = true;
     userEmail = "703631+beeb@users.noreply.github.com";
@@ -292,6 +286,7 @@
     };
     interactiveShellInit = ''
       set -Ux SUDO_EDITOR ${pkgs.helix}/bin/hx
+      bind ctrl-d nextd-or-forward-word
     '';
   };
   programs.zsh = {

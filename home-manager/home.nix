@@ -146,6 +146,12 @@
       signByDefault = true;
     };
   };
+  programs.ghostty = {
+    enable = true;
+    settings = {
+      theme = "catppuccin-mocha";
+    };
+  };
   programs.gpg = {
     package = pkgs.gnupg.override { guiSupport = true; pinentry = pkgs.pinentry-gtk2; };
   };

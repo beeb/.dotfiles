@@ -150,6 +150,14 @@
     enable = true;
     settings = {
       theme = "catppuccin-mocha";
+      font-style = "Light";
+      font-size = 10.5;
+      window-width = 10000; # start maximized
+      window-height = 10000; # start maximized
+      copy-on-select = "clipboard";
+      app-notifications = "no-clipboard-copy";
+      shell-integration-features = "no-cursor";
+      keybind = [ "ctrl+v=paste_from_clipboard" ];
     };
   };
   programs.gpg = {

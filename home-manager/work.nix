@@ -218,8 +218,8 @@
         key = "Meta+Space";
       };
       "launch-terminal" = {
-        name = "Launch Alacritty";
-        command = "alacritty";
+        name = "Launch Ghostty";
+        command = "ghostty";
         key = "Meta+T";
       };
       "launch-browser" = {

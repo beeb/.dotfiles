@@ -29,11 +29,11 @@
     ungoogled-chromium
     wget
   ];
-  home.sessionPath = [
-    "$HOME/.local/share/solana/install/active_release/bin"
-    "$HOME/.local/share/dfx/bin"
-    "$HOME/.local/bin"
-  ];
+  # home.sessionPath = [
+  #   "$HOME/.local/share/solana/install/active_release/bin"
+  #   "$HOME/.local/share/dfx/bin"
+  #   "$HOME/.local/bin"
+  # ];
   programs.alacritty = {
     # package = pkgs.emptyDirectory; # to disable install but set config
     settings = {

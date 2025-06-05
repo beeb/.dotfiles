@@ -54,7 +54,7 @@
       overlays = import ./overlays { inherit inputs; };
 
       # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
+      # Available through 'sudo nixos-rebuild --flake ~/.dotfiles'
       nixosConfigurations = {
         aceraspire = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
@@ -65,7 +65,8 @@
         };
       };
 
-      # Home manager configurations for non-nixOS machines
+      # Home manager configurations
+      # Available through `home-manager switch --flake --impure ~/.dotfiles`
       homeConfigurations = builtins.mapAttrs
         (user: machine: home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs-unstable.legacyPackages.${machine.system};

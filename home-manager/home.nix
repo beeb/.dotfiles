@@ -208,6 +208,7 @@
       };
       tinymist = with pkgs; {
         command = "${tinymist}/bin/tinymist";
+        config.formatterMode = "typstyle";
       };
       yaml-language-server = with pkgs.nodePackages; {
         command = "${yaml-language-server}/bin/yaml-language-server";
@@ -223,9 +224,7 @@
       };
       scls = with pkgs; {
         command = "${scls}/bin/simple-completion-language-server";
-        config = {
-          feature_snippets = false;
-        };
+        config.feature_snippets = false;
       };
       solidity-language-server = with pkgs; {
         command = "${myNodePackages."@nomicfoundation/solidity-language-server"}/bin/nomicfoundation-solidity-language-server";

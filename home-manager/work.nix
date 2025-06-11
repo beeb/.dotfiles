@@ -14,6 +14,7 @@
   home.packages = with pkgs; [
     # anchor
     discord
+    gnome-calculator
     hunspell
     hunspellDicts.en-us
     hunspellDicts.fr-moderne

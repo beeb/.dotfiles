@@ -234,17 +234,21 @@
         command = "${tailwindcss-language-server}/bin/tailwindcss-language-server";
         args = [ "--stdio" ];
       };
-      typos = with pkgs; {
-        command = "${typos-lsp}/bin/typos-lsp";
-        config = {
-          diagnosticSeverity = "information";
+      harper = with pkgs; {
+        command = "${harper}/bin/harper-ls";
+        args = [ "--stdio" ];
+        config.harper-ls = {
+          linters = {
+            SpellCheck = false;
+            SentenceCapitalization = false;
+          };
         };
       };
     };
     language = [
       {
         name = "astro";
-        language-servers = [ "scls" "astro" "tailwindcss-ls" ];
+        language-servers = [ "scls" "astro" "tailwindcss-ls" "harper" ];
         auto-format = true;
       }
       {
@@ -287,12 +291,16 @@
       {
         name = "svelte";
         auto-format = true;
-        language-servers = [ "scls" "svelteserver" "tailwindcss-ls" ];
+        language-servers = [ "scls" "svelteserver" "tailwindcss-ls" "harper" ];
       }
       {
         name = "css";
         language-servers = [ "scls" "vscode-css-language-server" "tailwindcss-ls" ];
         auto-format = true;
+      }
+      {
+        name = "markdown";
+        language-servers = [ "harper" ];
       }
       {
         name = "nix";
@@ -303,7 +311,7 @@
       {
         name = "toml";
         auto-format = true;
-        language-servers = [ "scls" "taplo" { name = "crates"; except-features = [ "format" ]; } ];
+        language-servers = [ "scls" "taplo" { name = "crates"; except-features = [ "format" ]; } "harper" ];
         formatter = with pkgs; {
           command = "${taplo}/bin/taplo";
           args = [ "fmt" "--option" "indent_string=    " "-" ];
@@ -311,18 +319,18 @@
       }
       {
         name = "yaml";
-        language-servers = [ "scls" "yaml-language-server" ];
+        language-servers = [ "scls" "yaml-language-server" "harper" ];
         auto-format = true;
       }
       {
         name = "typst";
-        language-servers = [ "tinymist" ];
+        language-servers = [ "tinymist" "harper" ];
         auto-format = true;
       }
     ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
       {
         name = "solidity";
-        language-servers = [ "scls" "solidity-language-server" "typos" ];
+        language-servers = [ "scls" "solidity-language-server" "harper" ];
         formatter = {
           command = "${pkgs.foundry-bin}/bin/forge";
           args = [ "fmt" "-r" "-" ];

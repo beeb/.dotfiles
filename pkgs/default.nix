@@ -3,6 +3,7 @@
 
 { pkgs }: {
   crates-lsp = pkgs.callPackage ./crates-lsp { };
+  harper-master = pkgs.callPackage ./harper-master { };
   myNodePackages = pkgs.callPackage ./myNodePackages { };
   scls = pkgs.callPackage ./scls { };
 }

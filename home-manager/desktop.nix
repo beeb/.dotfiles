@@ -4,8 +4,8 @@
   home.homeDirectory = "/home/valentin";
 
   home.file = {
-    ".config/fish/conf.d/nix-env.fish" = {
-      source = ../fish/nix-env.fish;
+    ".config/fish/conf.d/nix.fish" = {
+      source = ../fish/nix.fish;
     };
   };
   home.packages = with pkgs; [

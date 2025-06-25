@@ -3,6 +3,11 @@
   home.username = "valentin";
   home.homeDirectory = "/home/valentin";
 
+  home.file = {
+    ".config/fish/conf.d/nix-env.fish" = {
+      source = ../fish/nix-env.fish;
+    };
+  };
   home.packages = with pkgs; [
     espup
     trashy

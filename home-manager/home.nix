@@ -253,7 +253,7 @@
       }
       {
         name = "rust";
-        language-servers = [ "scls" "rust-analyzer" ];
+        language-servers = [ "scls" "rust-analyzer" "harper" ];
         auto-format = true;
       }
       {

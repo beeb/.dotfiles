@@ -205,9 +205,9 @@
           C-j = [ "extend_to_line_bounds" "delete_selection" "paste_after" ]; # move current line down
           C-k = [ "extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" ]; # move current line up
           C-e = [ "search_selection_detect_word_boundaries" "extend_search_next" ]; # add to selection the next match of the current selection
-          C-y = [ ":sh floating-yazi" ]; # yazi file picker
+          C-f = [ ":sh floating-yazi" ]; # yazi file picker
           C-l = [ ":sh floating-lazygit" ]; # lazygit
-          C-f = [ ":sh floating-lstr" ]; # lstr file picker
+          C-y = [ ":sh floating-lstr" ]; # lstr file picker (experimental)
           C-r = [ ":reload-all" ]; # reload all files from disk
           "]".w = [ "rotate_view" ]; # go to next window
           "[".w = [ "rotate_view_reverse" ]; # go to prev window

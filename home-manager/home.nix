@@ -25,6 +25,7 @@
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
+    atac
     biome
     bulloak
     bun

@@ -4,17 +4,17 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "crates-lsp";
-  version = "0.1.7";
+  version = "0.4.1";
 
   src = fetchFromGitHub {
     owner = "MathiasPius";
     repo = "crates-lsp";
     rev = "v${version}";
-    hash = "sha256-r+bSc98YsUc5ANc8WbXI8N2wdEF53uJoWQbsBHYmrGc=";
+    hash = "sha256-9+0qgdUn5l9oQQavbnR6rHe5zp5WHhGuRyOXt2Dv8Tw=";
   };
 
   useFetchCargoVendor = true;
-  cargoHash = "sha256-UqQxhcDdD0b9rIG+nrAops2v5vcyj/pkL/3FLW3bsDQ=";
+  cargoHash = "sha256-oS6xi8BH5vCVOimYWsDoW0Na7eUXzeHKKSOwpK9wbu8=";
 
   doCheck = false;
 

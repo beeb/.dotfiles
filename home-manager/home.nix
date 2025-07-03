@@ -240,8 +240,8 @@
         args = [ "--stdio" ];
         config.harper-ls = {
           linters = {
-            SpellCheck = false;
             SentenceCapitalization = false;
+            LongSentences = false;
           };
         };
       };

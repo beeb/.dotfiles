@@ -5,20 +5,20 @@
 ,
 }:
 
-rustPlatform.buildRustPackage {
+rustPlatform.buildRustPackage rec {
   pname = "harper";
-  version = "0.47.0";
+  version = "0.49.0";
 
   src = fetchFromGitHub {
     owner = "Automattic";
     repo = "harper";
-    rev = "v0.47.0";
-    hash = "sha256-kVZG3Vfe+PABhrXY26AUlBxrpiL9UtmIka84s0yvsXI=";
+    rev = "v${version}";
+    hash = "sha256-9GmsfRsSWw9t+xlR/MddLvzUyGhHv2q4eK/QA/F8OuI=";
   };
 
   buildAndTestSubdir = "harper-ls";
   useFetchCargoVendor = true;
-  cargoHash = "sha256-M6HdwQZanMxTvDdw0giycoSJmaMVfGI8Vg9NjdYJaak=";
+  cargoHash = "sha256-r8JZ2toHQHBVtgjwxr6Mzlm6O89dQiLG6+9BojbQ1/A=";
 
   passthru.updateScript = nix-update-script { };
 

@@ -286,6 +286,10 @@
     enableFishIntegration = false;
     settings = {
       theme = "catppuccin-mocha";
+      keybinds.shared_except = {
+        _args = [ "tmux" ];
+        unbind._args = [ "Ctrl b" ];
+      };
     };
   };
   programs.zoxide.enable = true;

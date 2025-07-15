@@ -38,7 +38,6 @@
     cargo-update
     convco
     dua
-    fastmod
     gcc
     gopls
     jaq
@@ -49,6 +48,7 @@
     nodePackages.vscode-langservers-extracted
     ouch
     rage
+    repgrep
     rustup
     sccache
     sops

@@ -28,8 +28,8 @@
     fd
     git-crypt
     just
-    magic-wormhole-rs
     neofetch
+    portal
     sd
     tlrc
     (writeShellScriptBin "yz-fp" ''

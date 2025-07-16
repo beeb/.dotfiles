@@ -236,7 +236,7 @@
         args = [ "--stdio" ];
       };
       harper = with pkgs; {
-        command = "${harper-master}/bin/harper-ls";
+        command = "${harper}/bin/harper-ls";
         args = [ "--stdio" ];
         config.harper-ls = {
           linters = {

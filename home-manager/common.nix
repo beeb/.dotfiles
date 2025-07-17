@@ -31,6 +31,7 @@
     neofetch
     portal
     sd
+    serpl
     tlrc
     (writeShellScriptBin "yz-fp" ''
       #!/bin/env bash
@@ -44,25 +45,29 @@
       zellij action toggle-floating-panes
       zellij action close-pane
     '')
-    (writeShellScriptBin "lstr-fp" ''
-      #!/bin/env bash
-      selected_file=$(${pkgs.lstr}/bin/lstr interactive -aG --icons --expand-level 2)
-      if [[ -n "$selected_file" ]]; then
-        zellij action toggle-floating-panes
-        zellij action write 27 # send escape key
-        zellij action write-chars ":open $selected_file"
-        zellij action write 13 # send enter key
-        zellij action toggle-floating-panes
-        zellij action close-pane
-      fi
-    '')
+    # (writeShellScriptBin "lstr-fp" ''
+    #   #!/bin/env bash
+    #   selected_file=$(${pkgs.lstr}/bin/lstr interactive -aG --icons --expand-level 2)
+    #   if [[ -n "$selected_file" ]]; then
+    #     zellij action toggle-floating-panes
+    #     zellij action write 27 # send escape key
+    #     zellij action write-chars ":open $selected_file"
+    #     zellij action write 13 # send enter key
+    #     zellij action toggle-floating-panes
+    #     zellij action close-pane
+    #   fi
+    # '')
     (writeShellScriptBin "floating-yazi" ''
       #!/bin/env bash
       zellij run -c -f --width 80% --height 80% -x 10% -y 10% -- yazi "$PWD"
     '')
-    (writeShellScriptBin "floating-lstr" ''
+    # (writeShellScriptBin "floating-lstr" ''
+    #   #!/bin/env bash
+    #   zellij run -c -f --width 80% --height 80% -x 10% -y 10% -- lstr-fp
+    # '')
+    (writeShellScriptBin "floating-serpl" ''
       #!/bin/env bash
-      zellij run -c -f --width 80% --height 80% -x 10% -y 10% -- lstr-fp
+      zellij run -c -f --width 80% --height 80% -x 10% -y 10% -- serpl
     '')
     (writeShellScriptBin "floating-lazygit" ''
       #!/bin/env bash
@@ -207,7 +212,7 @@
           C-e = [ "search_selection_detect_word_boundaries" "extend_search_next" ]; # add to selection the next match of the current selection
           C-f = [ ":sh floating-yazi" ]; # yazi file picker
           C-l = [ ":sh floating-lazygit" ]; # lazygit
-          C-y = [ ":sh floating-lstr" ]; # lstr file picker (experimental)
+          C-y = [ ":sh floating-serpl" ]; # search and replace tool
           C-r = [ ":reload-all" ]; # reload all files from disk
           "]".w = [ "rotate_view" ]; # go to next window
           "[".w = [ "rotate_view_reverse" ]; # go to prev window

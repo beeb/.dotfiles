@@ -222,6 +222,7 @@
           parameterHints.enable = false;
           typeHints.enable = false;
         };
+        cargo.allFeatures = true;
       };
       scls = with pkgs; {
         command = "${scls}/bin/simple-completion-language-server";

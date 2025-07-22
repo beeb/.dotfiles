@@ -159,7 +159,7 @@
       copy-on-select = "clipboard";
       app-notifications = "no-clipboard-copy";
       shell-integration-features = "no-cursor";
-      keybind = [ "ctrl+v=paste_from_clipboard" ];
+      keybind = [ "ctrl+v=paste_from_clipboard" "shift+enter=text:\\n" ];
     };
   };
   programs.gpg = {

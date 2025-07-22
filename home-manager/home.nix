@@ -36,6 +36,7 @@
     cargo-outdated
     cargo-semver-checks
     cargo-update
+    claude-code
     convco
     dua
     gcc

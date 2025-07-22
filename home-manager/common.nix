@@ -24,6 +24,7 @@
 
   /* -------------------------------- programs -------------------------------- */
   home.packages = with pkgs; [
+    ast-grep
     du-dust
     fd
     git-crypt

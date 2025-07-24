@@ -70,6 +70,7 @@
     LC_TIME = "fr_CH.UTF-8";
   };
   console.useXkbConfig = true;
+  security.sudo-rs.enable = true;
 
   virtualisation.docker.enable = true;
 

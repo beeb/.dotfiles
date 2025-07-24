@@ -40,6 +40,7 @@
     convco
     dua
     gcc
+    gemini-cli
     gopls
     jaq
     kondo

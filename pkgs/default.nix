@@ -5,5 +5,4 @@
   crates-lsp = pkgs.callPackage ./crates-lsp { };
   myNodePackages = pkgs.callPackage ./myNodePackages { };
   scls = pkgs.callPackage ./scls { };
-  ast-grep = pkgs.callPackage ./ast-grep-master { };
 }

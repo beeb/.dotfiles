@@ -80,6 +80,7 @@
       keyboard = {
         bindings = [
           { key = "V"; mods = "Control"; action = "Paste"; }
+          { key = "Return"; mods = "Shift"; chars = "\n"; }
         ];
       };
       mouse = {

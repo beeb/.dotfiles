@@ -49,6 +49,7 @@
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
     ouch
+    prettier
     rage
     repgrep
     rustup
@@ -187,8 +188,8 @@
         args = [ "--stdio" ];
         config.typescript.tsdk = "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib";
       };
-      biome = with pkgs; {
-        command = "${biome}/bin/biome";
+      biome = {
+        command = "biome";
         args = [ "lsp-proxy" ];
       };
       crates = with pkgs; {
@@ -296,7 +297,11 @@
       {
         name = "svelte";
         auto-format = true;
-        language-servers = [ "scls" "svelteserver" "tailwindcss-ls" "harper" ];
+        language-servers = [ "scls" { name = "svelteserver"; except-features = [ "format" ]; } "tailwindcss-ls" "harper" ];
+        formatter = {
+          command = "prettier";
+          args = [ "--stdin" ];
+        };
       }
       {
         name = "css";

@@ -49,8 +49,6 @@
     nixpkgs-fmt
     nodePackages.vscode-langservers-extracted
     ouch
-    prettier
-    rage
     repgrep
     rustup
     sccache
@@ -297,11 +295,7 @@
       {
         name = "svelte";
         auto-format = true;
-        language-servers = [ "scls" { name = "svelteserver"; except-features = [ "format" ]; } "tailwindcss-ls" "harper" ];
-        formatter = {
-          command = "prettier";
-          args = [ "--parser" "svelte" ];
-        };
+        language-servers = [ "scls" "svelteserver" "tailwindcss-ls" "harper" ];
       }
       {
         name = "css";

@@ -300,7 +300,7 @@
         language-servers = [ "scls" { name = "svelteserver"; except-features = [ "format" ]; } "tailwindcss-ls" "harper" ];
         formatter = {
           command = "prettier";
-          args = [ "--stdin" ];
+          args = [ "--parser" "svelte" ];
         };
       }
       {

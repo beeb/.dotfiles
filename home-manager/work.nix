@@ -21,7 +21,7 @@
     ledger-live-desktop
     libreoffice-qt
     lm_sensors
-    localstack
+    # localstack
     nerd-fonts.jetbrains-mono
     nodejs_20
     protonvpn-gui
@@ -50,6 +50,8 @@
   };
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
+    matchBlocks."*" = { };
     extraConfig = ''
       IdentityAgent ~/.1password/agent.sock
       IdentityFile ~/.ssh/id_1password.pub

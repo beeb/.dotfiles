@@ -72,7 +72,7 @@
           pkgs = nixpkgs-unstable.legacyPackages.${machine.system};
 
           modules = [
-            inputs.plasma-manager.homeManagerModules.plasma-manager
+            inputs.plasma-manager.homeModules.plasma-manager
             ./home-manager/common.nix
             machine.file
           ] ++ nixpkgs.lib.optionals machine.home [

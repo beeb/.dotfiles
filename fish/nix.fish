@@ -29,6 +29,7 @@ test -n "$MANPATH" && set --prepend MANPATH $profile/share/man
 
 set --local packages (string match --regex "/nix/store/[\w.-]+" $PATH)
 fish_add_path --global --append $packages/bin $profile/bin $default/bin
+set fish_complete_path $fish_complete_path $profile/share/fish/vendor_completions.d
 
 if test (count $packages) != 0
     set fish_complete_path $fish_complete_path[1] \

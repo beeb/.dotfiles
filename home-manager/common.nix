@@ -301,6 +301,7 @@
   programs.zoxide.enable = true;
   programs.fish = {
     enable = true;
+    generateCompletions = true;
     shellAliases = {
       cat = "bat --style auto";
       cd = "z";

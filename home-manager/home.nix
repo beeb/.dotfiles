@@ -294,7 +294,7 @@
       {
         name = "svelte";
         auto-format = true;
-        language-servers = [ "scls" "biome" "tailwindcss-ls" "harper" ];
+        language-servers = [ "scls" "svelteserver" "tailwindcss-ls" "harper" ];
       }
       {
         name = "css";

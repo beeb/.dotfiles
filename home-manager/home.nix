@@ -152,7 +152,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      theme = "catppuccin-mocha";
+      theme = "Catppuccin Mocha";
       font-style = "Light";
       font-size = 10.5;
       window-width = 10000; # start maximized
@@ -168,7 +168,7 @@
   };
   programs.go = {
     enable = true;
-    goPrivate = [ "github.com/beeb" ];
+    env.GOPRIVATE = [ "github.com/beeb" ];
   };
   programs.helix.languages = {
     grammar = [
@@ -295,7 +295,7 @@
       {
         name = "svelte";
         auto-format = true;
-        language-servers = [ "scls" "svelteserver" "tailwindcss-ls" "harper" ];
+        language-servers = [ "scls" "biome" "tailwindcss-ls" "harper" ];
       }
       {
         name = "css";

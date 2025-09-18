@@ -155,8 +155,7 @@
       theme = "Catppuccin Mocha";
       font-style = "Light";
       font-size = 10.5;
-      window-width = 10000; # start maximized
-      window-height = 10000; # start maximized
+      maximize = true;
       copy-on-select = "clipboard";
       app-notifications = "no-clipboard-copy";
       shell-integration-features = "no-cursor";

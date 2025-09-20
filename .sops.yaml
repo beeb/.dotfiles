@@ -1,8 +1,0 @@
-keys:
-  - users:
-    - &beeb age149eq4u8ytmgeg7dc9tdqptemsttm48l8yv9c3fqchegnj6rjzueq6msq4d
-creation_rules:
-  - path_regex: sops/common.yaml$
-    key_groups:
-      - age:
-          - *beeb
